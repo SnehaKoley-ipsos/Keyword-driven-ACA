@@ -1,0 +1,296 @@
+package Keyword_Driven_Framework_For_ACA.Keyword_Driven_Framework_For_ACA;
+
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class KeywordActions
+{
+	
+	public static WebDriver driver;
+	public int timeSpan_1 = 5000;
+	public int timeSpan_2 = 2000;
+	
+	public void openBrowser()
+	{
+		System.setProperty("webdriver.chrome.drier","C:\\Users\\Prosenjit.Ghosh\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();		
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void navigateToURL() throws Throwable
+	{
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get(FrameworkConstants.URL);
+		Thread.sleep(5000);
+	}
+	
+	public void enterUserId() throws Throwable
+	{		
+		WebDriverWait wait_1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait_1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='cantAccessAccount']")));
+		Thread.sleep(5000);
+		
+		driver.findElement(By.id("i0116")).sendKeys(FrameworkConstants.username);	//	Provide on UserName 
+		Thread.sleep(1000);
+		
+		System.out.println("\n" + "Username is : " + FrameworkConstants.username);
+
+        driver.findElement(By.id("idSIButton9")).click();							//	Click on Next Button
+        Thread.sleep(5000);
+        
+        WebDriverWait wait_2 = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait_2.until(ExpectedConditions.elementToBeClickable(By.id("idA_PWD_ForgotPassword")));
+        Thread.sleep(500);
+	}
+	
+	public void enterUserPassword() throws Throwable
+	{		
+		driver.findElement(By.id("i0118")).sendKeys(FrameworkConstants.password);
+		Thread.sleep(500);
+		
+		System.out.println("\n" + "Password is : ********");
+		
+		int A = driver.findElements(By.xpath("//*[@id='idSIButton9']")).size();
+        if(A == 1)
+        {
+            driver.findElement(By.xpath("//*[@id='idSIButton9']")).click();				//	Click on SignIn Button
+            Thread.sleep(5000);
+            
+            WebDriverWait wait_1 = new WebDriverWait(driver, Duration.ofSeconds(10));	// AuthenticatorApp
+            wait_1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='section']")));
+
+            String Authenticator_value = driver.findElement(By.xpath("//*[@id='idRichContext_DisplaySign']")).getText();
+            System.out.println("\n" + "Authenticator Code is : " + Authenticator_value);
+
+            WebDriverWait wait_2 = new WebDriverWait(driver, Duration.ofSeconds(20));	// AuthenticatorApp
+            wait_2.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='col-md-24 form-group checkbox']")));
+            Thread.sleep(5000);
+
+            driver.findElement(By.xpath("//*[@class='win-button button_primary button ext-button primary ext-primary']")).click();
+            Thread.sleep(2000);
+            
+            WebDriverWait wait_3 = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait_3.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='user']")));
+            Thread.sleep(4000);
+        }
+        else	//// OTP ////
+        {            
+            driver.findElement(By.xpath("//*[@id='idSIButton9']")).click();
+            Thread.sleep(10000);
+
+            driver.findElement(By.xpath("//*[@pngsrc='https://aadcdn.msauth.net/shared/1.0/content/images/picker_verify_sms_b15dda889e9803e9d6befd60000fadf8.png']")).click();	//Click for 
+            Thread.sleep(5000);
+            
+            WebDriverWait wait_1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait_1.until(ExpectedConditions.elementToBeClickable(By.id("idSIButton9")));
+            Thread.sleep(500);
+
+            driver.findElement(By.id("idSIButton9")).click();
+            Thread.sleep(2000);            
+        }
+        WebDriverWait wait_1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait_1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='main']/div/div[1]/div/div")));
+        Thread.sleep(5000);
+	}	
+	
+	public void searchTenant() throws Throwable
+	{
+		driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/input")).sendKeys(FrameworkConstants.tenantName);
+        Thread.sleep(2000);
+
+        List<WebElement> listA  = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/a/div/div/div"));
+
+		for (int i= 0; i<listA.size(); i++) {
+
+			if(listA.get(i).getText().equalsIgnoreCase(FrameworkConstants.tenantName)) 
+			{        		
+				//System.out.println(listA.get(i).getText());
+				System.out.println("\n" + "searchTenant : " + listA.get(i).getText());
+				listA.get(i).click();
+			}
+		}
+
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));      // To switch to the new window tab
+
+        Thread.sleep(9000);
+        WebDriverWait wait_1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait_1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='user']")));
+        Boolean element = wait_1.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
+        Thread.sleep(5000);
+	}
+	
+	public void selectApp() throws InterruptedException
+	{
+		System.out.println("\n" + "selectApp" + "\n");
+
+        //Thread.sleep(2000);
+        WebDriverWait wait_1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait_1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='user']")));
+        //Thread.sleep(4000);
+        
+		String instance= FrameworkConstants.appselection;
+
+        List<WebElement> list = driver.findElements(By.tagName("a"));
+        for(int j=0; j< list.size(); j++)
+        {
+            if(list.get(j).getText().equals(instance))
+            {
+                System.out.println(list.get(j).getText());
+                WebElement requiredElement = list.get(j);
+                requiredElement.click();
+                Thread.sleep(5000);
+            }
+        }
+        
+        
+//        int Apps_Name_1 = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div[2]/div/div/div/div/div/div")).size();
+//        int Apps_Name_2 = driver.findElements(By.xpath("//*[@class='links']")).size();
+//        int Apps_Name_3 = driver.findElements(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div")).size();
+//
+//        if (Apps_Name_2 > 1)
+//        {
+//        	List<WebElement> listA  = driver.findElements(By.xpath("//*[@class='links']"));
+//        	
+//        	for (int i= 0; i<listA.size(); i++) {
+//
+//    			if(listA.get(i).getText().equalsIgnoreCase(FrameworkConstants.appselection)) 
+//    			{        		
+//    				//System.out.println(listA.get(i).getText());
+//    				System.out.println("\n" + "selectApp : " + listA.get(i).getText());
+//    				listA.get(i).click();
+//    				//Thread.sleep(5000);
+//    			}
+//    		}
+//        	
+//    			
+////            var a = driver.FindElements(By.xpath("//*[@class='links']")).ToList();
+////
+////            List<IWebElement> c = new List<IWebElement>();
+////            a.ForEach(x =>
+////            {
+////                c.AddRange(x.FindElements(By.XPath("//*[@target='_blank']")).ToList().Where(b => b.Text == appName));
+////            });
+////
+////            if (c.Any())
+////                c.First().Click();
+////            Thread.Sleep(5000);
+//        }
+//        else if (Apps_Name_1 != 0)
+//        {
+//        	List<WebElement> listA  = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div[2]/div/div/div/div/div/div"));
+//        	System.out.println("\n" + "Apps_Name_1" + "\n");
+//        	for (int i= 0; i<listA.size(); i++) {
+//
+//    			if(listA.get(i).getText().equalsIgnoreCase(FrameworkConstants.appselection)) 
+//    			{        		
+//    				//System.out.println(listA.get(i).getText());
+//    				System.out.println("\n" + "selectApp : " + listA.get(i).getText());
+//    				listA.get(i).click();
+//    				//Thread.sleep(5000);
+//    			}
+//    		}
+//        	
+//        	
+//        	
+////            var aa = driver.FindElements(By.XPath("//*[@id='main']/div/div/div/div/div/div[2]/div/div/div/div/div/div")).ToList();
+////
+////            List<IWebElement> cc = new List<IWebElement>();
+////            aa.ForEach(x =>
+////            {
+////                cc.AddRange(x.FindElements(By.XPath("//*[@id='main']/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div")).ToList().Where(b => b.Text == appName));
+////            });
+////
+////            if (cc.Any())
+////                cc.First().Click();
+////            Thread.Sleep(5000);
+//        }
+//        else if (Apps_Name_3 == 2)
+//        {
+//        	List<WebElement> listA  = driver.findElements(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div"));
+//        	System.out.println("\n" + "Apps_Name_3" + "\n");
+//        	for (int i= 0; i<listA.size(); i++) {
+//
+//    			if(listA.get(i).getText().equalsIgnoreCase(FrameworkConstants.appselection)) 
+//    			{        		
+//    				//System.out.println(listA.get(i).getText());
+//    				System.out.println("\n" + "selectApp : " + listA.get(i).getText());
+//    				listA.get(i).click();
+//    				//Thread.sleep(5000);
+//    			}
+//    		}
+//        	
+//        	
+////            var aa = driver.FindElements(By.XPath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div")).ToList();
+////
+////            List<IWebElement> cc = new List<IWebElement>();
+////            aa.ForEach(x =>
+////            {
+////                cc.AddRange(x.FindElements(By.XPath("//*[@class='mr-2 my-2 flex']")).ToList().Where(b => b.Text == appName));
+////            });
+////
+////            if (cc.Any())
+////                cc.First().Click();
+////            Thread.Sleep(5000);
+//        }
+//        else
+//        {
+//        	List<WebElement> listA  = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div/div"));
+//        	System.out.println("\n" + "else" + "\n");
+//        	for (int i= 0; i<listA.size(); i++) {
+//
+//    			if(listA.get(i).getText().equalsIgnoreCase(FrameworkConstants.appselection)) 
+//    			{        		
+//    				//System.out.println(listA.get(i).getText());
+//    				System.out.println("\n" + "selectApp : " + listA.get(i).getText());
+//    				listA.get(i).click();
+//    				//Thread.sleep(5000);
+//    			}
+//    		}
+//        	
+//        	
+////            var a = driver.FindElements(By.XPath("//*[@id='main']/div/div/div/div/div/div/div")).ToList();
+////
+////            List<IWebElement> c = new List<IWebElement>();
+////            a.ForEach(x =>
+////            {
+////                c.AddRange(x.FindElements(By.XPath("//*[@id='main']/div/div/div/div/div/div/div/a/div/div")).ToList().Where(b => b.Text == appName));
+////            });
+////
+////            if (c.Any())
+////                c.First().Click();
+////            Thread.Sleep(5000);
+//        }
+        
+        //ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		//driver.switchTo().window(tabs.get(1));      // To switch to the new window tab
+        
+        //driver.switchTo().Window(driver.WindowHandles.Last());      // To switch to the new window tab
+        
+        Thread.sleep(9000);
+        WebDriverWait wait_2 = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait_1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='user']")));
+        Boolean element = wait_2.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
+        //Thread.sleep(5000);
+		
+	}
+	
+	
+	
+	
+	public void closeBrowser()
+	{
+		driver.quit();
+	}
+
+	
+}

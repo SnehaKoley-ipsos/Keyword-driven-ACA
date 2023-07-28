@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;Keyword_Driven_Framework_For_ACA&apos;&#x0D;&#x0A;- Original project: &apos;Keyword_Driven_Framework_For_ACA&apos;&#x0D;&#x0A;- Original element: &apos;Keyword_Driven_Framework_For_ACA.Keyword_Driven_Framework_For_ACA.Tactics_Screen.java&apos;" description="Delete element" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;Keyword_Driven_Framework_For_ACA.Keyword_Driven_Framework_For_ACA{Tactics_Screen.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1687421776558" subPackages="false" version="1.0"/>
+</session>
