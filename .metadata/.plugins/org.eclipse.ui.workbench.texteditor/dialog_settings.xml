@@ -4,27 +4,34 @@
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="Total_Tactics_Drilldown_Grid_Items"/>
 		<item key="wrap" value="true"/>
 		<item key="incremental" value="false"/>
 		<list key="findhistory">
-			<item value=" Successfully"/>
-			<item value="wait"/>
-			<item value="System"/>
-			<item value="Dimension_Item"/>
-			<item value="DrillDown"/>
+			<item value="Total_Drilldown_Grid_Items"/>
+			<item value="Drilldown_Grid_Item_Path_1"/>
+			<item value="//*[@id=&apos;main&apos;]/div/div[2]/div[1]/div/div"/>
+			<item value="Drivers_Export"/>
+			<item value="Tactics_Export"/>
+			<item value="Tactics_Export_Path_Count"/>
+			<item value="Tactic_Add_Column"/>
+			<item value="M_Drivers"/>
+			<item value="M_Tactics"/>
+			<item value="Driver_Filter_Scope_Select_DeSelect"/>
 			<item value="Filter_Select_DeSelect"/>
-			<item value="WebDriverWait"/>
-			<item value="Drilldown_Item_Name"/>
+			<item value="Filter_Save_Icon"/>
 			<item value="New_Scenario_Name"/>
-			<item value="Filter_Name"/>
-			<item value="Filter_Scope_Typing_New_Name_and_Description"/>
-			<item value="DrillDown_Back_Val_4"/>
-			<item value="DrillDown_Back_Val_7"/>
-			<item value="Drilldown_Back_Item_1"/>
-			<item value="DrillDown_Back_Val_6"/>
+			<item value="Filter_Scope_Save_And_Delete_This_Scope"/>
+			<item value="nevigration"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Total_Tactics_Drilldown_Grid_Items"/>
+			<item value="Drivers_Export"/>
+			<item value="Drivers_Export_Path_Count"/>
+			<item value="Tactics_Add_Column"/>
+			<item value="Drivers_Add_Column"/>
+			<item value="Module_For_Drivers"/>
+			<item value="Module_For_Tactics"/>
 			<item value="Drilldown_Back_Item_3"/>
 			<item value="Drilldown_Back_Item_2"/>
 			<item value="Drilldown_Back_Item_1"/>
@@ -33,17 +40,10 @@
 			<item value="Drilldown_Back_Item_Path_1"/>
 			<item value="Total_Drilldown_Back_Items"/>
 			<item value="Total_Dimension_Items"/>
-			<item value="Total_Button_"/>
-			<item value="click"/>
-			<item value="findElements"/>
-			<item value="findElement"/>
-			<item value="xpath"/>
-			<item value="String"/>
-			<item value="sleep"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="0"/>
+		<item key="DIALOG_X_ORIGIN" value="8"/>
 		<item key="DIALOG_Y_ORIGIN" value="128"/>
 		<item key="DIALOG_WIDTH" value="322"/>
 		<item key="DIALOG_HEIGHT" value="391"/>

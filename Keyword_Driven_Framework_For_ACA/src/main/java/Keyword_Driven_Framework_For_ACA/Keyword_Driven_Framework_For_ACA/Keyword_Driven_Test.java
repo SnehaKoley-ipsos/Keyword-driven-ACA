@@ -14,7 +14,7 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 
 	public static void main(String[] args) throws Throwable 
 	{
-		ACA_Activate_Instruction_Data_From_Excel.read_Excel_Instruction_Data();
+		//ACA_Activate_Instruction_Data_From_Excel.read_Excel_Instruction_Data();
 		
 		//ACA_Activate_Instruction_Data_From_Excel RID = new ACA_Activate_Instruction_Data_From_Excel();
 		//RID.Demofile(4);		
@@ -39,48 +39,69 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 		{			
 			//System.out.println("\n" + rid.read_Excel_Instruction_Data().get(i).toString());
 			
-			ACA_Tactics_Module M_Tactics = new ACA_Tactics_Module();
+			ACA_Tactics_Module Module_For_Tactics = new ACA_Tactics_Module();
+			ACA_Drivers_Module Module_For_Drivers = new ACA_Drivers_Module();
+			ACA_Common_Test_Cases For_Common_TC = new ACA_Common_Test_Cases();
+			
+			
 			
 			if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Select_On_App")) 
 			{
 				A_LogIn.Select_On_App();
 			}
-			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Filter_Select_DeSelect"))
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Filter_Scope_Select_DeSelect"))
 			{
-				M_Tactics.Filter_Select_DeSelect();
+				Module_For_Tactics.Filter_Scope_Select_DeSelect();
 			}
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Filter_Apply_Button"))
 			{
-				M_Tactics.Filter_Apply_Button();
+				For_Common_TC.Filter_Apply_Button();
 			}
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Filter_Save_Icon"))
 			{
-				M_Tactics.Filter_Save_Icon();
+				For_Common_TC.Filter_Save_Icon();
 			}
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Filter_Scope_Typing_New_Name_and_Description"))
 			{
-				M_Tactics.Filter_Scope_Typing_New_Name_and_Description();
+				For_Common_TC.Filter_Scope_Typing_New_Name_and_Description();
 			}
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Filter_Scope_Save_And_Delete_This_Scope"))
 			{
-				M_Tactics.Filter_Scope_Save_And_Delete_This_Scope();
+				For_Common_TC.Filter_Scope_Save_And_Delete_This_Scope();
 			}
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("KPI_and_Grid_Data_Verify"))
 			{
-				M_Tactics.KPI_and_Grid_Data_Verify();
+				Module_For_Tactics.KPI_and_Grid_Data_Verify();
 			}
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("DrillDown"))
 			{
-				M_Tactics.DrillDown();
+				Module_For_Tactics.DrillDown();
 			}
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Tactics_Export"))
 			{
-				M_Tactics.Tactics_Export();
+				Module_For_Tactics.Tactics_Export();
 			}
-			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Tactic_Add_Column"))
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Tactics_Add_Column"))
 			{
-				M_Tactics.Tactic_Add_Column();
+				Module_For_Tactics.Tactics_Add_Column();
+			}			
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Driver_Filter_Scope_Select_DeSelect"))
+			{
+				Module_For_Drivers.Driver_Filter_Scope_Select_DeSelect();
 			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Drivers_Add_Column"))
+			{
+				Module_For_Drivers.Drivers_Add_Column();
+			}			
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Drivers_Export"))
+			{
+				Module_For_Drivers.Drivers_Export();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Drivers_DrillDown"))
+			{
+				Module_For_Drivers.Drivers_DrillDown();;
+			}
+			
 			
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Close_Browser"))
 			{
@@ -90,11 +111,11 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 		
 		
 		
-//		M_Tactics.Filter_Select_DeSelect();
-// 		M_Tactics.Filter_Apply_Button();
-//		M_Tactics.Filter_Save_Icon();
-//		M_Tactics.Filter_Scope_Typing_New_Name_and_Description();
-//		M_Tactics.Filter_Scope_Save_And_Delete_This_Scope();
+//		Module_For_Tactics.Filter_Select_DeSelect();
+// 		Module_For_Tactics.Filter_Apply_Button();
+//		Module_For_Tactics.Filter_Save_Icon();
+//		Module_For_Tactics.Filter_Scope_Typing_New_Name_and_Description();
+//		Module_For_Tactics.Filter_Scope_Save_And_Delete_This_Scope();
 //		A_LogIn.Close_Browser();
 		
 		System.out.println("\n" + "All the Test cases executed successfully");
