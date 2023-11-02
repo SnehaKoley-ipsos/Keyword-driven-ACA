@@ -23,7 +23,7 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 		ACA_Activate_Instruction_Data_From_Excel rid = new ACA_Activate_Instruction_Data_From_Excel();
 		rid.read_Excel_Instruction_Data();
 		
-		System.out.println("\n" + "read_Excel_Instruction_Data: " + rid.read_Excel_Instruction_Data());
+		System.out.println("\n" + "read_Excel_Instruction_Data: " + rid.read_Excel_Instruction_Data() + "\n");
 		
 		ACA_Activate_Login A_LogIn = new ACA_Activate_Login();
 		
@@ -41,6 +41,8 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 			
 			ACA_Tactics_Module Module_For_Tactics = new ACA_Tactics_Module();
 			ACA_Drivers_Module Module_For_Drivers = new ACA_Drivers_Module();
+			ACA_Trends_Module Module_For_Trends = new ACA_Trends_Module();
+			ACA_Optimize_Module Module_For_Optimize = new ACA_Optimize_Module();
 			ACA_Common_Test_Cases For_Common_TC = new ACA_Common_Test_Cases();
 			
 			
@@ -49,9 +51,9 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 			{
 				A_LogIn.Select_On_App();
 			}
-			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Filter_Scope_Select_DeSelect"))
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Tactics_Filter_Scope_Select_DeSelect"))
 			{
-				Module_For_Tactics.Filter_Scope_Select_DeSelect();
+				Module_For_Tactics.Tactics_Filter_Scope_Select_DeSelect();
 			}
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Filter_Apply_Button"))
 			{
@@ -73,9 +75,9 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 			{
 				Module_For_Tactics.KPI_and_Grid_Data_Verify();
 			}
-			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("DrillDown"))
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Tactics_DrillDown"))
 			{
-				Module_For_Tactics.DrillDown();
+				Module_For_Tactics.Tactics_DrillDown();
 			}
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Tactics_Export"))
 			{
@@ -85,9 +87,9 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 			{
 				Module_For_Tactics.Tactics_Add_Column();
 			}			
-			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Driver_Filter_Scope_Select_DeSelect"))
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Drivers_Filter_Scope_Select_DeSelect"))
 			{
-				Module_For_Drivers.Driver_Filter_Scope_Select_DeSelect();
+				Module_For_Drivers.Drivers_Filter_Scope_Select_DeSelect();
 			}
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Drivers_Add_Column"))
 			{
@@ -100,6 +102,30 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Drivers_DrillDown"))
 			{
 				Module_For_Drivers.Drivers_DrillDown();;
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Trends_DrillDown"))
+			{
+				Module_For_Trends.Trends_DrillDown();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Trends_Add_Column"))
+			{
+				Module_For_Trends.Trends_Add_Column();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Trends_Export"))
+			{
+				Module_For_Trends.Trends_Export();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Trends_Filter_Scope_Select_DeSelect"))
+			{
+				Module_For_Trends.Trends_Filter_Scope_Select_DeSelect();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Create_A_New_Scenario"))
+			{
+				Module_For_Optimize.Create_A_New_Scenario();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Default_Save_Scenario"))
+			{
+				Module_For_Optimize.Default_Save_Scenario();
 			}
 			
 			

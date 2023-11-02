@@ -15,17 +15,17 @@ public class ACA_Tactics_Module {
 	
 	private Object String;
 	
-	String Drilldown_Grid_Item_Path_1 = "/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[";
-    String Drilldown_Grid_Item_Path_2 = "]/div/div[1]/div/div";
-    String Drilldown_Grid_Item_Path_3 = "]/div/div[2]/div[2]/div[1]";
+	String Tactics_DrillDown_Grid_Item_Path_1 = "/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[";
+    String Tactics_DrillDown_Grid_Item_Path_2 = "]/div/div[1]/div/div";
+    String Tactics_DrillDown_Grid_Item_Path_3 = "]/div/div[2]/div[2]/div[1]";
 	
-	public void Filter_Scope_Select_DeSelect() throws Throwable
+	public void Tactics_Filter_Scope_Select_DeSelect() throws Throwable
 	{
 		try
 		{
 			if (driver.findElements(By.xpath("//div[starts-with(@class, 'react-checkbox-tree rct-disabled rct-icons-fa4') and contains(@id, 'rct-')]")).size() == 1)
             {
-				System.out.println("\n" + "Attempted Filter_Scope_Select_DeSelect by clicking the CheckBox for : Filter Scope are Disabled" + "\n");
+				System.out.println("\n" + "Attempted Tactics_Filter_Scope_Select_DeSelect by clicking the CheckBox for : Filter Scope are Disabled" + "\n");
             }
 			else
 			{
@@ -40,12 +40,12 @@ public class ACA_Tactics_Module {
                 driver.findElement(By.xpath(Tactic_Filter_3)).click();
                 Thread.sleep(500);
 
-                System.out.println("\n" + "Filter_Scope_Select_DeSelect : Executed");
+                System.out.println("\n" + "Tactics_Filter_Scope_Select_DeSelect : Executed");
 			}
 		}
 		catch (Exception ex)
 		{
-			System.out.println("\n" + "Filter_Scope_Select_DeSelect : " + ex.getMessage());
+			System.out.println("\n" + "Tactics_Filter_Scope_Select_DeSelect : " + ex.getMessage());
 		}
 	}
 	
@@ -56,19 +56,19 @@ public class ACA_Tactics_Module {
 	{
 		try 
 		{
-//			int Total_Drilldown_Grid_Items = driver.findElements(By.xpath("//*[@class='row-t-text']")).size();              //Count On Every Grid Items from Tactics Module
+//			int Total_Tactics_DrillDown_Grid_Items = driver.findElements(By.xpath("//*[@class='row-t-text']")).size();              //Count On Every Grid Items from Tactics Module
 //			Random rnd = new Random();
-//	        int RamdomValues = rnd.nextInt(Total_Drilldown_Grid_Items);
+//	        int RamdomValues = rnd.nextInt(Total_Tactics_DrillDown_Grid_Items);
 	        
-//	        String Drilldown_Item_On_Grid_1 = (Drilldown_Grid_Item_Path_1 + (2+RamdomValues) + Drilldown_Grid_Item_Path_2);
-//          WebElement Drilldown_Item_Value_On_Grid_1 = driver.findElement(By.xpath(Drilldown_Item_On_Grid_1));
-//          String Drilldown_Item_Name_On_Grid_1 = Drilldown_Item_Value_On_Grid_1.getText();
-//          driver.findElement(By.xpath(Drilldown_Item_On_Grid_1)).click();
+//	        String Tactics_DrillDown_Item_On_Grid_1 = (Tactics_DrillDown_Grid_Item_Path_1 + (2+RamdomValues) + Tactics_DrillDown_Grid_Item_Path_2);
+//          WebElement Tactics_DrillDown_Item_Value_On_Grid_1 = driver.findElement(By.xpath(Tactics_DrillDown_Item_On_Grid_1));
+//          String Tactics_DrillDown_Item_Name_On_Grid_1 = Tactics_DrillDown_Item_Value_On_Grid_1.getText();
+//          driver.findElement(By.xpath(Tactics_DrillDown_Item_On_Grid_1)).click();
 //          Thread.sleep(500);
             
-//            String Drilldown_Item_On_Grid_2 = (Drilldown_Grid_Item_Path_1 + (2+RamdomValues) + Drilldown_Grid_Item_Path_3);
-//            WebElement Drilldown_Item_Value_On_Grid_2 = driver.findElement(By.xpath(Drilldown_Item_On_Grid_2));
-//            String Drilldown_Item_Name_On_Grid_2 = Drilldown_Item_Value_On_Grid_2.getText();
+//            String Tactics_DrillDown_Item_On_Grid_2 = (Tactics_DrillDown_Grid_Item_Path_1 + (2+RamdomValues) + Tactics_DrillDown_Grid_Item_Path_3);
+//            WebElement Tactics_DrillDown_Item_Value_On_Grid_2 = driver.findElement(By.xpath(Tactics_DrillDown_Item_On_Grid_2));
+//            String Tactics_DrillDown_Item_Name_On_Grid_2 = Tactics_DrillDown_Item_Value_On_Grid_2.getText();
             
 			String Total_KPI_Name = driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div/div[1]")).getAttribute("title");
 			double Total_KPI_Value = Double.parseDouble(driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div/div[2]")).getAttribute("title").replaceAll("[^\\d.]", ""));
@@ -101,32 +101,32 @@ public class ACA_Tactics_Module {
 		}
 		catch (Exception ex)
         {
-        	System.out.println("\n" + "DrillDown_Data_Verify : " + ex.getMessage());
+        	System.out.println("\n" + "Tactics_DrillDown_Data_Verify : " + ex.getMessage());
         }
 	}
 	
 	
-	public void DrillDown() 
+	public void Tactics_DrillDown() 
 	{
 		try 
 		{
             Thread.sleep(500);
-            int Total_Drilldown_Grid_Items = driver.findElements(By.xpath("//*[@class='row-t-text']")).size();              //Count On Every Grid Items from Tactics Module
-            //String Drilldown_Grid_Item_Path_1 = "/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[";
-            //String Drilldown_Grid_Item_Path_2 = "]/div/div[1]/div/div";
+            int Total_Tactics_DrillDown_Grid_Items = driver.findElements(By.xpath("//*[@class='row-t-text']")).size();              //Count On Every Grid Items from Tactics Module
+            //String Tactics_DrillDown_Grid_Item_Path_1 = "/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[";
+            //String Tactics_DrillDown_Grid_Item_Path_2 = "]/div/div[1]/div/div";
             //Thread.sleep(500);
 
-            for (int i = 3; i < Total_Drilldown_Grid_Items + 3; i++)
+            for (int i = 3; i < Total_Tactics_DrillDown_Grid_Items + 3; i++)
             {
                 //Thread.sleep(500);
-                String Drilldown_Item = (Drilldown_Grid_Item_Path_1 + i + Drilldown_Grid_Item_Path_2);
-                WebElement Drilldown_Item_Value = driver.findElement(By.xpath(Drilldown_Item));
-                String Drilldown_Item_Name = Drilldown_Item_Value.getText();
+                String Tactics_DrillDown_Item = (Tactics_DrillDown_Grid_Item_Path_1 + i + Tactics_DrillDown_Grid_Item_Path_2);
+                WebElement Tactics_DrillDown_Item_Value = driver.findElement(By.xpath(Tactics_DrillDown_Item));
+                String Tactics_DrillDown_Item_Name = Tactics_DrillDown_Item_Value.getText();
                 //Thread.sleep(500);
-                driver.findElement(By.xpath(Drilldown_Item)).click();
+                driver.findElement(By.xpath(Tactics_DrillDown_Item)).click();
                 //Thread.sleep(500);
                 
-                System.out.println("\n" + "DrillDown Grid Item : " + Drilldown_Item_Name);
+                System.out.println("\n" + "Tactics_DrillDown Grid Item : " + Tactics_DrillDown_Item_Name);
 
                 WebDriverWait wait = new WebDriverWait(driver, 500);
                 //Boolean element = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
@@ -154,7 +154,7 @@ public class ACA_Tactics_Module {
                         driver.findElement(By.xpath(CountValue_3)).click();
                         //Thread.sleep(500);
                         
-                        System.out.println("\n" + "DrillDown Dimension Item : " + Dimension_Item_Name);
+                        System.out.println("\n" + "Tactics_DrillDown Dimension Item : " + Dimension_Item_Name);
 
                         //WebDriverWait wait = new WebDriverWait(driver, 10000);
                         //Boolean element_1 = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
@@ -167,23 +167,23 @@ public class ACA_Tactics_Module {
                 }
                 
                 Thread.sleep(500);
-                int Total_Drilldown_Back_Items = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div/div/i")).size();		//DrillDown_Back
+                int Total_Tactics_DrillDown_Back_Items = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div/div/i")).size();		//Tactics_DrillDown_Back
 
                 //Thread.sleep(500);
-                String Drilldown_Back_Item_Path_1 = "//*[@id='main']/div/div/div/div/div/div/div/div/div[";
-                String Drilldown_Back_Item_Path_2 = "]/div/i";
-                String Drilldown_Back_Item_Path_3 = "]/div[1]/div";
+                String Tactics_DrillDown_Back_Item_Path_1 = "//*[@id='main']/div/div/div/div/div/div/div/div/div[";
+                String Tactics_DrillDown_Back_Item_Path_2 = "]/div/i";
+                String Tactics_DrillDown_Back_Item_Path_3 = "]/div[1]/div";
 
                 //Thread.sleep(500);
-                String Drilldown_Back_Item_1 = (Drilldown_Back_Item_Path_1 + (Total_Drilldown_Back_Items + 2) + Drilldown_Back_Item_Path_3);
-                WebElement Drilldown_Back_Item_Value = driver.findElement(By.xpath(Drilldown_Back_Item_1));
-                String Drilldown_Back_Item_Name = Drilldown_Back_Item_Value.getText();
+                String Tactics_DrillDown_Back_Item_1 = (Tactics_DrillDown_Back_Item_Path_1 + (Total_Tactics_DrillDown_Back_Items + 2) + Tactics_DrillDown_Back_Item_Path_3);
+                WebElement Tactics_DrillDown_Back_Item_Value = driver.findElement(By.xpath(Tactics_DrillDown_Back_Item_1));
+                String Tactics_DrillDown_Back_Item_Name = Tactics_DrillDown_Back_Item_Value.getText();
                 //Thread.sleep(500);
                 
-                String Drilldown_Back_Item_3 = (Drilldown_Back_Item_Path_1 + (Total_Drilldown_Back_Items + 2) + Drilldown_Back_Item_Path_2);
+                String Tactics_DrillDown_Back_Item_3 = (Tactics_DrillDown_Back_Item_Path_1 + (Total_Tactics_DrillDown_Back_Items + 2) + Tactics_DrillDown_Back_Item_Path_2);
                 
                 //Thread.sleep(500);
-                driver.findElement(By.xpath(Drilldown_Back_Item_3)).click();
+                driver.findElement(By.xpath(Tactics_DrillDown_Back_Item_3)).click();
                 //Thread.sleep(500);
 
                 //WebDriverWait wait_3 = new WebDriverWait(driver, timeSpan_1);
@@ -191,66 +191,66 @@ public class ACA_Tactics_Module {
                 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
                 //Thread.sleep(500);
                 
-                System.out.println("\n" + "DrillDown Back Item : " + Drilldown_Back_Item_Name);
+                System.out.println("\n" + "Tactics_DrillDown Back Item : " + Tactics_DrillDown_Back_Item_Name);
                 
 
-//                if (Selected_Tab == "DRIVERS")              //DrillDown_Back
+//                if (Selected_Tab == "DRIVERS")              //Tactics_DrillDown_Back
 //                {
 //                    Thread.sleep(500);
-//                    Total_Drilldown_Back_Items = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div/i")).Count();
+//                    Total_Tactics_DrillDown_Back_Items = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div/i")).Count();
 //
 //                    Thread.sleep(500);
-//                    Drilldown_Back_Item_Path_1 = "//*[@id='main']/div/div/div/div/div/div/div/div[";
-//                    Drilldown_Back_Item_Path_2 = "]/div/i";
-//                    Drilldown_Back_Item_Path_3 = "]/div[1]/div";
+//                    Tactics_DrillDown_Back_Item_Path_1 = "//*[@id='main']/div/div/div/div/div/div/div/div[";
+//                    Tactics_DrillDown_Back_Item_Path_2 = "]/div/i";
+//                    Tactics_DrillDown_Back_Item_Path_3 = "]/div[1]/div";
 //
 //                    Thread.sleep(500);
-//                    Drilldown_Back_Item_1 = String.Concat(Drilldown_Back_Item_Path_1, Total_Drilldown_Back_Items + 2, Drilldown_Back_Item_Path_3);
-//                    Drilldown_Back_Item_2 = driver.findElement(By.xpath(Drilldown_Back_Item_1)).Text.ToString();
+//                    Tactics_DrillDown_Back_Item_1 = String.Concat(Tactics_DrillDown_Back_Item_Path_1, Total_Tactics_DrillDown_Back_Items + 2, Tactics_DrillDown_Back_Item_Path_3);
+//                    Tactics_DrillDown_Back_Item_2 = driver.findElement(By.xpath(Tactics_DrillDown_Back_Item_1)).Text.ToString();
 //
 //                    Thread.sleep(500);
-//                    Drilldown_Back_Item_3 = String.Concat(Drilldown_Back_Item_Path_1, Total_Drilldown_Back_Items + 2, Drilldown_Back_Item_Path_2);
+//                    Tactics_DrillDown_Back_Item_3 = String.Concat(Tactics_DrillDown_Back_Item_Path_1, Total_Tactics_DrillDown_Back_Items + 2, Tactics_DrillDown_Back_Item_Path_2);
 //
-//                    //driver.findElement(By.xpath(Drilldown_Back_Item_3)).click();
+//                    //driver.findElement(By.xpath(Tactics_DrillDown_Back_Item_3)).click();
 //                }
 //                else if (Selected_Tab == "OPTIMIZE")
 //                {
 //                    Thread.sleep(500);
-//                    Total_Drilldown_Back_Items = driver.findElements(By.xpath("//*[@class='main-left-panel world-map p-0 ht-47 d-flex']")).Count();
+//                    Total_Tactics_DrillDown_Back_Items = driver.findElements(By.xpath("//*[@class='main-left-panel world-map p-0 ht-47 d-flex']")).Count();
 //
 //                    Thread.sleep(500);
-//                    Drilldown_Back_Item_Path_1 = "//*[@class='main-left-panel world-map p-0 ht-47 d-flex'][";
-//                    Drilldown_Back_Item_Path_2 = "]";
-//                    String Drilldown_Back_Item_Path_10 = "//*[@id='main']/div/div/div/div/div/div/div/div/div/div/div/div/div/div[1]/div[";
-//                    Drilldown_Back_Item_Path_3 = "]/div/div[1]/div/div";
+//                    Tactics_DrillDown_Back_Item_Path_1 = "//*[@class='main-left-panel world-map p-0 ht-47 d-flex'][";
+//                    Tactics_DrillDown_Back_Item_Path_2 = "]";
+//                    String Tactics_DrillDown_Back_Item_Path_10 = "//*[@id='main']/div/div/div/div/div/div/div/div/div/div/div/div/div/div[1]/div[";
+//                    Tactics_DrillDown_Back_Item_Path_3 = "]/div/div[1]/div/div";
 //
 //                    Thread.sleep(500);
-//                    Drilldown_Back_Item_1 = String.Concat(Drilldown_Back_Item_Path_10, Total_Drilldown_Back_Items + 2, Drilldown_Back_Item_Path_3);
-//                    Drilldown_Back_Item_2 = driver.findElement(By.xpath(Drilldown_Back_Item_1)).Text.ToString();
+//                    Tactics_DrillDown_Back_Item_1 = String.Concat(Tactics_DrillDown_Back_Item_Path_10, Total_Tactics_DrillDown_Back_Items + 2, Tactics_DrillDown_Back_Item_Path_3);
+//                    Tactics_DrillDown_Back_Item_2 = driver.findElement(By.xpath(Tactics_DrillDown_Back_Item_1)).Text.ToString();
 //
 //                    Thread.sleep(500);
-//                    Drilldown_Back_Item_3 = String.Concat(Drilldown_Back_Item_Path_1, Total_Drilldown_Back_Items, Drilldown_Back_Item_Path_2);
+//                    Tactics_DrillDown_Back_Item_3 = String.Concat(Tactics_DrillDown_Back_Item_Path_1, Total_Tactics_DrillDown_Back_Items, Tactics_DrillDown_Back_Item_Path_2);
 //
-//                    //driver.findElement(By.xpath(Drilldown_Back_Item_3)).click();
+//                    //driver.findElement(By.xpath(Tactics_DrillDown_Back_Item_3)).click();
 //                }
 //                else
 //                {
 //                    Thread.sleep(500);
-//                    Total_Drilldown_Back_Items = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div/div/i")).Count();
+//                    Total_Tactics_DrillDown_Back_Items = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div/div/i")).Count();
 //
 //                    Thread.sleep(500);
-//                    Drilldown_Back_Item_Path_1 = "//*[@id='main']/div/div/div/div/div/div/div/div/div[";
-//                    Drilldown_Back_Item_Path_2 = "]/div/i";
-//                    Drilldown_Back_Item_Path_3 = "]/div[1]/div";
+//                    Tactics_DrillDown_Back_Item_Path_1 = "//*[@id='main']/div/div/div/div/div/div/div/div/div[";
+//                    Tactics_DrillDown_Back_Item_Path_2 = "]/div/i";
+//                    Tactics_DrillDown_Back_Item_Path_3 = "]/div[1]/div";
 //
 //                    Thread.sleep(500);
-//                    Drilldown_Back_Item_1 = String.Concat(Drilldown_Back_Item_Path_1, Total_Drilldown_Back_Items + 2, Drilldown_Back_Item_Path_3);
-//                    Drilldown_Back_Item_2 = driver.findElement(By.xpath(Drilldown_Back_Item_1)).Text.ToString();
+//                    Tactics_DrillDown_Back_Item_1 = String.Concat(Tactics_DrillDown_Back_Item_Path_1, Total_Tactics_DrillDown_Back_Items + 2, Tactics_DrillDown_Back_Item_Path_3);
+//                    Tactics_DrillDown_Back_Item_2 = driver.findElement(By.xpath(Tactics_DrillDown_Back_Item_1)).Text.ToString();
 //
 //                    Thread.sleep(500);
-//                    Drilldown_Back_Item_3 = String.Concat(Drilldown_Back_Item_Path_1, Total_Drilldown_Back_Items + 2, Drilldown_Back_Item_Path_2);
+//                    Tactics_DrillDown_Back_Item_3 = String.Concat(Tactics_DrillDown_Back_Item_Path_1, Total_Tactics_DrillDown_Back_Items + 2, Tactics_DrillDown_Back_Item_Path_2);
 //
-//                    //driver.findElement(By.xpath(Drilldown_Back_Item_3)).click();
+//                    //driver.findElement(By.xpath(Tactics_DrillDown_Back_Item_3)).click();
 //                }
                 
                 
@@ -266,7 +266,7 @@ public class ACA_Tactics_Module {
             //if (!checkboxes[Random_Value].Selected)
             //{
             //    Thread.sleep(1000);
-            //    Drilldown_Item_Name = checkboxes[Random_Value].Text.ToString();
+            //    Tactics_DrillDown_Item_Name = checkboxes[Random_Value].Text.ToString();
             //    Thread.sleep(1000);
             //    checkboxes[Random_Value].click();
             //    Thread.sleep(1000);
@@ -279,7 +279,7 @@ public class ACA_Tactics_Module {
 		}
 		catch (Exception ex)
         {
-        	System.out.println("\n" + "DrillDown : " + ex.getMessage());
+        	System.out.println("\n" + "Tactics_DrillDown : " + ex.getMessage());
         }
 	}
 	

@@ -256,6 +256,60 @@ public class ACA_Common_Test_Cases {
         }
     }
 	
+	public String Scenario_New_Name_Typing()
+    {
+        try
+        {
+            //Thread.sleep(500);
+            New_Scenario_Name = ACA_Activate_Global_Functions.Auto_Generate_New_Scenario_Name();            
+
+            Thread.sleep(500);
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/input")).sendKeys(New_Scenario_Name);		//Typing On New Name
+            Thread.sleep(2000);
+            
+            //Filter_Name = New_Scenario_Name;
+
+            System.out.println("\n" + "Scenario_New_Name_Typing : " + New_Scenario_Name);
+            
+        }
+        catch (Exception ex)
+        {
+        	System.out.println("\n" + "Scenario_New_Name_Typing : " + ex.getMessage());
+        }
+		return New_Scenario_Name;
+    }
+	
+	public void New_Scenario_Save()
+	{
+		try
+		{
+			Thread.sleep(2000);
+			List<WebElement> listA = driver.findElements(By.xpath("//*[@class='btn-small btn-grey2']"));
+	    	for (int i= 0; i<listA.size(); i++) {
+	    		
+				if(listA.get(i).getText().equalsIgnoreCase("Save As")) 
+				{   
+					System.out.println("\n" + "New_Scenario_Save : " + listA.get(i).getText());
+					listA.get(i).click();
+					Thread.sleep(2000);
+				}
+	    	}
+	    	WebDriverWait wait_1 = new WebDriverWait(driver, 200);
+    		wait_1.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
+		}
+		catch (Exception ex)
+        {
+        	System.out.println("\n" + "New_Scenario_Save : " + ex.getMessage());
+        }
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	public void DrillDown() 
 	{
 		try 

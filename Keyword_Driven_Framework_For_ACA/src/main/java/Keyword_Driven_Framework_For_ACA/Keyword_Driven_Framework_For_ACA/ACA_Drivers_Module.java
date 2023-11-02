@@ -15,7 +15,6 @@ public class ACA_Drivers_Module {
 	
 	static WebDriver driver = ACA_Activate_Get_Driver.getdriver();
 	
-	//public String Filter_Name;
 	public String New_Scenario_Name;
 	public String FilterScopeNewName;
 	private Object String;
@@ -25,26 +24,10 @@ public class ACA_Drivers_Module {
     String Drivers_DrillDown_Grid_Item_Path_3 = "]/div/div[2]/div[2]/div[1]";
 	
 	@SuppressWarnings("deprecation")
-	public void Driver_Filter_Scope_Select_DeSelect() throws Throwable
+	public void Drivers_Filter_Scope_Select_DeSelect() throws Throwable
 	{
 		try
-		{
-			Thread.sleep(1000);
-			List<WebElement> listA  = driver.findElements(By.xpath("//*[@class='outer']"));
-			for (int i= 0; i<listA.size(); i++)
-        	{
-    			if(listA.get(i).getText().equalsIgnoreCase("DRIVERS")) 
-    			{   
-    				System.out.println("\n" + "Module is : " + listA.get(i).getText());
-    				listA.get(i).click();
-    				//Thread.sleep(1000);
-    			}
-        	}		    
-			WebDriverWait wait = new WebDriverWait(driver, 200);
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
-            //Thread.sleep(500);
-			
-			
+		{		
 			if (driver.findElements(By.xpath("//div[starts-with(@class, 'react-checkbox-tree rct-disabled rct-icons-fa4') and contains(@id, 'rct-')]")).size() == 1)
             {
 				System.out.println("\n" + "Attempted Filter_Scope_Select_DeSelect by clicking the CheckBox for : Filter Scope are Disabled" + "\n");
@@ -62,55 +45,34 @@ public class ACA_Drivers_Module {
                 driver.findElement(By.xpath(Tactic_Filter_3)).click();
                 Thread.sleep(500);
 
-                System.out.println("\n" + "Driver_Filter_Scope_Select_DeSelect : Executed");
+                System.out.println("\n" + "Drivers_Filter_Scope_Select_DeSelect : Executed");
 			}
 		}
 		catch (Exception ex)
 		{
-			System.out.println("\n" + "Driver_Filter_Scope_Select_DeSelect : " + ex.getMessage());
+			System.out.println("\n" + "Drivers_Filter_Scope_Select_DeSelect : " + ex.getMessage());
 		}
-	}
+	}		
 		
-	public void Drivers_Total_Prior_and_Grid_Prior_Data_Verify()
-	{
-		try 
-		{
-			String Total_KPI_Name = driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div/div[2]/div[1]/div[2]/div[1]")).getAttribute("title");
-			double Total_KPI_Value = Double.parseDouble(driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div[2]")).getAttribute("title").replaceAll("[^\\d.]", ""));
-			
-			System.out.println("\n" + "KPI Name : " + Total_KPI_Name + " = " + Total_KPI_Value);
-			
-            List<WebElement> gridList = driver.findElements(By.xpath("//*[@id='worldmap']/div/div/div/div/div[2]/div[2]/div[1]"));
-            
-            double sum = 0;
-            for (int i=0; i< gridList.size(); i++ )
-            {
-            	double gridSpendValue = Double.parseDouble(gridList.get(i).getAttribute("title").replaceAll("[^\\d.]", ""));
-            	sum += gridSpendValue;            	
-            }
-            
-            System.out.println("\n" + "Total Grid Spend Value : " + sum);
-            
-            if(Total_KPI_Value == sum)
-            {
-            	System.out.println("\n" + "The Total KPI values are matched to the Grid values");
-            }
-            else
-            {
-            	System.out.println("\n" + "The Total KPI values does not match the Grid values");
-            }	        
-		}
-		catch (Exception ex)
-        {
-        	System.out.println("\n" + "Drivers_DrillDown_Data_Verify : " + ex.getMessage());
-        }
-	}
-	
-	
 	public void Drivers_DrillDown() 
 	{
 		try 
 		{
+			Thread.sleep(1000);
+			List<WebElement> listA  = driver.findElements(By.xpath("//*[@class='outer']"));
+			for (int i= 0; i<listA.size(); i++)
+        	{
+    			if(listA.get(i).getText().equalsIgnoreCase("DRIVERS")) 
+    			{   
+    				System.out.println("\n" + "Module is : " + listA.get(i).getText());
+    				listA.get(i).click();
+    				//Thread.sleep(1000);
+    			}
+        	}		    
+			WebDriverWait wait_1 = new WebDriverWait(driver, 200);
+			wait_1.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
+            //Thread.sleep(500);
+			
             Thread.sleep(500);
             int Total_Drivers_DrillDown_Grid_Items = driver.findElements(By.xpath("//*[@class='row-t-text white-sp-nowrap ov-hidden text-ov-ellipsis']")).size();              //Count On Every Grid Items from Drivers Module
             
@@ -330,10 +292,10 @@ public class ACA_Drivers_Module {
 	{
 		try 
 		{
-			WebElement a = driver.findElement(By.xpath("//*[@class='selected']"));
-            String b = a.getText();
-            System.out.println("\n" + "Selected Module : " + b);
-            Thread.sleep(5000);
+//			WebElement a = driver.findElement(By.xpath("//*[@class='selected']"));
+//            String b = a.getText();
+//            System.out.println("\n" + "Selected Module : " + b);
+//            Thread.sleep(5000);
 			
 			
 			int Drivers_Add_Column_Path_Count = driver.findElements(By.xpath("//*[@class='display-inline-block']")).size();
