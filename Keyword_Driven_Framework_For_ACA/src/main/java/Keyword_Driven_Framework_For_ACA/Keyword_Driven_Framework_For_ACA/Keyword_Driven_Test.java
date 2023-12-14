@@ -33,6 +33,7 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 		A_LogIn.Enter_User_Id();
 		A_LogIn.Enter_User_Password();
 		A_LogIn.Search_On_Tenant();
+		A_LogIn.Select_On_App();
 		
 		
 		for (int i=0; i< rid.read_Excel_Instruction_Data().size(); i++) 
@@ -103,6 +104,10 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 			{
 				Module_For_Drivers.Drivers_DrillDown();;
 			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("KPI_and_Grid_Data_Verify_For_Drivers"))
+			{
+				Module_For_Drivers.KPI_and_Grid_Data_Verify_For_Drivers();;
+			}
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Trends_DrillDown"))
 			{
 				Module_For_Trends.Trends_DrillDown();
@@ -119,6 +124,10 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 			{
 				Module_For_Trends.Trends_Filter_Scope_Select_DeSelect();
 			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("KPI_and_Grid_Data_Verify_For_Trends"))
+			{
+				Module_For_Trends.KPI_and_Grid_Data_Verify_For_Trends();
+			}
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Create_A_New_Scenario"))
 			{
 				Module_For_Optimize.Create_A_New_Scenario();
@@ -126,6 +135,14 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Default_Save_Scenario"))
 			{
 				Module_For_Optimize.Default_Save_Scenario();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Filter_Scope_Select_DeSelect"))
+			{
+				Module_For_Optimize.Optimize_Filter_Scope_Select_DeSelect();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_DrillDown"))
+			{
+				Module_For_Optimize.Optimize_DrillDown();
 			}
 			
 			

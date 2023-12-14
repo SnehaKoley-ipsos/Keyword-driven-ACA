@@ -1,5 +1,6 @@
 package Keyword_Driven_Framework_For_ACA.Keyword_Driven_Framework_For_ACA;
 
+import java.text.DecimalFormat;
 import java.time.Duration;
 import java.util.List;
 import java.util.Random;
@@ -47,57 +48,118 @@ public class ACA_Tactics_Module {
 		{
 			System.out.println("\n" + "Tactics_Filter_Scope_Select_DeSelect : " + ex.getMessage());
 		}
-	}
-	
-	
-	
+	}	
 	
 	public void KPI_and_Grid_Data_Verify()
 	{
-		try 
-		{
-//			int Total_Tactics_DrillDown_Grid_Items = driver.findElements(By.xpath("//*[@class='row-t-text']")).size();              //Count On Every Grid Items from Tactics Module
-//			Random rnd = new Random();
-//	        int RamdomValues = rnd.nextInt(Total_Tactics_DrillDown_Grid_Items);
-	        
-//	        String Tactics_DrillDown_Item_On_Grid_1 = (Tactics_DrillDown_Grid_Item_Path_1 + (2+RamdomValues) + Tactics_DrillDown_Grid_Item_Path_2);
-//          WebElement Tactics_DrillDown_Item_Value_On_Grid_1 = driver.findElement(By.xpath(Tactics_DrillDown_Item_On_Grid_1));
-//          String Tactics_DrillDown_Item_Name_On_Grid_1 = Tactics_DrillDown_Item_Value_On_Grid_1.getText();
-//          driver.findElement(By.xpath(Tactics_DrillDown_Item_On_Grid_1)).click();
-//          Thread.sleep(500);
-            
-//            String Tactics_DrillDown_Item_On_Grid_2 = (Tactics_DrillDown_Grid_Item_Path_1 + (2+RamdomValues) + Tactics_DrillDown_Grid_Item_Path_3);
-//            WebElement Tactics_DrillDown_Item_Value_On_Grid_2 = driver.findElement(By.xpath(Tactics_DrillDown_Item_On_Grid_2));
-//            String Tactics_DrillDown_Item_Name_On_Grid_2 = Tactics_DrillDown_Item_Value_On_Grid_2.getText();
-            
-			String Total_KPI_Name = driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div/div[1]")).getAttribute("title");
-			double Total_KPI_Value = Double.parseDouble(driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div/div[2]")).getAttribute("title").replaceAll("[^\\d.]", ""));
+		try
+		{            
+			//------------------------------Total KPI & Grid 1---------------------------------//
 			
-			System.out.println("\n" + "KPI Name : " + Total_KPI_Name + " = " + Total_KPI_Value);
+			String Total_KPI_Name_1 = driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div/div[1]")).getAttribute("title");
+			double Total_KPI_Value_1 = Double.parseDouble(driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div/div[2]")).getAttribute("title").replaceAll("[^\\d.]", ""));
 			
-            List<WebElement> gridList = driver.findElements(By.xpath("//*[@id='worldmap']/div/div/div/div/div[2]/div[2]/div[1]"));
-            
-            double sum = 0;
-            for (int i=0; i< gridList.size(); i++ )
+			System.out.println("\n" + "KPI Name : " + Total_KPI_Name_1 + "; Value" + " = " + Total_KPI_Value_1);
+			
+//			String[] suffix_1 = new String[]{"K","M","B","T"};
+//            int size_1 = (Total_KPI_Value_1 != 0) ? (int) Math.log10(Total_KPI_Value_1) : 0;
+//            if (size_1 >= 3){
+//                while (size_1 % 3 != 0) {
+//                    size_1 = size_1 - 1;
+//                }
+//            }
+//            double notation_1 = Math.pow(10, size_1);
+//            String result_1 = (size_1 >= 3) ? + (Math.round((Total_KPI_Value_1 / notation_1) * 100) / 100.0d)+suffix_1[(size_1/3) - 1] : + Total_KPI_Value_1 + "";
+//			
+//            System.out.println("\n" + "Result_1 : " + result_1);
+			
+						
+            List<WebElement> Grid_List_1 = driver.findElements(By.xpath("//*[@id='worldmap']/div/div/div/div/div[2]/div[2]/div[1]"));
+            double Sum_Of_Grid_1 = 0;
+            for (int i=0; i < Grid_List_1.size(); i++ )
             {
-            	double gridSpendValue = Double.parseDouble(gridList.get(i).getAttribute("title").replaceAll("[^\\d.]", ""));
-            	sum += gridSpendValue;
-            	
+            	double Grid_Value_1 = Double.parseDouble(Grid_List_1.get(i).getAttribute("title").replaceAll("[^\\d.]", ""));
+            	Sum_Of_Grid_1 += Grid_Value_1;
             }
             
-            System.out.println("\n" + "Total Grid Spend Value : " + sum);
+            System.out.println("\n" + "Grid Name : " + Total_KPI_Name_1 + "; Total Value : " + Sum_Of_Grid_1);
             
-            if(Total_KPI_Value == sum)
+            
+            
+            String[] suffix_2 = new String[]{"K","M","B","T"};
+            int size_2 = (Sum_Of_Grid_1 != 0) ? (int) Math.log10(Sum_Of_Grid_1) : 0;
+            if (size_2 >= 3){
+                while (size_2 % 3 != 0) {
+                    size_2 = size_2 - 1;
+                }
+            }
+//            double notation_2 = Math.pow(10, size_2);
+//            String result_2 = (size_2 >= 3) ? + (Math.round((Sum_Of_Grid_1 / notation_2) * 100) / 100.0d)+suffix_2[(size_2 / 3) - 1] : + Sum_Of_Grid_1 + "";
+//            
+//            System.out.println("\n" + "Result_2 : " + result_2);
+            
+            double difference_1 = (Total_KPI_Value_1 - Sum_Of_Grid_1);
+            
+            if(Total_KPI_Value_1 == Sum_Of_Grid_1)
             {
-            	System.out.println("\n" + "The Total KPI values are matched to the Grid values");
+            	System.out.println("\n" + "The KPI value are matched to the Grid Total values");
             }
             else
             {
-            	System.out.println("\n" + "The Total KPI values does not match the Grid values");
+            	System.out.println("\n" + "The difference between the KPI values and the total Grid values = " + difference_1);
             }
             
-	        
-	        
+          //------------------------------Total KPI & Grid 2---------------------------------//
+            
+            String Total_KPI_Name_2 = driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[2]/div/div/div[2]/div/div[1]")).getAttribute("title");
+			double Total_KPI_Value_2 = Double.parseDouble(driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[2]/div/div/div[2]/div/div[2]")).getAttribute("title").replaceAll("[^\\d.]", ""));
+			
+			System.out.println("\n" + "KPI Name : " + Total_KPI_Name_2 + "; Value" + " = " + Total_KPI_Value_2);
+			
+//			String[] suffix_3 = new String[]{"K","M","B","T"};
+//            int size_3 = (Total_KPI_Value_2 != 0) ? (int) Math.log10(Total_KPI_Value_2) : 0;
+//            if (size_3 >= 3){
+//                while (size_3 % 3 != 0) {
+//                    size_3 = size_3 - 1;
+//                }
+//            }
+//            double notation_3 = Math.pow(10, size_3);
+//            String result_3 = (size_3 >= 3) ? + (Math.round((Total_KPI_Value_2 / notation_3) * 100) / 100.0d)+suffix_3[(size_3 / 3) - 1] : + Total_KPI_Value_2 + "";
+//			
+//            System.out.println("\n" + "Result_3 : " + result_3);
+			
+            List<WebElement> Grid_List_2 = driver.findElements(By.xpath("//*[@id='worldmap']/div/div/div/div/div[3]/div[2]/div[1]"));
+            double Sum_Of_Grid_2 = 0;
+            for (int i=0; i < Grid_List_2.size(); i++ )
+            {
+            	double Grid_Value_2 = Double.parseDouble(Grid_List_2.get(i).getAttribute("title").replaceAll("[^\\d.]", ""));
+            	Sum_Of_Grid_2 += Grid_Value_2;
+            }
+            
+            System.out.println("\n" + "Grid Name : " + Total_KPI_Name_2 + "; Total Value : " + Sum_Of_Grid_2);
+            
+//            String[] suffix_4 = new String[]{"K","M","B","T"};
+//            int size_4 = (Sum_Of_Grid_2 != 0) ? (int) Math.log10(Sum_Of_Grid_2) : 0;
+//            if (size_4 >= 3){
+//                while (size_4 % 3 != 0) {
+//                    size_4 = size_4 - 1;
+//                }
+//            }
+//            double notation_4 = Math.pow(10, size_4);
+//            String result_4 = (size_3 >= 3) ? + (Math.round((Sum_Of_Grid_2 / notation_4) * 100) / 100.0d)+suffix_4[(size_4 / 3) - 1] : + Sum_Of_Grid_2 + "";
+//			
+//            System.out.println("\n" + "Result_4 : " + result_4);
+                        
+            double difference_2 = (Total_KPI_Value_2 - Sum_Of_Grid_2);
+            
+            if(Total_KPI_Value_2 == Sum_Of_Grid_2)
+            {
+            	System.out.println("\n" + "The KPI value are matched to the Grid Total values");
+            }
+            else
+            {
+            	System.out.println("\n" + "The difference between the KPI values and the total Grid values = " + difference_2);
+            }                    
 		}
 		catch (Exception ex)
         {

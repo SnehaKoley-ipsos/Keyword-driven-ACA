@@ -18,6 +18,8 @@ public class ACA_Common_Test_Cases {
 	String Drilldown_Grid_Item_Path_1 = "/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[";
     String Drilldown_Grid_Item_Path_2 = "]/div/div[1]/div/div";
     String Drilldown_Grid_Item_Path_3 = "]/div/div[2]/div[2]/div[1]";
+    
+    String Selected_Module_Name = driver.findElement(By.xpath("//*[@class='selected']")).getText();
 	
 	
 	public void Navigate_To_Tab() throws Throwable
@@ -88,32 +90,30 @@ public class ACA_Common_Test_Cases {
     {
         try
         {
-//            if (FrameworkConstants.moduleName == "OPTIMIZE")
-//            {
-//            	List<WebElement> listA = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div[2]/div/div/div/div"));
-//            	for (int i= 0; i<listA.size(); i++)
-//            	{
-//            		if(listA.get(i).getText().equalsIgnoreCase("Apply")) 
-//        			{   
-//        				System.out.println("\n" + "Filter_Apply_Button : " + listA.get(i).getText());
-//        				listA.get(i).click();
-//        			}
-//            	}
-//            }
-//            else
-//            {
-//            	//
-//            }
-        	
-        	List<WebElement> listA = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div[2]/div/div/div"));
-        	for (int i= 0; i<listA.size(); i++)
-        	{
-    			if(listA.get(i).getText().equalsIgnoreCase("Apply")) 
-    			{   
-    				System.out.println("\n" + "Filter_Apply_Button : " + listA.get(i).getText());
-    				listA.get(i).click();
-    			}
-        	}
+            if (Selected_Module_Name.equals("OPTIMIZE"))
+            {
+            	List<WebElement> listA = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div[2]/div/div/div/div"));
+            	for (int i= 0; i<listA.size(); i++)
+            	{
+            		if(listA.get(i).getText().equalsIgnoreCase("Apply")) 
+        			{   
+        				System.out.println("\n" + "Filter_Apply_Button : " + listA.get(i).getText());
+        				listA.get(i).click();
+        			}
+            	}
+            }
+            else
+            {
+            	List<WebElement> listA = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div[2]/div/div/div"));
+            	for (int i= 0; i<listA.size(); i++)
+            	{
+        			if(listA.get(i).getText().equalsIgnoreCase("Apply")) 
+        			{   
+        				System.out.println("\n" + "Filter_Apply_Button : " + listA.get(i).getText());
+        				listA.get(i).click();
+        			}
+            	}
+            }
             Thread.sleep(500);
             WebDriverWait wait = new WebDriverWait(driver, 1000);
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div[1]/div")));
@@ -129,16 +129,14 @@ public class ACA_Common_Test_Cases {
     {
         try
         {
-//        	if (FrameworkConstants.moduleName == "OPTIMIZE")
-//            {
-//        		driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/i[2]")).click();		//For OPTIMIZE Tab
-//            }
-//        	else
-//            {
-//        		driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/i[2]")).click();		//For TACTICS Tab
-//            }
-        	
-        	driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/i[2]")).click();		//For TACTICS & DRIVERS Tab
+        	if (Selected_Module_Name.equals("OPTIMIZE"))
+            {
+        		driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/i[2]")).click();		//For OPTIMIZE Tab
+            }
+        	else
+            {
+        		driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/i[2]")).click();			//For TACTICS, DRIVERS & TRENDS Tab
+            }
             Thread.sleep(500);
             WebDriverWait wait = new WebDriverWait(driver, 500);
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
@@ -191,21 +189,20 @@ public class ACA_Common_Test_Cases {
     				listA.get(i).click();
     			}
         	}
-        	//Thread.sleep(500);
+        	Thread.sleep(500);
         	WebDriverWait wait = new WebDriverWait(driver, 500);
         	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
             //Thread.sleep(500);
-            
-//            if (FrameworkConstants.moduleName == "OPTIMIZE")
-//            {
-//            	driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div[1]/i[1]")).click();	//Click For the Edit button for OPTIMIZE Tab
-//            }
-//            else
-//            {
-//            	driver.findElement(By.xpath("//*[@id='main']/div/div/div/div[2]/div/div[1]/i[1]")).click();		//Click For the Edit button fFor Others Tab
-//            }
-            
-            driver.findElement(By.xpath("//*[@id='main']/div/div/div/div[2]/div/div[1]/i[1]")).click();		//Click For the Edit button for Others Tab
+        	
+        	            
+            if (Selected_Module_Name.equals("OPTIMIZE"))
+            {
+            	driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div[1]/i[1]")).click();	//Click For the Edit button for OPTIMIZE Tab
+            }
+            else
+            {
+            	driver.findElement(By.xpath("//*[@id='main']/div/div/div/div[2]/div/div[1]/i[1]")).click();		//Click For the Edit button for Others Tab
+            }
             Thread.sleep(500);
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
             //Thread.sleep(500);

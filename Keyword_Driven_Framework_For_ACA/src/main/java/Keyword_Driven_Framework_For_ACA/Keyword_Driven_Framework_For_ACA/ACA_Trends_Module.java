@@ -23,7 +23,7 @@ public class ACA_Trends_Module {
     String Trends_DrillDown_Grid_Item_Path_2 = "]/div/div[1]/div/div";
     String Trends_DrillDown_Grid_Item_Path_3 = "]/div/div[2]/div[2]/div[1]";
 	
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings("Deprecation")
 	public void Trends_Filter_Scope_Select_DeSelect() throws Throwable
 	{
 		try
@@ -52,7 +52,73 @@ public class ACA_Trends_Module {
 		{
 			System.out.println("\n" + "Trends_Filter_Scope_Select_DeSelect : " + ex.getMessage());
 		}
-	}		
+	}
+	
+	public void KPI_and_Grid_Data_Verify_For_Trends()
+	{
+		try
+		{            
+			//------------------------------Total KPI & Grid 1---------------------------------//
+			
+			String Total_KPI_Name_1 = driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div/div[1]")).getAttribute("title");
+			double Total_KPI_Value_1 = Double.parseDouble(driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div/div[2]")).getAttribute("title").replaceAll("[^\\d.]", ""));
+			
+			System.out.println("\n" + "KPI Name : " + Total_KPI_Name_1 + "; Value" + " = " + Total_KPI_Value_1);
+									
+            List<WebElement> Grid_List_1 = driver.findElements(By.xpath("//*[@id='worldmap']/div/div/div/div/div[2]/div[2]/div[1]"));
+            double Sum_Of_Grid_1 = 0;
+            for (int i=0; i < Grid_List_1.size(); i++ )
+            {
+            	double Grid_Value_1 = Double.parseDouble(Grid_List_1.get(i).getAttribute("title").replaceAll("[^\\d.]", ""));
+            	Sum_Of_Grid_1 += Grid_Value_1;
+            }
+            
+            System.out.println("\n" + "Grid Name : " + Total_KPI_Name_1 + "; Total Value : " + Sum_Of_Grid_1);
+            
+            double difference_1 = (Total_KPI_Value_1 - Sum_Of_Grid_1);
+            
+            if(Total_KPI_Value_1 == Sum_Of_Grid_1)
+            {
+            	System.out.println("\n" + "The KPI value are matched to the Grid Total values");
+            }
+            else
+            {
+            	System.out.println("\n" + "The difference between the KPI values and the total Grid values = " + difference_1);
+            }
+            
+          //------------------------------Total KPI & Grid 2---------------------------------//
+            
+            String Total_KPI_Name_2 = driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[2]/div/div/div[2]/div/div[1]")).getAttribute("title");
+			double Total_KPI_Value_2 = Double.parseDouble(driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[2]/div/div/div[2]/div/div[2]")).getAttribute("title").replaceAll("[^\\d.]", ""));
+			
+			System.out.println("\n" + "KPI Name : " + Total_KPI_Name_2 + "; Value" + " = " + Total_KPI_Value_2);
+						
+            List<WebElement> Grid_List_2 = driver.findElements(By.xpath("//*[@id='worldmap']/div/div/div/div/div[3]/div[2]/div[1]"));
+            double Sum_Of_Grid_2 = 0;
+            for (int i=0; i < Grid_List_2.size(); i++ )
+            {
+            	double Grid_Value_2 = Double.parseDouble(Grid_List_2.get(i).getAttribute("title").replaceAll("[^\\d.]", ""));
+            	Sum_Of_Grid_2 += Grid_Value_2;
+            }
+            
+            System.out.println("\n" + "Grid Name : " + Total_KPI_Name_2 + "; Total Value : " + Sum_Of_Grid_2);
+                                    
+            double difference_2 = (Total_KPI_Value_2 - Sum_Of_Grid_2);
+            
+            if(Total_KPI_Value_2 == Sum_Of_Grid_2)
+            {
+            	System.out.println("\n" + "The KPI value are matched to the Grid Total values");
+            }
+            else
+            {
+            	System.out.println("\n" + "The difference between the KPI values and the total Grid values = " + difference_2);
+            }                    
+		}
+		catch (Exception ex)
+        {
+        	System.out.println("\n" + "Tactics_DrillDown_Data_Verify : " + ex.getMessage());
+        }
+	}
 		
 	public void Trends_DrillDown() 
 	{
