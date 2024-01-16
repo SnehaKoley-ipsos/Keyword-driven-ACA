@@ -112,7 +112,7 @@ public class ACA_Optimize_Module {
 			{
 				Thread.sleep(500);				
 				Random rnd = new Random();
-                int Random_Value = rnd.nextInt(3);
+                int Random_Value = rnd.nextInt(1,3);
                 Thread.sleep(500);
 				String Opt_Filter_1 = "/html/body/div/div/div/div/div/div/div/div/div/div/div/ol/li/ol/li[";
 				String Opt_Filter_2 = "]/span/label";
@@ -298,56 +298,47 @@ public class ACA_Optimize_Module {
 		}
 		catch (Exception ex)
         {
-        	System.out.println("\n" + "Trends_DrillDown : " + ex.getMessage());
+        	System.out.println("\n" + "Optimize_DrillDown : " + ex.getMessage());
         }
 	}
 	
-	public void Trends_Export()
+	public void Optimize_Export()
 	{
 		try
 		{
-			int Trends_Export_Path_Count = driver.findElements(By.xpath("//*[@class='  btn-group']")).size();
+			int Optimize_Export_Path_Count = driver.findElements(By.xpath("//*[@class='  btn-group']")).size();
 			
-			if(Trends_Export_Path_Count != 0)
+			if(Optimize_Export_Path_Count != 0)
 			{
 				WebElement export = driver.findElement(By.xpath("//*[@class='  btn-group']"));
 				export.click();
 				Thread.sleep(1000);
 				
-				WebElement excel = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/button[1]"));
+				WebElement excel = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/button[1]"));
 				excel.click();
 				Thread.sleep(8000);
 				
-				//WebDriverWait wait = new WebDriverWait(driver, 10);
-                //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
-                System.out.println("\n" + "Trends_Export : Excel Executed");
+				System.out.println("\n" + "Optimize_Export : Excel Executed");
                 
          //-----------------------------------------------------------------------------------------------------------------------------------------//
-                
-                //WebElement exportAgain = driver.findElement(By.xpath("//*[@class=' wd-60 btn-group']"));
-				//export.click();
-				//Thread.sleep(1000);
-                
+                                
                 export.click();
 				Thread.sleep(1000);
 				
-				WebElement csv = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/button[2]"));
+				WebElement csv = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/button[2]"));
 				csv.click();
 				Thread.sleep(5000);
 				
-				System.out.println("\n" + "Trends_Export : CSV Executed");
-				
-                //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
-                //System.out.println("\n" + "Trends_Export : CSV Executed");
+				System.out.println("\n" + "Optimize_Export : CSV Executed");				
 			}
 		}
 		catch (Exception ex)
         {
-        	System.out.println("\n" + "Trends_Export : " + ex.getMessage());
+        	System.out.println("\n" + "Optimize_Export : " + ex.getMessage());
         }		
 	}
 	
-	public void Trends_Add_Column()
+	public void Optimize_Add_Column()
 	{
 		try 
 		{
@@ -356,18 +347,18 @@ public class ACA_Optimize_Module {
 //            System.out.println("\n" + "Selected Module : " + b);
 //            Thread.sleep(5000);
 			
-			int Trends_Add_Column_Path_Count = driver.findElements(By.xpath("//*[@class='display-inline-block']")).size();
+			int Optimize_Add_Column_Path_Count = driver.findElements(By.xpath("//*[@class='display-inline-block']")).size();
 			Thread.sleep(500);
 			
-			if (Trends_Add_Column_Path_Count != 0)
+			if (Optimize_Add_Column_Path_Count != 0)
 			{
 				WebElement Add_Column = driver.findElement(By.xpath("//*[@class='display-inline-block']"));
 				Add_Column.click();
 				Thread.sleep(1000);
 				
-				int Total_Add_Column_Items = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[5]/div/div[2]/div/div")).size();
+				//int Total_Add_Column_Items = driver.findElements(By.xpath("//*[@class='v-center fs-11 txt-left']")).size();
 				
-				String Add_Column_Item_Path_1 = "//*[@id='main']/div/div/div/div/div/div/div/div/div[5]/div/div[2]/div/div[";
+				String Add_Column_Item_Path_1 = "//*[@id='main']/div/div/div/div/div/div/div/div/div/div/div/div/div/div[5]/div/div[";
 				String Add_Column_Item_Path_2 = "]";
 				
 				String Add_Column_Item_Path = (Add_Column_Item_Path_1 + 1 + Add_Column_Item_Path_2);
@@ -376,11 +367,11 @@ public class ACA_Optimize_Module {
                 String Add_Column_Item_Name_1 = Add_Column_Item_Main_Path.getText();
                 Thread.sleep(5000);
                 
-                System.out.println("\n" + "Trends_Add_Column : " + Add_Column_Item_Name_1);
+                System.out.println("\n" + "Optimize_Add_Column : " + Add_Column_Item_Name_1);
                 
                 String Add_Column_Item_Name = Add_Column_Item_Name_1.toUpperCase();
                 
-                System.out.println("\n" + "Trends_Add_Column : " + Add_Column_Item_Name);
+                System.out.println("\n" + "Optimize_Add_Column : " + Add_Column_Item_Name);
                 
                 List<WebElement> Total_Grid_Name_Path_List = driver.findElements(By.xpath("//*[@class='cursor-pointer ov-hidden white-sp-nowrap text-ov-ellipsis']"));
                 
@@ -388,7 +379,7 @@ public class ACA_Optimize_Module {
                 {
                 	if(!Total_Grid_Name_Path_List.get(i).getText().equals(Add_Column_Item_Name))
                 	{                		
-                		System.out.println("\n" + "Trends_Add_Column : Add Column and Grid verify successful");
+                		System.out.println("\n" + "Optimize_Add_Column : Add Column and Grid verify successful");
                 		break;
                 	}
                 }
@@ -396,8 +387,108 @@ public class ACA_Optimize_Module {
 		}
 		catch (Exception ex)
         {
-        	System.out.println("\n" + "Trends_Add_Column : " + ex.getMessage());
+        	System.out.println("\n" + "Optimize_Add_Column : " + ex.getMessage());
         }
+	}
+	
+	public void Optimize_Simulation_Job()
+	{
+		try
+		{
+			WebElement Simulate = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[1]"));
+			Simulate.click();
+			Thread.sleep(2000);			
+			
+			New_Scenario_Name = ACA_Activate_Global_Functions.Auto_Generate_New_Scenario_Name();            
+
+            Thread.sleep(500);
+            driver.findElement(By.xpath("//*[@class='hide-input fs-11']")).clear();
+            driver.findElement(By.xpath("//*[@class='hide-input fs-11']")).sendKeys(New_Scenario_Name);		//Typing On New Name
+            Thread.sleep(1000);
+            
+            WebElement  Run_Simulation = driver.findElement(By.xpath("//*[@class='v-center pd-t-1 btn-grey2 bo-c-lite-grey ht-25 pd-b-2 txt-center pd-r-5 pd-l-5 fs-11 cursor-pointer mg-r-5']"));
+            Run_Simulation.click();
+			Thread.sleep(2000);
+			
+			System.out.println("\n" + "Optimize_Simulation_Job : Executed");
+			
+			WebDriverWait wait = new WebDriverWait(driver, 500);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));			
+		}
+		catch (Exception ex)
+        {
+        	System.out.println("\n" + "Optimize_Simulation_Job : " + ex.getMessage());
+        }		
+	}
+	
+	public void Optimize_Open_Job_Notification_Panel()
+	{
+		try
+		{
+			int Opt_Job = driver.findElements(By.cssSelector("header material-icons selected ")).size();
+
+            if (Opt_Job == 0)
+            {
+                driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/nav/div/div/span/i[1]")).click();
+                Thread.sleep(2000);
+            }
+
+            int Opt_Job_List = driver.findElements(By.xpath("//div[starts-with(@class, 'batch-jobs') and contains(@style, 'display: block;')]")).size();
+
+            if (Opt_Job_List == 0)
+            {
+                driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/nav/div/div/span/i[1]")).click();
+                Thread.sleep(2000);
+            }
+
+            Thread.sleep(5000);
+            WebDriverWait wait = new WebDriverWait(driver, 500);
+            Boolean element = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@class='material-icons rotate running-status ']")));
+		}
+		catch (Exception ex)
+        {
+        	System.out.println("\n" + "Optimize_Open_Job_Notification_Panel : " + ex.getMessage());
+        }		
+	}
+	
+	public void Optimize_View_Result_for_Complete_Job()
+	{
+		try
+		{
+			Thread.sleep(1000);
+            driver.findElement(By.xpath("//*[@id='batchwindow_321']/ul/li[1]/div/div/span[1]")).click();       //Click On Opt Job View Result from notification icon
+            Thread.sleep(1000);
+
+            WebDriverWait wait = new WebDriverWait(driver, 500);
+            Boolean element = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
+            Thread.sleep(2000);
+
+            //Opt_Job_KPI_Value = driver.FindElement(By.XPath("/html/body/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/div[1]/div/div[1]")).Text.ToString();
+		}
+		catch (Exception ex)
+        {
+        	System.out.println("\n" + "Optimize_View_Result_for_Complete_Job : " + ex.getMessage());
+        }		
+	}
+	
+	public void Optimize_Job_Adapt_These_Changes()
+	{
+		try
+		{
+			Thread.sleep(1000);
+            driver.findElement(By.xpath("//*[@class='btn-small btn-blue-selected']")).click();       //Click On Opt Job Adapt these changes
+            Thread.sleep(1000);
+
+            WebDriverWait wait = new WebDriverWait(driver, 500);
+            Boolean element = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
+            Thread.sleep(2000);
+
+            //Opt_Job_KPI_Value = driver.FindElement(By.XPath("/html/body/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/div[1]/div/div[1]")).Text.ToString();
+		}
+		catch (Exception ex)
+        {
+        	System.out.println("\n" + "Optimize_Job_Adapt_These_Changes : " + ex.getMessage());
+        }		
 	}
 	
 	

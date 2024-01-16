@@ -144,6 +144,32 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 			{
 				Module_For_Optimize.Optimize_DrillDown();
 			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Add_Column"))
+			{
+				Module_For_Optimize.Optimize_Add_Column();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Export"))
+			{
+				Module_For_Optimize.Optimize_Export();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Simulation_Job"))
+			{
+				Module_For_Optimize.Optimize_Simulation_Job();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Open_Job_Notification_Panel"))
+			{
+				Module_For_Optimize.Optimize_Open_Job_Notification_Panel();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_View_Result_for_Complete_Job"))
+			{
+				Module_For_Optimize.Optimize_View_Result_for_Complete_Job();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Job_Adapt_These_Changes"))
+			{
+				Module_For_Optimize.Optimize_Job_Adapt_These_Changes();
+			}
+			
+			
 			
 			
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Close_Browser"))
