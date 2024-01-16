@@ -1,4 +1,4 @@
-package Keyword_Driven_Framework_For_ACA.Keyword_Driven_Framework_For_ACA;
+package ACA_Web_Driver;
 
 
 import org.openqa.selenium.WebDriver;
@@ -14,7 +14,7 @@ public class ACA_Activate_Get_Driver {
 	{
 	    if (driver == null)
 	    {
-	    	System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");
+	    	System.setProperty("webdriver.chrome.driver","C:\\Users\\Miriyala.Yamini\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 	    	driver = new ChromeDriver();
 	    	
 //	    	System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver.exe");

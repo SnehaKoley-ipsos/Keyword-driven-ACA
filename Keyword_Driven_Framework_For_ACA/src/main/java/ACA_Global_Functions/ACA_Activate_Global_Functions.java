@@ -1,4 +1,4 @@
-package Keyword_Driven_Framework_For_ACA.Keyword_Driven_Framework_For_ACA;
+package ACA_Global_Functions;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,6 +6,8 @@ import java.util.Random;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+
+import ACA_Web_Driver.ACA_Activate_Get_Driver;
 
 public class ACA_Activate_Global_Functions {
 	
