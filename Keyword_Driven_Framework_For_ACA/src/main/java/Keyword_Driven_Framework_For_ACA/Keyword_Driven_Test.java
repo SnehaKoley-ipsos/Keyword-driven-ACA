@@ -14,6 +14,7 @@ import ACA_Common_Test_Cases.ACA_Common_Test_Cases;
 import ACA_Drivers_Module.ACA_Drivers_Module;
 import ACA_Instruction_Data_From_Excel_WB.ACA_Activate_Instruction_Data_From_Excel;
 import ACA_Log_In_Part.ACA_Activate_Login;
+import ACA_Optimize_Module.ACA_Optimize_Module;
 import ACA_Tactics_Module.ACA_Tactics_Module;
 import ACA_Trends_Module.ACA_Trends_Module;
 
@@ -40,25 +41,25 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 		A_LogIn.Enter_User_Id();
 		A_LogIn.Enter_User_Password();
 		A_LogIn.Search_On_Tenant();
-		
+		A_LogIn.Select_On_App();
 		
 		for (int i=0; i< rid.read_Excel_Instruction_Data().size(); i++) 
-		{			
+		{
 			//System.out.println("\n" + rid.read_Excel_Instruction_Data().get(i).toString());
 			
 			ACA_Tactics_Module Module_For_Tactics = new ACA_Tactics_Module();
 			ACA_Drivers_Module Module_For_Drivers = new ACA_Drivers_Module();
 			ACA_Trends_Module Module_For_Trends = new ACA_Trends_Module();
-			//ACA_Optimize_Module Module_For_Optimize = new ACA_Optimize_Module();
+			ACA_Optimize_Module Module_For_Optimize = new ACA_Optimize_Module();
 			ACA_Common_Test_Cases For_Common_TC = new ACA_Common_Test_Cases();
 			
 			
 			
-			if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Select_On_App")) 
-			{
-				A_LogIn.Select_On_App();
-			}
-			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Tactics_Filter_Scope_Select_DeSelect"))
+//			if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Select_On_App")) 
+//			{
+//				A_LogIn.Select_On_App();
+//			}
+			if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Tactics_Filter_Scope_Select_DeSelect"))
 			{
 				Module_For_Tactics.Tactics_Filter_Scope_Select_DeSelect();
 			}
@@ -126,14 +127,68 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 			{
 				Module_For_Trends.Trends_Filter_Scope_Select_DeSelect();
 			}
-//			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Create_A_New_Scenario"))
-//			{
-//				Module_For_Optimize.Create_A_New_Scenario();
-//			}
-//			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Default_Save_Scenario"))
-//			{
-//				Module_For_Optimize.Default_Save_Scenario();
-//			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Create_A_New_Scenario"))
+			{
+				Module_For_Optimize.Create_A_New_Scenario();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Default_Save_Scenario"))
+			{
+				Module_For_Optimize.Default_Save_Scenario();
+			}			
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Filter_Scope_Select_DeSelect"))
+			{
+				Module_For_Optimize.Optimize_Filter_Scope_Select_DeSelect();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_DrillDown"))
+			{
+				Module_For_Optimize.Optimize_DrillDown();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Add_Column"))
+			{
+				Module_For_Optimize.Optimize_Add_Column();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Export"))
+			{
+				Module_For_Optimize.Optimize_Export();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Simulation_Job"))
+			{
+				Module_For_Optimize.Optimize_Simulation_Job();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Flat_Opt_Job"))
+			{
+				Module_For_Optimize.Optimize_Flat_Opt_Job();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Spend_0_Opt_Job"))
+			{
+				Module_For_Optimize.Optimize_Spend_0_Opt_Job();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Spend_0_Simulation_Job"))
+			{
+				Module_For_Optimize.Optimize_Spend_0_Simulation_Job();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Delete_Scenario"))
+			{
+				Module_For_Optimize.Optimize_Delete_Scenario();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Adjust_All_By_Pct_Simulation_Job"))
+			{
+				Module_For_Optimize.Optimize_Adjust_All_By_Pct_Simulation_Job();
+			}
+			
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Open_Job_Notification_Panel"))
+			{
+				Module_For_Optimize.Optimize_Open_Job_Notification_Panel();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_View_Result_for_Complete_Job"))
+			{
+				Module_For_Optimize.Optimize_View_Result_for_Complete_Job();
+			}
+			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Optimize_Job_Adapt_These_Changes"))
+			{
+				Module_For_Optimize.Optimize_Job_Adapt_These_Changes();
+			}
+			
 			
 			
 			else if(rid.read_Excel_Instruction_Data().get(i).toString().equals("Close_Browser"))

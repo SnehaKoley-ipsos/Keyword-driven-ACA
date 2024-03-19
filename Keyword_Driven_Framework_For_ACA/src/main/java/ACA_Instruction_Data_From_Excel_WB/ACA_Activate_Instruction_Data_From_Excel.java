@@ -15,7 +15,7 @@ public class ACA_Activate_Instruction_Data_From_Excel {
 
 	public static ArrayList<String> read_Excel_Instruction_Data() throws IOException {
 		
-		FileInputStream fis = new FileInputStream("C:\\Users\\Miriyala.Yamini\\Documents\\GitHub\\keyword_driven_framework_for_aca\\Instruction_Data.xlsx");
+		FileInputStream fis = new FileInputStream("C:\\QA_Testing_Doc\\Keyword_Driven_Framework_For_ACA\\Instruction_Data.xlsx");
 		XSSFWorkbook wb = new XSSFWorkbook(fis);
 		XSSFSheet sheet = wb.getSheetAt(0);
 		

@@ -22,6 +22,8 @@ public class ACA_Common_Test_Cases {
 	String Drilldown_Grid_Item_Path_1 = "/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[";
     String Drilldown_Grid_Item_Path_2 = "]/div/div[1]/div/div";
     String Drilldown_Grid_Item_Path_3 = "]/div/div[2]/div[2]/div[1]";
+    
+    String Selected_Module = driver.findElement(By.xpath("//*[@class='selected']")).getText();
 	
 	
 	public void Navigate_To_Tab() throws Throwable
@@ -129,20 +131,23 @@ public class ACA_Common_Test_Cases {
         }
     }
 	
+	
+	String Module_Name = "OPTIMIZE";
+	
 	public void Filter_Save_Icon()
     {
         try
         {
-//        	if (FrameworkConstants.moduleName == "OPTIMIZE")
-//            {
-//        		driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/i[2]")).click();		//For OPTIMIZE Tab
-//            }
-//        	else
-//            {
-//        		driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/i[2]")).click();		//For TACTICS Tab
-//            }
+        	if (Selected_Module.equals(Module_Name))
+            {
+        		driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/i[2]")).click();		//For OPTIMIZE Tab
+            }
+        	else
+            {
+        		driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/i[2]")).click();		//For Others Tab
+            }
         	
-        	driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/i[2]")).click();		//For TACTICS & DRIVERS Tab
+        	//driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/i[2]")).click();		//For TACTICS & DRIVERS Tab
             Thread.sleep(500);
             WebDriverWait wait = new WebDriverWait(driver, 500);
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
@@ -209,7 +214,7 @@ public class ACA_Common_Test_Cases {
 //            	driver.findElement(By.xpath("//*[@id='main']/div/div/div/div[2]/div/div[1]/i[1]")).click();		//Click For the Edit button fFor Others Tab
 //            }
             
-            driver.findElement(By.xpath("//*[@id='main']/div/div/div/div[2]/div/div[1]/i[1]")).click();		//Click For the Edit button for Others Tab
+            driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div[1]/i[1]")).click();		//Click For the Edit button for Others Tab
             Thread.sleep(500);
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
             //Thread.sleep(500);

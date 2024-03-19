@@ -14,7 +14,7 @@ public class ACA_Activate_Get_Driver {
 	{
 	    if (driver == null)
 	    {
-	    	System.setProperty("webdriver.chrome.driver","C:\\Users\\Miriyala.Yamini\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+	    	System.setProperty("webdriver.chrome.driver","C:\\QA_Testing_Doc\\Keyword_Driven_Framework_For_ACA\\Keyword_Driven_Framework_For_ACA\\src\\test\\chromedriver.exe");
 	    	driver = new ChromeDriver();
 	    	
 //	    	System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver.exe");

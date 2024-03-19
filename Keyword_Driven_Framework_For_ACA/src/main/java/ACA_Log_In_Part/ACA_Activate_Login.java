@@ -143,7 +143,7 @@ public class ACA_Activate_Login {
         
 		String instance= ACA_Activate_Input_Data.appselection;
 
-        List<WebElement> list = driver.findElements(By.tagName("a"));
+        List<WebElement> list = driver.findElements(By.xpath("//*[@class='whitespace-nowrap']"));
         for(int j=0; j< list.size(); j++)
         {
             if(list.get(j).getText().equals(instance))
