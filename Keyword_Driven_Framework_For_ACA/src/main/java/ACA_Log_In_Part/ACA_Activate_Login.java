@@ -13,10 +13,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ACA_Input_Section.ACA_Activate_Input_Data;
+import ACA_Instruction_Data_From_Excel_WB.ACA_Activate_Instruction_Data_From_Excel;
 import ACA_Web_Driver.ACA_Activate_Get_Driver;
 
 
-public class ACA_Activate_Login {
+public class ACA_Activate_Login extends ACA_Activate_Instruction_Data_From_Excel {
 	
 	static WebDriver driver;	
 	
@@ -33,7 +34,8 @@ public class ACA_Activate_Login {
 	public void Navigate_To_URL() throws Throwable
 	{
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.get(ACA_Activate_Input_Data.URL);
+		driver.get(cellValue_1);
+		//driver.get(ACA_Activate_Input_Data.URL);
 		Thread.sleep(5000);
 	}
 	
@@ -44,10 +46,10 @@ public class ACA_Activate_Login {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='cantAccessAccount']")));
 		Thread.sleep(5000);
 		
-		driver.findElement(By.id("i0116")).sendKeys(ACA_Activate_Input_Data.username);	//	Provide on UserName 
+		driver.findElement(By.id("i0116")).sendKeys(cellValue_2);	//	Provide on UserName 
 		Thread.sleep(1000);
 		
-		System.out.println("\n" + "Username is : " + ACA_Activate_Input_Data.username);
+		System.out.println("\n" + "Username is : " + cellValue_2);
 
 		driver.findElement(By.id("idSIButton9")).click();							//	Click on Next Button
         Thread.sleep(5000);
@@ -59,7 +61,7 @@ public class ACA_Activate_Login {
 	
 	public void Enter_User_Password() throws Throwable
 	{		
-		driver.findElement(By.id("i0118")).sendKeys(ACA_Activate_Input_Data.password);
+		driver.findElement(By.id("i0118")).sendKeys(cellValue_3);
 		Thread.sleep(500);
 		
 		System.out.println("\n" + "Password is : ********");
@@ -109,14 +111,14 @@ public class ACA_Activate_Login {
 	
 	public void Search_On_Tenant() throws Throwable
 	{
-		driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/input")).sendKeys(ACA_Activate_Input_Data.tenantName);
+		driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/input")).sendKeys(cellValue_4);
         Thread.sleep(2000);
 
         List<WebElement> listA  = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/a/div/div/div"));
 
 		for (int i= 0; i<listA.size(); i++) {
 
-			if(listA.get(i).getText().equalsIgnoreCase(ACA_Activate_Input_Data.tenantName)) 
+			if(listA.get(i).getText().equalsIgnoreCase(cellValue_4)) 
 			{   
 				System.out.println("\n" + "Search_On_Tenant : " + listA.get(i).getText());
 				listA.get(i).click();
@@ -141,7 +143,7 @@ public class ACA_Activate_Login {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='user']")));
         Thread.sleep(2000);
         
-		String instance= ACA_Activate_Input_Data.appselection;
+		String instance= cellValue_5;
 
         List<WebElement> list = driver.findElements(By.xpath("//*[@class='whitespace-nowrap']"));
         for(int j=0; j< list.size(); j++)
