@@ -26,10 +26,10 @@ public class ACA_Common_Test_Cases {
     String Selected_Module = driver.findElement(By.xpath("//*[@class='selected']")).getText();
 	
 	
-	public void Navigate_To_Tab() throws Throwable
-	{
-		try 
-		{            
+//	public void Navigate_To_Tab() throws Throwable
+//	{
+//		try 
+//		{            
 //            if (moduleName == "")
 //            {
 //                int moduleCount = driver.FindElements(By.XPath("//*[@class='outer']")).Count();
@@ -67,28 +67,28 @@ public class ACA_Common_Test_Cases {
 //                Thread.Sleep(500);
 //            }			
 			
-			if (ACA_Activate_Input_Data.moduleName_2 == "Drivers")
-			{
-				Thread.sleep(1000);
-				List<WebElement> listA  = driver.findElements(By.xpath("//*[@class='outer']"));
-				for (int i= 0; i<listA.size(); i++)
-	        	{
-	    			if(listA.get(i).getText().equalsIgnoreCase(ACA_Activate_Input_Data.moduleName_2)) 
-	    			{   
-	    				System.out.println("\n" + "Module is : " + listA.get(i).getText());
-	    				listA.get(i).click();
-	    				Thread.sleep(1000);
-	    			}
-	        	}
-			}			
-			WebDriverWait wait = new WebDriverWait(driver, 1000);
-            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
-		}
-		catch (Exception ex)
-		{
-			System.out.println("\n" + "Navigate_To_Tab : " + ex.getMessage());
-		}
-	}
+//			if (ACA_Activate_Input_Data.moduleName_2 == "Drivers")
+//			{
+//				Thread.sleep(1000);
+//				List<WebElement> listA  = driver.findElements(By.xpath("//*[@class='outer']"));
+//				for (int i= 0; i<listA.size(); i++)
+//	        	{
+//	    			if(listA.get(i).getText().equalsIgnoreCase(ACA_Activate_Input_Data.moduleName_2)) 
+//	    			{   
+//	    				System.out.println("\n" + "Module is : " + listA.get(i).getText());
+//	    				listA.get(i).click();
+//	    				Thread.sleep(1000);
+//	    			}
+//	        	}
+//			}			
+//			WebDriverWait wait = new WebDriverWait(driver, 1000);
+//            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
+//		}
+//		catch (Exception ex)
+//		{
+//			System.out.println("\n" + "Navigate_To_Tab : " + ex.getMessage());
+//		}
+//	}
 	
 	public void Filter_Apply_Button() throws Throwable
     {

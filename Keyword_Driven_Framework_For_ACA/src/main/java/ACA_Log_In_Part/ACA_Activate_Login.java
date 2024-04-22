@@ -111,8 +111,13 @@ public class ACA_Activate_Login extends ACA_Activate_Instruction_Data_From_Excel
 	
 	public void Search_On_Tenant() throws Throwable
 	{
-		driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/input")).sendKeys(cellValue_4);
+		Thread.sleep(1000);
+		WebDriverWait wait = new WebDriverWait(driver, 5000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='user']")));
         Thread.sleep(2000);
+        
+		driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/input")).sendKeys(cellValue_4);
+        Thread.sleep(500);
 
         List<WebElement> listA  = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/a/div/div/div"));
 
@@ -130,16 +135,16 @@ public class ACA_Activate_Login extends ACA_Activate_Instruction_Data_From_Excel
 		driver.switchTo().window(tabs.get(1));      // To switch to the new window tab
 
         Thread.sleep(9000);
-        WebDriverWait wait = new WebDriverWait(driver, 5000);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='user']")));
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
+        WebDriverWait wait_1 = new WebDriverWait(driver, 3000);
+        wait_1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='user']")));
+        wait_1.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
         Thread.sleep(2000);
 	}
 
 	public void Select_On_App() throws InterruptedException
 	{
 		Thread.sleep(1000);
-		WebDriverWait wait = new WebDriverWait(driver, 10000);
+		WebDriverWait wait = new WebDriverWait(driver, 5000);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='user']")));
         Thread.sleep(2000);
         

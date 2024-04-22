@@ -47,8 +47,15 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 		A_LogIn.Enter_User_Id();
 		A_LogIn.Enter_User_Password();
 		A_LogIn.Search_On_Tenant();
-		A_LogIn.Select_On_App();
-		
+		if(cellValue_5 == "")
+        {
+        	System.out.println("\n" + "Seleted on Stage Instance");
+        }
+		else
+		{
+			A_LogIn.Select_On_App();
+		}
+				
 		for (int i=0; i< rid.Read_Instruction_Data_From_Excel().size(); i++) 
 		{
 			//System.out.println("\n" + rid.Read_Instruction_Data_From_Excel().get(i).toString());
