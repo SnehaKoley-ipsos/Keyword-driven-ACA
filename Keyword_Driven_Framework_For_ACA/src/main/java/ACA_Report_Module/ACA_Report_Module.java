@@ -32,7 +32,7 @@ public class ACA_Report_Module {
 	private Object String;
 	
 	
-	public void Go_To_Report_Module() throws Throwable
+	public void Navigate_to_Report_Module() throws Throwable
 	{
     	try
     	{
@@ -51,6 +51,38 @@ public class ACA_Report_Module {
     		wait_1.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
     		
     		ACA_Activate_Global_Functions.Take_Snap_Shot();
+    	}
+    	catch (Exception ex)
+		{
+			System.out.println("\n" + "Navigate_to_Report_Module : " + ex.getMessage());
+		}    	
+	}
+	
+	public void Navigate_to_All_Individual_Report() throws Throwable
+	{
+    	try
+    	{
+    		Thread.sleep(1000);
+    		int All_Report_Count  = driver.findElements(By.xpath("//*[@class='pd-5 wd-pct-100']")).size();
+    		String Navigate_to_Report_Part_1 = "//*[@id='main']/div/div/div[1]/div/div/div/div/div[";
+    		String Navigate_to_Report_Part_2 = "]";
+    		
+    		for(int i = 1; i < All_Report_Count+1; i++)
+    		{
+    			String Navigate_to_All_Report = (Navigate_to_Report_Part_1 + i + Navigate_to_Report_Part_2);
+                WebElement Navigate_to_Every_Report = driver.findElement(By.xpath(Navigate_to_All_Report));
+                String Navigate_to_All_Report_Name = Navigate_to_Every_Report.getText();
+                //Thread.sleep(500);
+                driver.findElement(By.xpath(Navigate_to_All_Report)).click();
+                //Thread.sleep(500);
+                
+                WebDriverWait wait_1 = new WebDriverWait(driver, 200);
+        		wait_1.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
+        		
+        		ACA_Activate_Global_Functions.Take_Snap_Shot();
+                
+                System.out.println("\n" + "Navigate_to_All_Individual_Report : " + Navigate_to_All_Report_Name);
+    		}    		
     	}
     	catch (Exception ex)
 		{

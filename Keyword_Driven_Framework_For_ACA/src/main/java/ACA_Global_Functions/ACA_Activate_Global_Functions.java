@@ -10,6 +10,9 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
+
+import com.aventstack.extentreports.ExtentTest;
+
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -34,10 +37,22 @@ public class ACA_Activate_Global_Functions {
         return New_Scenario_Name;
     }
 	
+	public String getScreenshot (String sourcePath,WebDriver driver) throws IOException{
+//	    DateFormat dateformate = new SimpleDateFormat("dd-mm-yy-hh-mm-ss");
+//	    Date date = new Date();
+//	    String currentdate = dateformate.format(date);
+	    TakesScreenshot ts=(TakesScreenshot)driver;
+	    File source=ts.getScreenshotAs(OutputType.FILE);
+	    String location =sourcePath;
+	    File screenshotLocation = new File (location);
+	    FileUtils.copyFile(source, screenshotLocation);
+	    return location;
+	}
 	public static void Take_Snap_Shot()
     {
 		 // Define custom directory for screenshots
-        String customPath = "C:\\QA_Testing_Doc\\Keyword_Driven_Framework_For_ACA\\Take_Snap_Shot\\";
+        //String customPath = "C:\\QA_Testing_Doc\\Keyword_Driven_Framework_For_ACA\\Take_Snap_Shot\\";
+        String customPath = System.getProperty("user.dir")+"\\test-output\\Screenshots\\";
 
         // Capture screenshot
         File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -68,18 +83,7 @@ public class ACA_Activate_Global_Functions {
         catch (Exception e)
         {
             e.printStackTrace();
-        }
-       
-    }
-	
-//	public static String takeScreenshotAtEndOfTest() throws IOException {
-//        String dateName = new SimpleDateFormat("_HH:mm:ss_dd-MMM-yyyy").format(new Date());
-//        TakesScreenshot ts = (TakesScreenshot)driver;
-//        File source = ts.getScreenshotAs(OutputType.FILE);
-//        String destination = System.getProperty("C:\\QA_Testing_Doc\\Keyword_Driven_Framework_For_ACA\\Take_Snap_Shot\\") + dateName + ".JPG";
-//        File finalDestination = new File(destination);
-//        FileHandler.copy(source, finalDestination);
-//        return destination;
-//    }
-	
-}
+        }  
+    }	
+
+	}

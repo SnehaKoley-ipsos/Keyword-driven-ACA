@@ -17,12 +17,16 @@ import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
 import ACA_Common_Test_Cases.ACA_Common_Test_Cases;
 import ACA_Global_Functions.ACA_Activate_Global_Functions;
 import ACA_Web_Driver.ACA_Activate_Get_Driver;
 
 public class ACA_Optimize_Module {
 	
+	public static String path = System.getProperty("user.dir");
 	ACA_Activate_Global_Functions ACA_Activate_Global_Functions = new ACA_Activate_Global_Functions();
 	ACA_Common_Test_Cases For_Common_TC = new ACA_Common_Test_Cases();
 	static WebDriver driver = ACA_Activate_Get_Driver.getdriver();
@@ -33,9 +37,12 @@ public class ACA_Optimize_Module {
 	String Optimize_DrillDown_Grid_Item_Path_1 = "/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[";
     String Optimize_DrillDown_Grid_Item_Path_2 = "]/div/div[1]/div/div";
     String Optimize_DrillDown_Grid_Item_Path_3 = "]/div/div[2]/div[2]/div[1]";
+    String sourcePath="";
+//  String dateName = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss").format(new Date());
+//	String folderName = "ExtentReports "+dateName;
+	int OptScreenOpen;    
     
-    
-    public void Go_To_Optimize_Module() throws Throwable
+    public void Navigate_to_Optimize_Module(ExtentTest test, String folderName) throws Throwable
 	{
     	try 
     	{    		
@@ -45,23 +52,41 @@ public class ACA_Optimize_Module {
         	{
     			if(listA.get(i).getText().equalsIgnoreCase("OPTIMIZE")) 
     			{   
-    				System.out.println("\n" + "Module Name is : " + listA.get(i).getText());
+    				System.out.println("\n" + "Navigate_to_Optimize_Module - Module Name is : " + listA.get(i).getText());
     				listA.get(i).click();
     				Thread.sleep(500);
     			}
         	}
-    		WebDriverWait wait_1 = new WebDriverWait(driver, 200);
+    		WebDriverWait wait_1 = new WebDriverWait(driver, 10);
     		wait_1.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
-    		
-    		ACA_Activate_Global_Functions.Take_Snap_Shot();
+    					
+    		//---------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
+			OptScreenOpen = driver.findElements(By.xpath("//*[@class='flex-one fs-13 txt-lite-grey2 fw-550']")).size();
+			if(OptScreenOpen == 1)
+			{
+				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Navigate_to_Optimize_Module"+".png";
+				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				Thread.sleep(2000);
+				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				test.log(Status.INFO, "Navigate_to_Optimize_Module - Optimize Module is Open");
+				test.log(Status.PASS, "<br>"+ path);
+			}
+			else
+			{
+				test.fail("Navigate_to_Optimize_Module - Optimize Module is not open<br>"+ path);
+				//Assert.assertEquals(1, size);
+			}
+			//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
+			
+    		//ACA_Activate_Global_Functions.Take_Snap_Shot(sourcePath, test, driver);
     	}
     	catch (Exception ex)
 		{
-			System.out.println("\n" + "Go_To_Optimize_Module : " + ex.getMessage());
+			System.out.println("\n" + "Navigate_to_Optimize_Module : " + ex.getMessage());
 		}    	
 	}
     
-    public void Create_A_New_Scenario() throws Throwable
+    public void Create_A_New_Scenario(ExtentTest test, String folderName) throws Throwable
 	{
     	try
     	{    		
@@ -73,29 +98,88 @@ public class ACA_Optimize_Module {
     			{   
     				System.out.println("\n" + "Select on : " + listB.get(i).getText());
     				listB.get(i).click();
-    				Thread.sleep(2000);
+    				Thread.sleep(1000);
     			}
-        	}
+        	}    		
+    		Thread.sleep(500);
     		
-    		Thread.sleep(3000);
-    		List<WebElement> listC  = driver.findElements(By.xpath("//*[@class='btn-small btn-grey2']"));
-    		for (int i= 0; i<listC.size(); i++)
-        	{
-    			if(listC.get(i).getText().equalsIgnoreCase("Create")) 
-    			{
-    				System.out.println("\n" + "Select on : " + listC.get(i).getText());
-    				listC.get(i).click();
-    				Thread.sleep(500);
-    			}
-        	}
-    		WebDriverWait wait = new WebDriverWait(driver, 200);
-    		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
+    		//---------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
+			OptScreenOpen = driver.findElements(By.xpath("//*[@class='popup-model-header']")).size();
+			if(OptScreenOpen == 1)
+			{
+				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Create_A_New_Scenario"+".png";
+				System.out.println("\n" + sourcePath);
+				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				Thread.sleep(2000);
+				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				test.log(Status.INFO, "Create_A_New_Scenario is Open");
+				test.log(Status.PASS, "<br>"+ path);
+			}
+	    	else
+			{
+				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				test.fail("Create_A_New_Scenario is not open<br>"+ path1);
+				//Assert.assertEquals(1, size);
+			}
+			//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
+			
+    		//String path2 = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";
+    		//test.log(Status.PASS, "<br>"+ path2);
+			//test.log(Status.INFO, "Scenario is Open now..");
     	}
     	catch (Exception ex)
 		{
 			System.out.println("\n" + "Create_A_New_Scenario : " + ex.getMessage());
 		}
 	}
+    
+    public void Create_A_New_Scenario_PopUp_Create(ExtentTest test, String folderName) throws Throwable
+    {
+    	try 
+    	{
+    		List<WebElement> listC  = driver.findElements(By.xpath("//*[@class='btn-small btn-grey2']"));
+    		for (int i= 0; i<listC.size(); i++)
+        	{
+    			if(listC.get(i).getText().equalsIgnoreCase("Create")) 
+    			{
+    				System.out.println("\n" + "Create_A_New_Scenario_PopUp_Create : " + listC.get(i).getText());
+    				listC.get(i).click();
+    				Thread.sleep(500);
+    			}
+        	}
+    		Thread.sleep(500);
+    		WebDriverWait wait = new WebDriverWait(driver, 10);
+    		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
+    		
+    		//---------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
+    		Thread.sleep(1000);
+			OptScreenOpen = driver.findElements(By.xpath("//*[@class='btn-grey2 bo-c-lite-grey ln-ht-20 txt-center pd-r-5 pd-l-5 cursor-pointer fs-11']")).size();
+			if(OptScreenOpen == 1)
+			{
+				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Create_A_New_Scenario_PopUp_Create"+".png";
+				System.out.println("\n" + sourcePath);
+				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				Thread.sleep(2000);
+				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				test.log(Status.INFO, "Create_A_New_Scenario_PopUp_Create - Scenario is Open now");
+				test.log(Status.PASS, "<br>"+ path);
+			}
+			else
+			{
+				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				test.fail("Create_A_New_Scenario_PopUp_Create - Scenario is not open<br>"+ path1);
+				//Assert.assertEquals(1, size);
+			}
+			//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
+			
+    	}
+    	catch (Exception ex)
+		{
+			System.out.println("\n" + "Create_A_New_Scenario_PopUp_Create : " + ex.getMessage());
+		}
+    }
     
     public void Default_Save_Scenario() throws Throwable 
     {
@@ -1202,6 +1286,105 @@ public class ACA_Optimize_Module {
 		}
 	}
 	
+	public void Optimize_Thresholds(ExtentTest test, String folderName)
+	{
+		try
+		{
+			int Optimize_Thresholds_Path_Count = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[1]")).size();
+			Thread.sleep(500);
+			
+			if (Optimize_Thresholds_Path_Count != 0)
+			{
+				WebElement Thresholds = driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[1]"));
+				Thresholds.click();
+				Thread.sleep(3000);
+				
+				System.out.println("\n" + "Optimize_Thresholds : PopUp is Open");
+				
+				WebElement Thresholds_Minimum_Pct = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div[2]/div[2]/div[3]/input"));
+				WebElement Thresholds_Maximum_Pct = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div[2]/div[3]/div[3]/input"));
+				//WebElement Thresholds_Orange_Colour = driver.findElement(By.xpath("//*[@class='t-cell  bo-r-c-lighter-grey bo-b-c-lighter-grey  cursor-default threshold-background-orange']"));
+				//WebElement Thresholds_Green_Colour = driver.findElement(By.xpath("//*[@class='t-cell  bo-r-c-lighter-grey bo-b-c-lighter-grey  cursor-default threshold-background-green']"));
+				
+				Thresholds_Minimum_Pct.sendKeys("10");
+				Thread.sleep(1000);
+				
+				Thresholds_Maximum_Pct.sendKeys("80");
+				Thread.sleep(2000);
+				
+				WebElement Thresholds_Set_All = driver.findElement(By.xpath("//*[@class='btn-small btn-blue-selected ht-18 bo-radius-3']"));
+				Thresholds_Set_All.click();
+				Thread.sleep(3000);
+				
+				//---------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
+	    		Thread.sleep(2000);
+				OptScreenOpen = driver.findElements(By.xpath("//*[@class='fas fa-times mg-r-20 cursor-pointer']")).size();
+				if(OptScreenOpen == 1)
+				{
+					sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Thresholds"+".png";
+					String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					Thread.sleep(2000);
+					String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+					test.log(Status.INFO, "Optimize_Thresholds - PopUp is Open now");
+					test.log(Status.PASS, "<br>"+ path);
+				}
+				else
+				{
+					String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+					test.fail("Optimize_Thresholds - PopUp is not open<br>"+ path1);
+					//Assert.assertEquals(1, size);
+				}
+				//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
+				
+				//ACA_Activate_Global_Functions.Take_Snap_Shot();
+				Thread.sleep(1000);
+				
+				System.out.println("\n" + "Optimize_Thresholds : Clicked on Set All Button");
+				
+				WebElement Thresholds_Apply = driver.findElement(By.xpath("//*[@class='fas fa-check mg-r-5']"));
+				Thresholds_Apply.click();
+				Thread.sleep(2000);
+				
+				//---------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
+	    		Thread.sleep(2000);
+				OptScreenOpen = driver.findElements(By.xpath("//*[@class='btn-grey2 bo-c-lite-grey ln-ht-20 txt-center pd-r-5 pd-l-5 cursor-pointer fs-11']")).size();
+				if(OptScreenOpen == 1)
+				{
+					sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Thresholds_Applied"+".png";
+					String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					Thread.sleep(2000);
+					String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+					test.log(Status.INFO, "Optimize_Thresholds - Thresholds is Applied");
+					test.log(Status.PASS, "<br>"+ path);
+				}
+				else
+				{
+					String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+					test.fail("Optimize_Thresholds - Thresholds is not Applied<br>"+ path1);
+					//Assert.assertEquals(1, size);
+				}
+				//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
+				
+				
+				//ACA_Activate_Global_Functions.Take_Snap_Shot();
+				//Thread.sleep(1000);
+				
+				System.out.println("\n" + "Optimize_Thresholds : Clicked on Apply Button");
+			}
+			Thread.sleep(500);
+            WebDriverWait wait = new WebDriverWait(driver, 100);
+            Boolean element = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
+            Thread.sleep(3000);
+
+            //Opt_Job_KPI_Value = driver.FindElement(By.XPath("/html/body/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/div[1]/div/div[1]")).Text.ToString();
+		}
+		catch (Exception ex)
+        {
+        	System.out.println("\n" + "Optimize_Thresholds : " + ex.getMessage());
+        }		
+	}
 	
 	
 	

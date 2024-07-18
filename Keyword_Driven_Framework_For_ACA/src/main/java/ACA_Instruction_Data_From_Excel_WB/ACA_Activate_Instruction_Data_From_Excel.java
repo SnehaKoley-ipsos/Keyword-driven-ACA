@@ -52,7 +52,7 @@ public class ACA_Activate_Instruction_Data_From_Excel {
         cellValue_4 = cell_4.getStringCellValue();
         cellValue_5 = cell_5.getStringCellValue();
 		
-        System.out.println("Read_LogIn_Data_From_Excel: " + cellValue_1 + ", " + cellValue_2 + ", " + cellValue_3 + ", " + cellValue_4 + ", " + cellValue_5 );
+        //System.out.println("Read_LogIn_Data_From_Excel: " + cellValue_1 + ", " + cellValue_2 + ", " + cellValue_3 + ", " + cellValue_4 + ", " + cellValue_5 );
         
 //		Iterator<Row> row = sheet.rowIterator(); 
 //		row.next();
@@ -75,37 +75,7 @@ public class ACA_Activate_Instruction_Data_From_Excel {
 //		}
 		//System.out.println("Read_LogIn_Data_From_Excel: " + LogIn_Data);
 		
-		return cellValue_1;
-	}
-	
-	public static ArrayList<String> Read_Instances_List_Data_From_Excel() throws IOException {
-		
-		FileInputStream fis = new FileInputStream(path + "\\Excel_Data\\Instances_List_Data.xlsx");
-		XSSFWorkbook wb = new XSSFWorkbook(fis);
-		XSSFSheet sheet = wb.getSheetAt(0);
-		
-		Iterator<Row> row = sheet.rowIterator(); 
-		row.next();
-		
-		ArrayList <String> Instances_List_Data = new ArrayList<String>();
-		// Checking the next element availability using the reference variable row.
-		while(row.hasNext())
-		{
-			Row r = (Row)row.next();
-			int colNo = 2;
-			// Moving cursor to the cell by getting a cell number.
-			Cell c = r.getCell(colNo);
-			
-			if(c != null)
-			{
-				String data = c.getStringCellValue();
-				Instances_List_Data.add(data);
-				//Instances_List_Data.add(((Row)row.next()).getCell(colNo).getStringCellValue());
-			}
-		}
-		//System.out.println("Read_Instances_List_Data_From_Excel: " + Instances_List_Data);
-		
-		return Instances_List_Data;
+		return cellValue_1 + ", " + cellValue_2 + ", " + cellValue_3;
 	}
 
 	public static ArrayList<String> Read_Instruction_Data_From_Excel() throws IOException {
@@ -113,6 +83,7 @@ public class ACA_Activate_Instruction_Data_From_Excel {
 		FileInputStream fis = new FileInputStream(path + "\\Excel_Data\\Instruction_Data.xlsx");
 		XSSFWorkbook wb = new XSSFWorkbook(fis);
 		XSSFSheet sheet = wb.getSheetAt(0);
+		//String sheetName = wb.getSheetAt(0).getSheetName();
 		
 		//Row row = sheet.getRow(1);
 		//Cell cell = row.getCell(4);
@@ -142,7 +113,37 @@ public class ACA_Activate_Instruction_Data_From_Excel {
 		return Instruction_Data;
 	}
 	
+	public static ArrayList<String> Read_Instances_List_Data_From_Excel() throws IOException {
 	
+		FileInputStream fis = new FileInputStream(path + "\\Excel_Data\\ACAInstancesList.xlsx");
+		XSSFWorkbook wb = new XSSFWorkbook(fis);
+		XSSFSheet sheet = wb.getSheetAt(0);
+	
+		Iterator<Row> row = sheet.rowIterator(); 
+		row.next();
+	
+		ArrayList <String> Instances_List_Data = new ArrayList<String>();
+		while(row.hasNext())
+		{
+			Row r = (Row)row.next();
+			int colNo = 1;
+			// Moving cursor to the cell by getting a cell number.
+			Cell c = r.getCell(colNo);
+		
+			if(c != null)
+			{
+				String data = c.getStringCellValue();
+				Instances_List_Data.add(data);
+			}
+		}
+		for (int i = 0; i < Instances_List_Data.size(); i++)
+		{
+			String element = Instances_List_Data.get(i);
+			System.out.println(element);
+		}
+	
+		return Instances_List_Data;
+	}
 	
 	
 		
