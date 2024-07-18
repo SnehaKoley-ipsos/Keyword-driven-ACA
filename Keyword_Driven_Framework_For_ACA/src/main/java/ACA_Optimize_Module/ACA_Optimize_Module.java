@@ -19,6 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ACA_Common_Test_Cases.ACA_Common_Test_Cases;
 import ACA_Global_Functions.ACA_Activate_Global_Functions;
+import ACA_Tactics_Module.ACA_Tactics_Module_Path;
 import ACA_Web_Driver.ACA_Activate_Get_Driver;
 
 public class ACA_Optimize_Module {
@@ -30,6 +31,8 @@ public class ACA_Optimize_Module {
 	public String FilterScopeNewName;
 	private Object String;
 	
+	ACA_Optimize_Module_Path mp = new ACA_Optimize_Module_Path(driver);
+	
 	String Optimize_DrillDown_Grid_Item_Path_1 = "/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[";
     String Optimize_DrillDown_Grid_Item_Path_2 = "]/div/div[1]/div/div";
     String Optimize_DrillDown_Grid_Item_Path_3 = "]/div/div[2]/div[2]/div[1]";
@@ -40,7 +43,7 @@ public class ACA_Optimize_Module {
     	try 
     	{    		
     		Thread.sleep(1000);
-    		List<WebElement> listA  = driver.findElements(By.xpath("//*[@class='outer']"));
+    		List<WebElement> listA  = mp.get_OptModule_listA();
     		for (int i= 0; i<listA.size(); i++)
         	{
     			if(listA.get(i).getText().equalsIgnoreCase("OPTIMIZE")) 
@@ -66,7 +69,7 @@ public class ACA_Optimize_Module {
     	try
     	{    		
     		Thread.sleep(1000);
-    		List<WebElement> listB  = driver.findElements(By.xpath("//*[@class='mg-r-1']"));
+    		List<WebElement> listB  = mp.get_New_Sceanario_listB();
     		for (int i= 0; i<listB.size(); i++)
         	{
     			if(listB.get(i).getText().equalsIgnoreCase("Create A New Scenario")) 
@@ -78,7 +81,7 @@ public class ACA_Optimize_Module {
         	}
     		
     		Thread.sleep(3000);
-    		List<WebElement> listC  = driver.findElements(By.xpath("//*[@class='btn-small btn-grey2']"));
+    		List<WebElement> listC  = mp.get_New_Scenario_listC();
     		for (int i= 0; i<listC.size(); i++)
         	{
     			if(listC.get(i).getText().equalsIgnoreCase("Create")) 
@@ -102,7 +105,7 @@ public class ACA_Optimize_Module {
     	try
     	{
     		Thread.sleep(2000);
-    		List<WebElement> listA  = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']"));
+    		List<WebElement> listA  = mp.get_Def_Save_Scenario_listA();
     		for (int i= 0; i<listA.size(); i++)
         	{
     			if(listA.get(i).getText().equalsIgnoreCase("Save Scenario As")) 
@@ -332,11 +335,11 @@ public class ACA_Optimize_Module {
 			
 			if(Optimize_Export_Path_Count != 0)
 			{
-				WebElement export = driver.findElement(By.xpath("//*[@class='  btn-group']"));
+				WebElement export = mp.get_export();
 				export.click();
 				Thread.sleep(1000);
 				
-				WebElement excel = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/button[1]"));
+				WebElement excel = mp.get_excel();
 				excel.click();
 				Thread.sleep(8000);
 				
@@ -347,7 +350,7 @@ public class ACA_Optimize_Module {
                 export.click();
 				Thread.sleep(1000);
 				
-				WebElement csv = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/button[2]"));
+				WebElement csv = mp.get_csv();
 				csv.click();
 				Thread.sleep(5000);
 				
@@ -365,24 +368,25 @@ public class ACA_Optimize_Module {
 		try 
 		{
 			int Optimize_Add_Column_Path_Count = driver.findElements(By.xpath("//*[@class='display-inline-block']")).size();
-			Thread.sleep(500);
+			Thread.sleep(1000);
 			
 			if (Optimize_Add_Column_Path_Count != 0)
 			{
-				WebElement Add_Column = driver.findElement(By.xpath("//*[@class='display-inline-block']"));
+				WebElement Add_Column = mp.get_Add_Column();
 				Add_Column.click();
 				Thread.sleep(1000);
 				
 				//int Total_Add_Column_Items = driver.findElements(By.xpath("//*[@class='v-center fs-11 txt-left']")).size();
 				
-				String Add_Column_Item_Path_1 = "//*[@id='main']/div/div/div/div/div/div/div/div/div/div/div/div/div/div[5]/div/div[";
+				String Add_Column_Item_Path_1 = "//*[@id='main']/div/div/div/div/div/div/div/div/div/div/div/div/div/div[6]/div/div[";
 				String Add_Column_Item_Path_2 = "]";
 				
 				String Add_Column_Item_Path = (Add_Column_Item_Path_1 + 1 + Add_Column_Item_Path_2);
                 WebElement Add_Column_Item_Main_Path = driver.findElement(By.xpath(Add_Column_Item_Path));
                 Add_Column_Item_Main_Path.click();
+                Thread.sleep(1000);
                 String Add_Column_Item_Name_1 = Add_Column_Item_Main_Path.getText();
-                Thread.sleep(5000);
+                Thread.sleep(2000);
                 
                 System.out.println("\n" + "Optimize_Add_Column : " + Add_Column_Item_Name_1);
                 
@@ -390,7 +394,7 @@ public class ACA_Optimize_Module {
                 
                 System.out.println("\n" + "Optimize_Add_Column : " + Add_Column_Item_Name);
                 
-                List<WebElement> Total_Grid_Name_Path_List = driver.findElements(By.xpath("//*[@class='cursor-pointer ov-hidden white-sp-nowrap text-ov-ellipsis']"));
+                List<WebElement> Total_Grid_Name_Path_List = mp.get_Total_Grid_Name_Path_List();
                 
                 for (int i=0; i< Total_Grid_Name_Path_List.size(); i++ )
                 {
@@ -412,22 +416,26 @@ public class ACA_Optimize_Module {
 	{
 		try
 		{
-			WebElement Simulate = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[1]"));
+			WebElement Simulate = mp.get_Simulate();
+			System.out.println("\n" + "Optimize_Simulation_Job : Executed");
 			Simulate.click();
 			Thread.sleep(2000);
 			
-			New_Scenario_Name = ACA_Activate_Global_Functions.Auto_Generate_New_Scenario_Name();            
-            
-            Thread.sleep(500);
-            WebElement SaveSimulationAs = driver.findElement(By.xpath("//*[@class='hide-input fs-11']"));
-            SaveSimulationAs.clear();
-            SaveSimulationAs.sendKeys(New_Scenario_Name);		//Typing On New Name
-            Thread.sleep(1000);
-            
-            WebElement  Run_Simulation = driver.findElement(By.xpath("//*[@class='v-center pd-t-1 btn-grey2 bo-c-lite-grey ht-25 pd-b-2 txt-center pd-r-5 pd-l-5 fs-11 cursor-pointer mg-r-5']"));
-            Run_Simulation.click();
-			Thread.sleep(2000);
 			
+			New_Scenario_Name = ACA_Activate_Global_Functions.Auto_Generate_New_Scenario_Name();            
+			
+            Thread.sleep(2000);
+            WebElement SaveSimulationAs = mp.get_SaveSimulationAs();
+            SaveSimulationAs.clear();
+            System.out.println("\n" + " SaveSimulationAs : Executed");
+            SaveSimulationAs.sendKeys(New_Scenario_Name);		//Typing On New Name
+            Thread.sleep(2000);
+         
+            
+            WebElement  Run_Simulation = mp.get_Run_Simulation();
+            Run_Simulation.click();
+            System.out.println("\n" + " Run_Simulation : Excuted");
+			Thread.sleep(2000);
 			System.out.println("\n" + "Optimize_Simulation_Job : Executed");
 			
 			WebDriverWait wait = new WebDriverWait(driver, 500);
@@ -443,19 +451,19 @@ public class ACA_Optimize_Module {
 	{
 		try
 		{
-			WebElement Optimize = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[2]"));
+			WebElement Optimize = mp.get_Optimize();
 			Optimize.click();
 			Thread.sleep(2000);			
 			
 			New_Scenario_Name = ACA_Activate_Global_Functions.Auto_Generate_New_Scenario_Name();            
 
             Thread.sleep(500);
-            WebElement Write_the_Scenario_Name = driver.findElement(By.xpath("//*[@class='inputField wd-250 pd-10']"));
+            WebElement Write_the_Scenario_Name = mp.get_Write_the_Scenario_Name();
             Write_the_Scenario_Name.clear();
             Write_the_Scenario_Name.sendKeys(New_Scenario_Name);		//Typing On New Name
             Thread.sleep(1000);
             
-            WebElement Run_Optimization = driver.findElement(By.xpath("//*[@class='btn-small btn-grey3']"));
+            WebElement Run_Optimization = mp.get_Run_Optimization();
             Run_Optimization.click();
 			Thread.sleep(2000);
 			
@@ -474,26 +482,26 @@ public class ACA_Optimize_Module {
 	{
 		try
 		{
-			WebElement SelectOnSpend = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/div/div/input"));
+			WebElement SelectOnSpend = mp.get_SelectOnSpend();
 			//SelectOnSpend.click();
 			SelectOnSpend.clear();
 			SelectOnSpend.sendKeys("0");			
 			
-			WebElement Simulate = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[1]"));
+			WebElement Simulate = mp.get_Spend_0_Simulation();
 			Simulate.click();
-			Thread.sleep(500);
+			Thread.sleep(3000);
 			Simulate.click();
-			Thread.sleep(2000);			
+			Thread.sleep(3000);			
 			
 			New_Scenario_Name = ACA_Activate_Global_Functions.Auto_Generate_New_Scenario_Name();            
 
-            Thread.sleep(500);
-            WebElement SaveSimulationAs = driver.findElement(By.xpath("//*[@class='hide-input fs-11']"));
+            Thread.sleep(200);
+            WebElement SaveSimulationAs = mp.get_Spend_0_Save_Sim();
             SaveSimulationAs.clear();
             SaveSimulationAs.sendKeys(New_Scenario_Name);		//Typing On New Name
             Thread.sleep(1000);
             
-            WebElement Run_Simulation = driver.findElement(By.xpath("//*[@class='v-center pd-t-1 btn-grey2 bo-c-lite-grey ht-25 pd-b-2 txt-center pd-r-5 pd-l-5 fs-11 cursor-pointer mg-r-5']"));
+            WebElement Run_Simulation = mp.get_Spend_0_Run_Simulation();
             Run_Simulation.click();
 			Thread.sleep(2000);
 			
@@ -512,26 +520,26 @@ public class ACA_Optimize_Module {
 	{
 		try
 		{
-			WebElement SelectOnSpend = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/div/div/input"));
+			WebElement SelectOnSpend = mp.get_Opt_Spend_0_SelectOnSpend();
 			//SelectOnSpend.click();
 			SelectOnSpend.clear();
 			SelectOnSpend.sendKeys("0");			
 			
-			WebElement Optimize = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[2]"));
+			WebElement Optimize = mp.get_Spend_0_Optimize();
 			Optimize.click();
-			Thread.sleep(500);
+			Thread.sleep(3000);
 			Optimize.click();
 			Thread.sleep(2000);			
 			
 			New_Scenario_Name = ACA_Activate_Global_Functions.Auto_Generate_New_Scenario_Name();            
 
-            Thread.sleep(500);
-            WebElement Write_the_Scenario_Name = driver.findElement(By.xpath("//*[@class='inputField wd-250 pd-10']"));
+            Thread.sleep(2000);
+            WebElement Write_the_Scenario_Name = mp.get_Opt_Spend_0_Write_the_Scenario_Name();
             Write_the_Scenario_Name.clear();
             Write_the_Scenario_Name.sendKeys(New_Scenario_Name);		//Typing On New Name
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             
-            WebElement Run_Optimization = driver.findElement(By.xpath("//*[@class='btn-small btn-grey3']"));
+            WebElement Run_Optimization = mp.get_Opt_Spend_0_Run_Optimization();
             Run_Optimization.click();
 			Thread.sleep(2000);
 			
@@ -550,33 +558,33 @@ public class ACA_Optimize_Module {
 	{
 		try
 		{
-			WebElement Adjust_All = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[3]"));
+			WebElement Adjust_All = mp.get_Adjust_All();
 			Adjust_All.click();
 			Thread.sleep(1000);
 			
-			WebElement By_Pct = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/div/div/div/div[2]/div/div/input"));
+			WebElement By_Pct = mp.get_By_Pct();
 			By_Pct.sendKeys("10");
 			Thread.sleep(2000);
 			
-			WebElement By_Pct_Apply = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div[3]/div"));
+			WebElement By_Pct_Apply = mp.get_By_Pct_Apply();
 			By_Pct_Apply.click();
 			Thread.sleep(2000);
 			WebDriverWait wait = new WebDriverWait(driver, 500);
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
 			
-			WebElement Simulate = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[1]"));
+			WebElement Simulate = mp.get_Adjust_All_By_Pct_Simulation();
 			Simulate.click();
 			Thread.sleep(2000);
 			
 			New_Scenario_Name = ACA_Activate_Global_Functions.Auto_Generate_New_Scenario_Name();            
 
-            Thread.sleep(500);
-            WebElement SaveSimulationAs = driver.findElement(By.xpath("//*[@class='hide-input fs-11']"));
+            Thread.sleep(3000);
+            WebElement SaveSimulationAs = mp.get_Adjust_All_By_Pct_Sim_SaveSimulationAs();
             SaveSimulationAs.clear();
             SaveSimulationAs.sendKeys(New_Scenario_Name);		//Typing On New Name
             Thread.sleep(1000);
             
-            WebElement Run_Simulation = driver.findElement(By.xpath("//*[@class='v-center pd-t-1 btn-grey2 bo-c-lite-grey ht-25 pd-b-2 txt-center pd-r-5 pd-l-5 fs-11 cursor-pointer mg-r-5']"));
+            WebElement Run_Simulation = mp.get_Adjust_All_By_Pct_Run_Simulation();
             Run_Simulation.click();
 			Thread.sleep(2000);
 			
@@ -596,33 +604,33 @@ public class ACA_Optimize_Module {
 		try
 		{
 			Thread.sleep(1000);
-			WebElement Adjust_All = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[3]"));
+			WebElement Adjust_All = mp.get_Opt_job_Adjust_All();
 			Adjust_All.click();
 			Thread.sleep(1000);
 			
-			WebElement By_Pct = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/div/div/div/div[2]/div/div/input"));
+			WebElement By_Pct = mp.get_Opt_job_Adjust_All_By_Pct();
 			By_Pct.sendKeys("10");
 			Thread.sleep(2000);
 			
-			WebElement By_Pct_Apply = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div[3]/div"));
+			WebElement By_Pct_Apply = mp.get_Opt_job_Adjust_All_By_Pct_Apply();
 			By_Pct_Apply.click();
 			Thread.sleep(2000);
 			WebDriverWait wait = new WebDriverWait(driver, 500);
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
 			
-            WebElement Optimize = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[2]"));
+            WebElement Optimize = mp.get_Opt_job_Adjust_All_By_Pct_Optimize();
 			Optimize.click();
-			Thread.sleep(500);		
+			Thread.sleep(1000);		
 			
 			New_Scenario_Name = ACA_Activate_Global_Functions.Auto_Generate_New_Scenario_Name();            
 
-            Thread.sleep(500);
-            WebElement Write_the_Scenario_Name = driver.findElement(By.xpath("//*[@class='inputField wd-250 pd-10']"));
+            Thread.sleep(1000);
+            WebElement Write_the_Scenario_Name = mp.get_Opt_Write_the_Scenario_Name();
             Write_the_Scenario_Name.clear();
             Write_the_Scenario_Name.sendKeys(New_Scenario_Name);		//Typing On New Name
             Thread.sleep(1000);
             
-            WebElement Run_Optimization = driver.findElement(By.xpath("//*[@class='btn-small btn-grey3']"));
+            WebElement Run_Optimization = mp.get_Opt_Run_Optimize();
             Run_Optimization.click();
 			Thread.sleep(2000);
 			
@@ -641,33 +649,33 @@ public class ACA_Optimize_Module {
 	{
 		try
 		{
-			WebElement Adjust_All = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[3]"));
+			WebElement Adjust_All = mp.get_Adjust_All_By_Values();
 			Adjust_All.click();
 			Thread.sleep(1000);
 			
-			WebElement By_Values = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/div/div/div/div[4]/div/div/input"));
+			WebElement By_Values = mp.get_Adjust_All_By_Values_Sim_job();
 			By_Values.sendKeys("1000");
 			Thread.sleep(2000);
 			
-			WebElement By_Values_Apply = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[4]/div[3]/div"));
+			WebElement By_Values_Apply = mp.get_Adjust_All_By_Values_Apply();
 			By_Values_Apply.click();
 			Thread.sleep(2000);
 			WebDriverWait wait = new WebDriverWait(driver, 500);
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
 			
-			WebElement Simulate = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[1]"));
+			WebElement Simulate = mp.get_Adjust_All_By_Values_Simulation();
 			Simulate.click();
 			Thread.sleep(2000);
 			
 			New_Scenario_Name = ACA_Activate_Global_Functions.Auto_Generate_New_Scenario_Name();            
 
             Thread.sleep(500);
-            WebElement SaveSimulationAs = driver.findElement(By.xpath("//*[@class='hide-input fs-11']"));
+            WebElement SaveSimulationAs = mp.get_Adjust_All_By_Values_SaveSimulationAs();
             SaveSimulationAs.clear();
             SaveSimulationAs.sendKeys(New_Scenario_Name);		//Typing On New Name
             Thread.sleep(1000);
             
-            WebElement Run_Simulation = driver.findElement(By.xpath("//*[@class='v-center pd-t-1 btn-grey2 bo-c-lite-grey ht-25 pd-b-2 txt-center pd-r-5 pd-l-5 fs-11 cursor-pointer mg-r-5']"));
+            WebElement Run_Simulation = mp.get_Adjust_All_By_Values_Run_Simulation();
             Run_Simulation.click();
 			Thread.sleep(2000);
 			
@@ -687,33 +695,33 @@ public class ACA_Optimize_Module {
 		try
 		{
 			Thread.sleep(1000);
-			WebElement Adjust_All = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[3]"));
+			WebElement Adjust_All = mp.get_Adjust_All_By_Values_opt_job();
 			Adjust_All.click();
 			Thread.sleep(1000);
 			
-			WebElement By_Values = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/div/div/div/div[4]/div/div/input"));
+			WebElement By_Values = mp.get_Adjust_All_By_Values_Optimization();
 			By_Values.sendKeys("1000");
 			Thread.sleep(2000);
 			
-			WebElement By_Values_Apply = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[4]/div[3]/div"));
+			WebElement By_Values_Apply = mp.get_Adjust_All_By_Values_Apply_Opt();
 			By_Values_Apply.click();
 			Thread.sleep(2000);
 			WebDriverWait wait = new WebDriverWait(driver, 500);
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
 			
-            WebElement Optimize = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[2]"));
+            WebElement Optimize = mp.get_Adjust_All_By_Values_Optimize();
 			Optimize.click();
 			Thread.sleep(500);		
 			
 			New_Scenario_Name = ACA_Activate_Global_Functions.Auto_Generate_New_Scenario_Name();            
 
             Thread.sleep(500);
-            WebElement Write_the_Scenario_Name = driver.findElement(By.xpath("//*[@class='inputField wd-250 pd-10']"));
+            WebElement Write_the_Scenario_Name = mp.get_Adjust_All_By_Values_Write_the_Simulation_Name();
             Write_the_Scenario_Name.clear();
             Write_the_Scenario_Name.sendKeys(New_Scenario_Name);		//Typing On New Name
             Thread.sleep(1000);
             
-            WebElement Run_Optimization = driver.findElement(By.xpath("//*[@class='btn-small btn-grey3']"));
+            WebElement Run_Optimization = mp.get_Adjust_All_By_Values_Run_Simulation_job();
             Run_Optimization.click();
 			Thread.sleep(2000);
 			
@@ -732,27 +740,27 @@ public class ACA_Optimize_Module {
 	{
 		try
 		{
-			WebElement Optimize = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[2]"));
+			WebElement Optimize = mp.get_Optimize_Minimize_Budget();
 			Optimize.click();
 			Thread.sleep(2000);			
 			
 			New_Scenario_Name = ACA_Activate_Global_Functions.Auto_Generate_New_Scenario_Name();            
 
-            Thread.sleep(500);
-            WebElement Write_the_Scenario_Name = driver.findElement(By.xpath("//*[@class='inputField wd-250 pd-10']"));
+            Thread.sleep(1000);
+            WebElement Write_the_Scenario_Name = mp.get_Optimize_Min_Budget_Write_the_Scenario_Name();
             Write_the_Scenario_Name.clear();
             Write_the_Scenario_Name.sendKeys(New_Scenario_Name);		//Typing On New Name
             Thread.sleep(1000);
             
-            WebElement Change_Optimization_Goal = driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div/div/div/div/div/button"));
+            WebElement Change_Optimization_Goal = mp.get_Change_Optimization_Goal();
             Change_Optimization_Goal.click();
 			Thread.sleep(2000);
 			
-			WebElement Optimization_Goal_Change_Value = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/div/button"));
+			WebElement Optimization_Goal_Change_Value = mp.get_Optimization_Goal_Change_Value();
 			Optimization_Goal_Change_Value.click();
 			Thread.sleep(5000);			
             
-            WebElement Run_Optimization = driver.findElement(By.xpath("//*[@class='btn-small btn-grey3']"));
+            WebElement Run_Optimization = mp.get_Optimization_Goal_Run_Optimization();
             Run_Optimization.click();
 			Thread.sleep(2000);
 			
@@ -771,23 +779,23 @@ public class ACA_Optimize_Module {
 	{
 		try
 		{
-			WebElement Optimize = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[2]"));
+			WebElement Optimize = mp.get_Advance_Options_Min_Max_Pct_Value_Change_Opt();
 			Optimize.click();
-			Thread.sleep(1000);			
+			Thread.sleep(2000);			
 			
 			New_Scenario_Name = ACA_Activate_Global_Functions.Auto_Generate_New_Scenario_Name();            
 
-            Thread.sleep(500);
-            WebElement Write_the_Scenario_Name = driver.findElement(By.xpath("//*[@class='inputField wd-250 pd-10']"));
+            Thread.sleep(1000);
+            WebElement Write_the_Scenario_Name = mp.get_Advance_Options_Min_Max_Write_the_Scenario_Name();
             Write_the_Scenario_Name.clear();
             Write_the_Scenario_Name.sendKeys(New_Scenario_Name);		//Typing On New Name
             Thread.sleep(2000);
             
-            WebElement Change_Settings_Mode = driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div/div/div[4]/div/div/div/button"));
+            WebElement Change_Settings_Mode = mp.get_Change_Settings_Mode();
             Change_Settings_Mode.click();
 			Thread.sleep(2000);
 			
-			WebElement Settings_Mode_Change_Value = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div[4]/div/div/div/div/button"));
+			WebElement Settings_Mode_Change_Value = mp.get_Settings_Mode_Change_Value();
 			Settings_Mode_Change_Value.click();
 			Thread.sleep(5000);
 			
@@ -796,22 +804,22 @@ public class ACA_Optimize_Module {
 			js.executeScript("window.scrollBy(0,350)", "");
 			
 			Thread.sleep(500);
-			WebElement Min_Value_Change = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/input"));
+			WebElement Min_Value_Change = mp.get_Min_Value_Change();
 			Min_Value_Change.clear();
 			Min_Value_Change.sendKeys("24");
 			Thread.sleep(2000);
 			
 			Thread.sleep(500);
-			WebElement Max_Value_Change = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[4]/input"));
+			WebElement Max_Value_Change = mp.get_Max_Value_Change();
 			Max_Value_Change.clear();
 			Max_Value_Change.sendKeys("26");
 			Thread.sleep(2000);
 			
-			WebElement Set_Constraint = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div[1]/div/div[5]"));
+			WebElement Set_Constraint = mp.get_Set_Constraint();
 			Set_Constraint.click();
 			Thread.sleep(2000);
             
-            WebElement Run_Optimization = driver.findElement(By.xpath("//*[@class='btn-small btn-grey3']"));
+            WebElement Run_Optimization = mp.get_Advance_Options_Min_Max_Run_Optimization();
             Run_Optimization.click();
 			Thread.sleep(2000);
 			
@@ -834,7 +842,7 @@ public class ACA_Optimize_Module {
 
             if (Opt_Job == 0)
             {
-                driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/nav/div/div/span/i[1]")).click();
+                mp.get_Opt_Open_Job_Notification_0().click();
                 Thread.sleep(2000);
             }
 
@@ -842,16 +850,16 @@ public class ACA_Optimize_Module {
 
             if (Opt_Job_List == 0)
             {
-                driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/nav/div/div/span/i[1]")).click();
+                mp.get_Opt_Job_List().click();
                 Thread.sleep(2000);
             }
 
             System.out.println("\n" + "Optimize_Open_Job_Notification_Panel : Executed");
             
             Thread.sleep(5000);
-            WebDriverWait wait = new WebDriverWait(driver, 500);
+            WebDriverWait wait = new WebDriverWait(driver, 700);
             Boolean element = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@class='material-icons rotate jewel-busy-spinner']")));
-		}
+            }
 		catch (Exception ex)
         {
         	System.out.println("\n" + "Optimize_Open_Job_Notification_Panel : " + ex.getMessage());
@@ -866,13 +874,13 @@ public class ACA_Optimize_Module {
 
             for (int i = 1; i < Opt_Job_List; i++)
             {
-                driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/nav/div/div/div/ul/li[2]/div/div/span[2]")).click();
+                mp.get_Opt_View_Result_For_Complete_Job().click();
                 Thread.sleep(2000);
             }
 			
-			Thread.sleep(1000);
-            driver.findElement(By.xpath("//*[@class='result-text']")).click();       //Click On Opt Job View Result from notification icon
-            Thread.sleep(1000);
+			Thread.sleep(2000);
+            mp.get_Opt_Job_View_Result_From_Notification_Icon().click();       //Click On Opt Job View Result from notification icon
+            Thread.sleep(2000);
 
             System.out.println("\n" + "Optimize_View_Result_for_Complete_Job : Executed");
             
@@ -896,11 +904,11 @@ public class ACA_Optimize_Module {
 			
 			if(Optimize_Job_View_Result_Export_Path_Count != 0)
 			{
-				WebElement View_Result_Export = driver.findElement(By.xpath("//*[@Class='ov-hidden text-ov-ellipsis white-sp-nowrap pd-r-8']"));
+				WebElement View_Result_Export = mp.get_View_Result_Export();
 				View_Result_Export.click();
 				Thread.sleep(1000);
 				
-				WebElement View_Result_Excel = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/button[1]"));
+				WebElement View_Result_Excel = mp.get_View_Result_Excel();
 				View_Result_Excel.click();
 				ACA_Activate_Global_Functions.Take_Snap_Shot();
 				Thread.sleep(8000);
@@ -912,7 +920,7 @@ public class ACA_Optimize_Module {
 				View_Result_Export.click();
 				Thread.sleep(1000);
 				
-				WebElement View_Result_CSV = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/button[2]"));
+				WebElement View_Result_CSV = mp.get_View_Result_CSV();
 				View_Result_CSV.click();
 				Thread.sleep(5000);
 				
@@ -932,7 +940,7 @@ public class ACA_Optimize_Module {
 			ACA_Activate_Global_Functions.Take_Snap_Shot();
 			
 			Thread.sleep(1000);
-            driver.findElement(By.xpath("//*[@class='btn-small btn-blue-selected']")).click();       //Click On Opt Job Adapt these changes
+            mp.get_Opt_Job_Adapt_Changes().click();       //Click On Opt Job Adapt these changes
             Thread.sleep(1000);
             
             System.out.println("\n" + "Optimize_Job_Adapt_These_Changes : Executed");
@@ -954,7 +962,7 @@ public class ACA_Optimize_Module {
 		try
 		{
 			Thread.sleep(1000);
-    		List<WebElement> listA  = driver.findElements(By.xpath("//*[@class='outer']"));
+    		List<WebElement> listA  = mp.get_Optimize_Delete_Scenario_ListA();
     		for (int i= 0; i<listA.size(); i++)
         	{
     			if(listA.get(i).getText().equalsIgnoreCase("OPTIMIZE")) 
@@ -972,7 +980,7 @@ public class ACA_Optimize_Module {
     		
     		if(ScenarioList != 0)
     		{
-    			WebElement SelectScenario = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div/i"));
+    			WebElement SelectScenario = mp.get_Select_Scenario();
         		SelectScenario.click();
         		Thread.sleep(1000);
     		}
@@ -982,7 +990,7 @@ public class ACA_Optimize_Module {
     		}
     		
     		Thread.sleep(1000);
-    		List<WebElement> listB  = driver.findElements(By.xpath("//*[@class='mg-r-1']"));
+    		List<WebElement> listB  = mp.get_Optimize_Delete_Scenario_ListB();
     		for (int i= 0; i<listB.size(); i++)
         	{
     			if(listB.get(i).getText().equalsIgnoreCase("Delete Scenario")) 
@@ -992,7 +1000,7 @@ public class ACA_Optimize_Module {
     				Thread.sleep(2000);
     			}
         	}
-    		WebElement Delete = driver.findElement(By.xpath("//*[@class='fas fa-trash-alt mg-r-5']"));
+    		WebElement Delete = mp.get_Delete();
     		Delete.click();
     		Thread.sleep(1000);
     		
@@ -1018,7 +1026,7 @@ public class ACA_Optimize_Module {
     		int ScenarioList = driver.findElements(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div[1]/div/i")).size();
     		if(ScenarioList != 0)
     		{
-    			WebElement SelectScenario = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div/i"));
+    			WebElement SelectScenario = mp.get_Optimize_Copy_Select_Scenario();
         		SelectScenario.click();
         		Thread.sleep(1000);
     		}
@@ -1028,7 +1036,7 @@ public class ACA_Optimize_Module {
     		}    		
     		Thread.sleep(1000);
     		
-    		List<WebElement> listB  = driver.findElements(By.xpath("//*[@class='mg-r-1']"));
+    		List<WebElement> listB  = mp.get_Optimize_Copy_Scenario_ListB();
     		for (int i= 0; i<listB.size(); i++)
         	{
     			if(listB.get(i).getText().equalsIgnoreCase("Copy Scenario")) 
@@ -1038,13 +1046,13 @@ public class ACA_Optimize_Module {
     				Thread.sleep(2000);
     			}
         	}    		
-    		String Collect_Copy_Scenario_Name = driver.findElement(By.xpath("//*[@class='text-center txt-red fs-14']")).getText();
+    		String Collect_Copy_Scenario_Name = mp.get_Collect_Copy_Scenario_Name().getText();
     		
-    		WebElement Copy = driver.findElement(By.xpath("//*[@class='hide-input']"));
+    		WebElement Copy = mp.get_Copy();
 			Copy.sendKeys(Collect_Copy_Scenario_Name + "-Copy_By_Automated_Test_Engine");
 			Thread.sleep(2000);
     		
-			WebElement Copy_Button = driver.findElement(By.xpath("//*[@class='fas fa-copy mg-r-5']"));
+			WebElement Copy_Button = mp.get_Copy_Button();
 			Copy_Button.click();
     		Thread.sleep(2000);
     		
@@ -1075,13 +1083,13 @@ public class ACA_Optimize_Module {
     		
     		if(ScenarioList > 1)
     		{
-    			WebElement SelectScenario_1 = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div/i"));
+    			WebElement SelectScenario_1 = mp.get_Select_Scenario_1();
         		SelectScenario_1.click();
-        		Thread.sleep(1000);
+        		Thread.sleep(2000);
         		
-        		WebElement SelectScenario_2 = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div[1]/div/i"));
+        		WebElement SelectScenario_2 = mp.get_Select_Scenario_2();
         		SelectScenario_2.click();
-        		Thread.sleep(1000);
+        		Thread.sleep(2000);
     		}
     		else
     		{
@@ -1089,7 +1097,7 @@ public class ACA_Optimize_Module {
     		}    		
     		Thread.sleep(1000);
     		
-    		List<WebElement> listA  = driver.findElements(By.xpath("//*[@class='mg-r-1']"));    		
+    		List<WebElement> listA  = mp.get_Optimize_Compare_Scenario_ListA();    		
     		for (int i= 0; i<listA.size()-1; i++)
         	{
     			if(listA.get(i).getText().equalsIgnoreCase("Compare Scenario")) 
@@ -1099,13 +1107,13 @@ public class ACA_Optimize_Module {
     				Thread.sleep(500);
     			}
         	}
-			WebDriverWait wait = new WebDriverWait(driver, 500);
+			WebDriverWait wait = new WebDriverWait(driver, 1000);
             Boolean element = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
             Thread.sleep(1000);
             
     		ACA_Activate_Global_Functions.Take_Snap_Shot();
     		
-    		WebElement Back_to_Scenario_Library_Button = driver.findElement(By.xpath("//*[@class='btn-grey2 bo-c-lite-grey ln-ht-20 txt-center pd-r-5 pd-l-5 cursor-pointer mg-l-3 fs-11 fw-600']"));
+    		WebElement Back_to_Scenario_Library_Button = mp.get_Back_to_Scenario_Library_Button();
     		Back_to_Scenario_Library_Button.click();
     		Thread.sleep(1000);
     		
@@ -1130,11 +1138,11 @@ public class ACA_Optimize_Module {
     		
     		if(ScenarioList > 1)
     		{
-    			WebElement SelectScenario_1 = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div/i"));
+    			WebElement SelectScenario_1 = mp.get_Optimize_Compare_Scenario_With_Export_Select_Scenario_1();
         		SelectScenario_1.click();
         		Thread.sleep(1000);
         		
-        		WebElement SelectScenario_2 = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div[1]/div/i"));
+        		WebElement SelectScenario_2 = mp.get_Optimize_Compare_Scenario_With_Export_Select_Scenario_2();
         		SelectScenario_2.click();
         		Thread.sleep(1000);
     		}
@@ -1144,49 +1152,48 @@ public class ACA_Optimize_Module {
     		}    		
     		Thread.sleep(1000);
     		
-    		List<WebElement> listA  = driver.findElements(By.xpath("//*[@class='mg-r-1']"));    		
+    		List<WebElement> listA  = mp.get_Optimize_Compare_Scenario_With_Export_ListA();    		
     		for (int i= 0; i<listA.size()-1; i++)
         	{
     			if(listA.get(i).getText().equalsIgnoreCase("Compare Scenario")) 
     			{   
     				System.out.println("\n" + "Select on : " + listA.get(i).getText());
     				listA.get(i).click();
-    				Thread.sleep(500);
+    				Thread.sleep(1000);
     			}
         	}
-			WebDriverWait wait = new WebDriverWait(driver, 500);
+			WebDriverWait wait = new WebDriverWait(driver, 1000);
             Boolean element = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
             Thread.sleep(1000);
             
             int Optimize_Job_View_Result_Export_Path_Count = driver.findElements(By.xpath("//*[@Class='ov-hidden text-ov-ellipsis white-sp-nowrap pd-r-8']")).size();
 			if(Optimize_Job_View_Result_Export_Path_Count != 0)
 			{
-				WebElement View_Result_Export = driver.findElement(By.xpath("//*[@Class='ov-hidden text-ov-ellipsis white-sp-nowrap pd-r-8']"));
+				WebElement View_Result_Export = mp.get_Optimize_Compare_Scenario_View_Result_Export();
 				View_Result_Export.click();
 				Thread.sleep(1000);
 				
-				WebElement View_Result_Excel = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/button[1]"));
-				View_Result_Excel.click();
+				WebElement View_Result_Excel = mp.get_Optimize_Compare_Scenario_View_Result_Excel();
+			    View_Result_Excel.click();
 				ACA_Activate_Global_Functions.Take_Snap_Shot();
 				Thread.sleep(8000);
 				
-				System.out.println("\n" + "Optimize_Compare_Scenario_With_Export : Excel Downloaded");
+			    System.out.println("\n" + "Optimize_Compare_Scenario_With_Export : Excel Downloaded");
                 
-         //-----------------------------------------------------------------------------------------------------------------------------------------//
                                 
 				View_Result_Export.click();
 				Thread.sleep(1000);
 				
-				WebElement View_Result_CSV = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/button[2]"));
+				WebElement View_Result_CSV = mp.get_Optimize_Compare_Scenario_View_Result_Excel();
 				View_Result_CSV.click();
 				Thread.sleep(5000);
 				
-				System.out.println("\n" + "Optimize_Compare_Scenario_With_Export : CSV Downloaded");				
+			System.out.println("\n" + "Optimize_Compare_Scenario_With_Export : CSV Downloaded");				
 			}
             
     		ACA_Activate_Global_Functions.Take_Snap_Shot();
     		
-    		WebElement Back_to_Scenario_Library_Button = driver.findElement(By.xpath("//*[@class='btn-grey2 bo-c-lite-grey ln-ht-20 txt-center pd-r-5 pd-l-5 cursor-pointer mg-l-3 fs-11 fw-600']"));
+    		WebElement Back_to_Scenario_Library_Button = mp.get_Back_To_Scenario_Library_Button();
     		Back_to_Scenario_Library_Button.click();
     		Thread.sleep(1000);
     		
@@ -1201,8 +1208,6 @@ public class ACA_Optimize_Module {
         	System.out.println("\n" + "Optimize_Compare_Scenario_With_Export : " + ex.getMessage());			
 		}
 	}
-	
-	
 	
 	
 	

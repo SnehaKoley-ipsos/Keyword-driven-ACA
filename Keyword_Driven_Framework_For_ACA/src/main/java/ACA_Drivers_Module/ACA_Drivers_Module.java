@@ -60,7 +60,7 @@ public class ACA_Drivers_Module
 	{
 		try 
 		{
-			Thread.sleep(200);
+			Thread.sleep(2000);
 			List<WebElement> listA  = mp.getDrivers_DrillDown();
 			for (int i= 0; i<listA.size(); i++)
         	{
@@ -71,7 +71,7 @@ public class ACA_Drivers_Module
     				//Thread.sleep(1000);
     			}
         	}		    
-			WebDriverWait wait_1 = new WebDriverWait(driver, 5);
+			WebDriverWait wait_1 = new WebDriverWait(driver, 500);
 			wait_1.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
             //Thread.sleep(500);
 			
@@ -90,7 +90,7 @@ public class ACA_Drivers_Module
                 
                 System.out.println("\n" + "Drivers_DrillDown Grid Item : " + Drivers_DrillDown_Item_Name);
 
-                WebDriverWait wait = new WebDriverWait(driver, 5);
+                WebDriverWait wait = new WebDriverWait(driver, 500);
                 //Boolean element = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
                 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
                 //Thread.sleep(500);

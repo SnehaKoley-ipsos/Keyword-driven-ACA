@@ -263,13 +263,13 @@ public class ACA_Trends_Module {
 			{
 				WebElement export = mp.getexport();
 				export.click();
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 				
 				WebElement excel = mp.getexcel();
 				excel.click();
 				
 				
-				WebDriverWait wait = new WebDriverWait(driver, 5);
+				WebDriverWait wait = new WebDriverWait(driver, 15);
                 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
                 System.out.println("\n" + "Trends_Export : Excel Executed");
                 
@@ -317,7 +317,7 @@ public class ACA_Trends_Module {
 				
 				int Total_Add_Column_Items = mp.getTotal_Add_Column_Items().size();
 				
-				String Add_Column_Item_Path_1 = "//*[@id='main']/div/div/div/div/div/div/div/div/div[5]/div/div[2]/div/div[";
+				String Add_Column_Item_Path_1 = "//*[@id='main']/div/div/div/div/div/div/div/div/div/div/div[3]/div/div[";
 				String Add_Column_Item_Path_2 = "]";
 				
 				String Add_Column_Item_Path = (Add_Column_Item_Path_1 + 1 + Add_Column_Item_Path_2);

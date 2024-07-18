@@ -19,6 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ACA_Common_Test_Cases.ACA_Common_Test_Cases;
 import ACA_Global_Functions.ACA_Activate_Global_Functions;
+import ACA_Optimize_Module.ACA_Optimize_Module_Path;
 import ACA_Web_Driver.ACA_Activate_Get_Driver;
 
 public class ACA_Report_Module {
@@ -31,6 +32,7 @@ public class ACA_Report_Module {
 	public String FilterScopeNewName;
 	private Object String;
 	
+	ACA_Report_Module_Path mp = new ACA_Report_Module_Path(driver);
 	
 	public void Go_To_Report_Module() throws Throwable
 	{

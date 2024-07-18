@@ -15,7 +15,7 @@ import org.openqa.selenium.WebElement;
     By Tactics_Filter_Scope_Select_DeSelect = By.xpath("//*[@id='rct-3F_bptMTnNbSoGroxmSsY']/ol/li/span/label/span[1]/i");  //.size() == 1	
 //  By Tactic_Filter_1 = By.xpath("/html/body/div/div/div/div/div/div/div[4]/div/div/div/ol/li/ol/li[");
 //	By Tactic_Filter_2 = By.xpath("]/span/label/span/i");
-	By Total_KPI_Name = By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div/div[1]");
+	By Total_KPI_Name = By.xpath("//div[@class='fs-10 pd-r-5 pd-b-5 white-sp-nowrap' and @title='Spend']");
 	By Total_KPI_Value = By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div/div[2]");
 	By gridList = By.xpath("//*[@id='worldmap']/div/div/div/div/div[2]/div[2]/div[1]");
 	By Total_Tactics_DrillDown_Grid_Items = By.xpath("//*[@class='row-t-text']");
@@ -30,14 +30,14 @@ import org.openqa.selenium.WebElement;
 //  By Tactics_DrillDown_Back_Item_Path_3 = By.xpath("]/div[1]/div");
 //  By invisibilityOfElementLocated3 = By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div");
     By Tactics_Export_Path_Count = By.xpath("//*[@class=' wd-60 btn-group']");
-    By export = By.xpath("//*[@class=' wd-60 btn-group']");
-    By excel = By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/button[1]");
+    By export = By.xpath("//div[text()='Export']"); ////button[@class='dd-item fs-11 dropdown-item'][text()='Excel']"); ////*[@id='main']/div/div[3]/div[2]/div/div/div/div/div[1]/div[5]/div[2]/div/div[1]/div/button/div");  //div[@class='ov-hidden text-ov-ellipsis white-sp-nowrap pd-r-8 wd-pct-75']"); //"(//button[@class='dd-item fs-11 dropdown-item'])[2]");
+    By excel = By.xpath("//button[@class='dd-item fs-11 dropdown-item'][text()='Excel']"); ////*[@id='main']/div/div[3]/div[2]/div/div/div/div/div[1]/div[5]/div[2]/div/div[1]/div/div/button[1]"); //div[5]/div[2]/div/div[1]/div/div/button[1]");
 //  By invisibilityOfElementLocated4 = By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div");
-    By csv = By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/button[2]");
+    By csv = By.xpath("//button[@class='dd-item fs-11 dropdown-item'][text()='CSV']"); ////*[@id='main']/div/div[3]/div[2]/div/div/div/div/div[1]/div[5]/div[2]/div/div[1]/div/div/button[2]");  //div[5]/div[2]/div/div[1]/div/div/button[2]");
 //  By invisibilityOfElementLocated5 = By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div");
     By Tactics_Add_Column_Path_Count = By.xpath("//*[@class='display-inline-block']");
     By Add_Column = By.xpath("//*[@class='display-inline-block']");
-    By Total_Add_Column_Items = By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[5]/div/div/div[2]/div/div");
+    By Total_Add_Column_Items = By.xpath("//div[@class='v-center fs-11 txt-left']/div[@class='white-sp-nowrap ov-hidden text-ov-ellipsis']"); ////*[@id='main']/div/div/div/div/div/div/div/div/div[5]/div/div/div[2]/div/div"); //TRX 
 //  By Add_Column_Item_Path_1 = By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div[5]/div/div/div[2]/div/div[");
 //	By Add_Column_Item_Path_2 = By.xpath("]");
 	By Total_Grid_Name_Path_List = By.xpath("//*[@class='cursor-pointer ov-hidden white-sp-nowrap text-ov-ellipsis']");
@@ -175,31 +175,6 @@ import org.openqa.selenium.WebElement;
     	return driver.findElements(Total_Grid_Name_Path_List);
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     
   }
