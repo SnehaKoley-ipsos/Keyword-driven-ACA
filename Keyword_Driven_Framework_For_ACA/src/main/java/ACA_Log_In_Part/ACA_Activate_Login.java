@@ -11,7 +11,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import ACA_Input_Section.ACA_Activate_Input_Data;
 import ACA_Instruction_Data_From_Excel_WB.ACA_Activate_Instruction_Data_From_Excel;
 import ACA_Web_Driver.ACA_Activate_Get_Driver;
@@ -135,7 +134,7 @@ public class ACA_Activate_Login extends ACA_Activate_Instruction_Data_From_Excel
 		driver.switchTo().window(tabs.get(1));      // To switch to the new window tab
 
         Thread.sleep(9000);
-        WebDriverWait wait_1 = new WebDriverWait(driver, 3000);
+        WebDriverWait wait_1 = new WebDriverWait(driver, 1000);
         wait_1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='user']")));
         wait_1.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
         Thread.sleep(2000);
@@ -167,7 +166,7 @@ public class ACA_Activate_Login extends ACA_Activate_Instruction_Data_From_Excel
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(2));      // To switch to the new window tab
 
-        WebDriverWait wait_1 = new WebDriverWait(driver, 3000);
+        WebDriverWait wait_1 = new WebDriverWait(driver, 1000);
         wait_1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='user']")));
         wait_1.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
         Thread.sleep(2000);

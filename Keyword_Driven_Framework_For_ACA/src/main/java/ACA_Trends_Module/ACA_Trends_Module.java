@@ -11,13 +11,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import ACA_Global_Functions.ACA_Activate_Global_Functions;
 import ACA_Tactics_Module.ACA_Tactics_Module_Path;
 
 public class ACA_Trends_Module {
 	
 	//static WebDriver driver = ACA_Activate_Get_Driver.getdriver();
+	ACA_Activate_Global_Functions ACA_Activate_Global_Functions = new ACA_Activate_Global_Functions();
 	static WebDriver driver = ACA_Web_Driver.ACA_Activate_Get_Driver.getdriver();
-	 ACA_Trends_Module_Path mp = new ACA_Trends_Module_Path(driver);
+	ACA_Trends_Module_Path mp = new ACA_Trends_Module_Path(driver);
 	
 	public String New_Scenario_Name;
 	public String FilterScopeNewName;
@@ -28,6 +30,32 @@ public class ACA_Trends_Module {
     String Trends_DrillDown_Grid_Item_Path_3 = "]/div/div[2]/div[2]/div[1]";
 	
 	@SuppressWarnings("deprecation")
+	public void Navigate_to_Trends_Module() throws Throwable
+	{
+    	try 
+    	{    		
+    		Thread.sleep(1000);
+    		List<WebElement> listA  = driver.findElements(By.xpath("//*[@class='outer']"));
+    		for (int i= 0; i<listA.size(); i++)
+        	{
+    			if(listA.get(i).getText().equalsIgnoreCase("TRENDS")) 
+    			{   
+    				System.out.println("\n" + "Module Name is : " + listA.get(i).getText());
+    				listA.get(i).click();
+    				Thread.sleep(500);
+    			}
+        	}
+    		WebDriverWait wait_1 = new WebDriverWait(driver, 200);
+    		wait_1.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
+    		
+    		ACA_Activate_Global_Functions.Take_Snap_Shot();
+    	}
+    	catch (Exception ex)
+		{
+			System.out.println("\n" + "Navigate_to_Trends_Module : " + ex.getMessage());
+		}    	
+	}
+	
 	public void Trends_Filter_Scope_Select_DeSelect() throws Throwable
 	{
 		try
@@ -56,8 +84,9 @@ public class ACA_Trends_Module {
 		{
 			System.out.println("\n" + "Trends_Filter_Scope_Select_DeSelect : " + ex.getMessage());
 		}
-	}		
-		
+	}	
+	
+			
 	public void Trends_DrillDown() 
 	{
 		try 
@@ -251,6 +280,62 @@ public class ACA_Trends_Module {
         {
         	System.out.println("\n" + "Trends_DrillDown : " + ex.getMessage());
         }
+	}
+	
+	public void Trends_Thresholds()
+	{
+		try
+		{
+			int Trends_Thresholds_Path_Count = driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div/div[2]/div[1]")).size();
+			Thread.sleep(500);
+			
+			if (Trends_Thresholds_Path_Count != 0)
+			{
+				WebElement Thresholds = driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div/div/div/div[2]/div[1]"));
+				Thresholds.click();
+				Thread.sleep(5000);
+				
+				System.out.println("\n" + "Trends_Thresholds : PopUp is Open");
+				
+				WebElement Thresholds_Minimum_Pct = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div[2]/div[2]/div[3]/input"));
+				WebElement Thresholds_Maximum_Pct = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div[2]/div[3]/div[3]/input"));
+				//WebElement Thresholds_Orange_Colour = driver.findElement(By.xpath("//*[@class='t-cell  bo-r-c-lighter-grey bo-b-c-lighter-grey  cursor-default threshold-background-orange']"));
+				//WebElement Thresholds_Green_Colour = driver.findElement(By.xpath("//*[@class='t-cell  bo-r-c-lighter-grey bo-b-c-lighter-grey  cursor-default threshold-background-green']"));
+				
+				Thresholds_Minimum_Pct.sendKeys("10");
+				Thread.sleep(1000);
+				
+				Thresholds_Maximum_Pct.sendKeys("80");
+				Thread.sleep(2000);
+				
+				WebElement Thresholds_Set_All = driver.findElement(By.xpath("//*[@class='btn-small btn-blue-selected ht-18 bo-radius-3']"));
+				Thresholds_Set_All.click();
+				Thread.sleep(5000);
+									
+				ACA_Activate_Global_Functions.Take_Snap_Shot();
+				Thread.sleep(1000);
+				
+				System.out.println("\n" + "Trends_Thresholds : Clicked on Set All Button");
+				
+				WebElement Thresholds_Apply = driver.findElement(By.xpath("//*[@class='fas fa-check mg-r-5']"));
+				Thresholds_Apply.click();
+				Thread.sleep(3000);
+				
+				ACA_Activate_Global_Functions.Take_Snap_Shot();
+				Thread.sleep(1000);
+				
+				System.out.println("\n" + "Trends_Thresholds : Clicked on Apply Button");
+			}
+            WebDriverWait wait = new WebDriverWait(driver, 500);
+            Boolean element = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
+            Thread.sleep(2000);
+
+            //Opt_Job_KPI_Value = driver.FindElement(By.XPath("/html/body/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/div[1]/div/div[1]")).Text.ToString();
+		}
+		catch (Exception ex)
+        {
+        	System.out.println("\n" + "Trends_Thresholds : " + ex.getMessage());
+        }		
 	}
 	
 	public void Trends_Export()
