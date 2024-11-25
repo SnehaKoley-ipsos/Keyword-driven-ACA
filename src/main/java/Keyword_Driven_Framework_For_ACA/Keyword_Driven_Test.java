@@ -2,9 +2,12 @@ package Keyword_Driven_Framework_For_ACA;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.text.Collator;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -89,6 +92,10 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 			//{
 			//	A_LogIn.Select_On_App();
 			//}
+			
+			String read_Ins_Data_from_Excel = rid.Read_Instruction_Data_From_Excel().get(i).toString();
+			Collator collator = Collator.getInstance(Locale.US);
+			collator.setStrength(Collator.PRIMARY); // Ignores case and accents
 
 			if(rid.Read_Instruction_Data_From_Excel().get(i).toString().equals("Tactics_Filter_Scope_Select_DeSelect"))
 			{
@@ -182,7 +189,7 @@ public class Keyword_Driven_Test extends ACA_Activate_Instruction_Data_From_Exce
 			{
 				Module_For_Trends.Trends_Filter_Scope_Select_DeSelect(test, folderName);
 			}
-			else if(rid.Read_Instruction_Data_From_Excel().get(i).toString().equals("Navigate_to_Optimize_Module"))
+			else if(collator.compare(read_Ins_Data_from_Excel, "Navigate_to_Optimize_Module") == 0)
 			{
 				Module_For_Optimize.Navigate_to_Optimize_Module(test, folderName);
 			}

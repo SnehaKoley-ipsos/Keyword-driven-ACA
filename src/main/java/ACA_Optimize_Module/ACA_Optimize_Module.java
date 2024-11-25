@@ -123,20 +123,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='popup-model-header']")).size();
 			if(OptScreenOpen == 1)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Create_A_New_Scenario"+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(1000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Create_A_New_Scenario is Open");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Create_A_New_Scenario is Open");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Create_A_New_Scenario"+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(1000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Create_A_New_Scenario is Open");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Create_A_New_Scenario is not open<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Create_A_New_Scenario is not open<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Create_A_New_Scenario is not open<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 			//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 			
@@ -178,19 +189,30 @@ public class ACA_Optimize_Module {
             				OptScreenOpen = driver.findElements(By.xpath("//*[@class='popup-model-header']")).size();
             				if(OptScreenOpen == 1)
             				{
-            					sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Target_KPI_Child-"+j+".png";
-            					System.out.println("\n" + sourcePath);
-            					String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-            					Thread.sleep(500);
-            					String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-            					test.log(Status.INFO, "Create_A_New_Scenario_Target_KPI is Open");
-            					test.log(Status.PASS, "<br>"+ path);
+            					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+            			        // Embed the base64 screenshot directly into the report
+            			        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+            			        test.log(Status.INFO, "Create_A_New_Scenario_Target_KPI is Open");
+            					test.log(Status.PASS, "<br>"+ imgTag);
+            					
+            					//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Target_KPI_Child-"+j+".png";
+            					//System.out.println("\n" + sourcePath);
+            					//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+            					//Thread.sleep(500);
+            					//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+            					//test.log(Status.INFO, "Create_A_New_Scenario_Target_KPI is Open");
+            					//test.log(Status.PASS, "<br>"+ path);
             				}
             		    	else
             				{
-            					String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-            					String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-            					test.fail("Create_A_New_Scenario_Target_KPI is not open<br>"+ path1);
+            		    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+            			        // Embed the base64 screenshot directly into the report
+            			        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+            			        test.fail("Create_A_New_Scenario_Target_KPI is not open<br>"+ imgTag);
+            		    		
+            					//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+            					//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+            					//test.fail("Create_A_New_Scenario_Target_KPI is not open<br>"+ path1);
             				}
             				//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
         			    }
@@ -233,20 +255,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='btn-grey2 bo-c-lite-grey ln-ht-20 txt-center pd-r-5 pd-l-5 cursor-pointer fs-11']")).size();
 			if(OptScreenOpen == 1)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Create_A_New_Scenario_PopUp_Create"+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Create_A_New_Scenario_PopUp_Create - Scenario is Open now");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Create_A_New_Scenario_PopUp_Create - Scenario is Open now");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Create_A_New_Scenario_PopUp_Create"+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Create_A_New_Scenario_PopUp_Create - Scenario is Open now");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 			else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Create_A_New_Scenario_PopUp_Create - Scenario is not open<br>"+ path1);
-				//Assert.assertEquals(1, size);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Create_A_New_Scenario_PopUp_Create - Scenario is not open<br>"+ imgTag);
+				
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Create_A_New_Scenario_PopUp_Create - Scenario is not open<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 			//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 			
@@ -290,28 +323,38 @@ public class ACA_Optimize_Module {
     		int tooltips = driver.findElements(By.xpath("//div[@title]")).size();
 			if(tooltips != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Verify_Create_A_New_Scenario_PopUp_Target_KPI_With_Scenario_Grid_Column_Name"+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Verify_Create_A_New_Scenario_PopUp_Target_KPI_With_Scenario_Grid_Column_Name - is matching for the expected value : " + Target_KPI_Child_Value);
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Verify_Create_A_New_Scenario_PopUp_Target_KPI_With_Scenario_Grid_Column_Name - Value is matching for the expected value : " + Target_KPI_Child_Value);
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Verify_Create_A_New_Scenario_PopUp_Target_KPI_With_Scenario_Grid_Column_Name"+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Verify_Create_A_New_Scenario_PopUp_Target_KPI_With_Scenario_Grid_Column_Name - is matching for the expected value : " + Target_KPI_Child_Value);
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 			else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Verify_Create_A_New_Scenario_PopUp_Target_KPI_With_Scenario_Grid_Column_Name - Not matching for the expected value<br>"+ path1);
-				//Assert.assertEquals(1, size);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Verify_Create_A_New_Scenario_PopUp_Target_KPI_With_Scenario_Grid_Column_Name - Value not matching for the expected value<br>"+ imgTag);
+				
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Verify_Create_A_New_Scenario_PopUp_Target_KPI_With_Scenario_Grid_Column_Name - Not matching for the expected value<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 			//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 			
-
             // If no match is found
             if (!matchFound)
             {
-                System.out.println("\n" + "Verify_Create_A_New_Scenario_PopUp_Target_KPI_With_Scenario_Grid_Column_Name - Not matching for the expected value : " + Target_KPI_Child_Value);
+                System.out.println("\n" + "Verify_Create_A_New_Scenario_PopUp_Target_KPI_With_Scenario_Grid_Column_Name - Value not matching for the expected value : " + Target_KPI_Child_Value);
             }    		    		
     	}
     	catch (Exception ex)
@@ -342,20 +385,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Default_Save_Scenario"+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Default_Save_Scenario is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Default_Save_Scenario is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Default_Save_Scenario"+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Default_Save_Scenario is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Default_Save_Scenario is not working<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Default_Save_Scenario is not working<br>"+ imgTag);
+				
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Default_Save_Scenario is not working<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 			//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 			
@@ -397,19 +451,30 @@ public class ACA_Optimize_Module {
     			OptScreenOpen = driver.findElements(By.xpath("//*[@class='  btn-group']")).size();
     			if(OptScreenOpen == 1)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Filter_Scope_Select_DeSelect"+".png";
-    				System.out.println("\n" + sourcePath);
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Optimize_Filter_Scope_Select_DeSelect is working successfully!");
-    				test.log(Status.PASS, "<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Optimize_Filter_Scope_Select_DeSelect is working successfully!");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Filter_Scope_Select_DeSelect"+".png";
+    				//System.out.println("\n" + sourcePath);
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Optimize_Filter_Scope_Select_DeSelect is working successfully!");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     	    	else
     			{
-    				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-    				test.fail("Optimize_Filter_Scope_Select_DeSelect is not working<br>"+ path1);
+    	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Optimize_Filter_Scope_Select_DeSelect is not working<br>"+ imgTag);
+    	    		
+    				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+    				//test.fail("Optimize_Filter_Scope_Select_DeSelect is not working<br>"+ path1);
     				//Assert.assertEquals(1, size);
     			}
     			//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -450,17 +515,28 @@ public class ACA_Optimize_Module {
                 Total_Optimize_DrillDown_Back_Items = driver.findElements(By.xpath("//*[@class='fas fa-level-up-alt big-icon-opp v-center cursor-pointer ht-70 pd-l-5']")).size();
     			if(Total_Optimize_DrillDown_Back_Items != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_DrillDown-" + Optimize_DrillDown_Item_Name +".png";
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Optimize_DrillDown - One Step DrillDown");
-    				test.log(Status.PASS, "<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Optimize_DrillDown - One Step DrillDown");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_DrillDown-" + Optimize_DrillDown_Item_Name +".png";
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Optimize_DrillDown - One Step DrillDown");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     			else
     			{
-    				test.fail("Optimize_DrillDown - Page is some issue<br>"+ path);
-    				//Assert.assertEquals(1, size);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Optimize_DrillDown - Page is some issue<br>"+ imgTag);
+    				
+    				//test.fail("Optimize_DrillDown - Page is some issue<br>"+ path);
+    				////Assert.assertEquals(1, size);
     			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 
@@ -494,17 +570,28 @@ public class ACA_Optimize_Module {
                         //int DrillBackIcon = driver.findElements(By.xpath("//*[@class='fas fa-level-up-alt big-icon-opp v-center cursor-pointer ht-70 pd-l-5']")).size();
             			if(Total_Optimize_DrillDown_Back_Items != 0)
             			{
-            				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_DrillDown_Dimension_Item-" + Optimize_DrillDown_Item_Name + "-" + Dimension_Item_Name +".png";
-            				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-            				Thread.sleep(2000);
-            				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-            				test.log(Status.INFO, "Optimize_DrillDown - Dimension Item");
-            				test.log(Status.PASS, "<br>"+ path);
+            				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+            		        // Embed the base64 screenshot directly into the report
+            		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+            		        test.log(Status.INFO, "Optimize_DrillDown - Dimension Item");
+            				test.log(Status.PASS, "<br>"+ imgTag);
+            				
+            				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_DrillDown_Dimension_Item-" + Optimize_DrillDown_Item_Name + "-" + Dimension_Item_Name +".png";
+            				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+            				//Thread.sleep(2000);
+            				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+            				//test.log(Status.INFO, "Optimize_DrillDown - Dimension Item");
+            				//test.log(Status.PASS, "<br>"+ path);
             			}
             			else
             			{
-            				test.fail("Optimize_DrillDown - Dimension Item - Page is some issue<br>"+ path);
-            				//Assert.assertEquals(1, size);
+            				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+            		        // Embed the base64 screenshot directly into the report
+            		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+            		        test.fail("Optimize_DrillDown - Dimension Item - Page is some issue<br>"+ imgTag);
+            				
+            				//test.fail("Optimize_DrillDown - Dimension Item - Page is some issue<br>"+ path);
+            				////Assert.assertEquals(1, size);
             			}
 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 
@@ -539,7 +626,6 @@ public class ACA_Optimize_Module {
                 //Thread.sleep(500);
                 
                 System.out.println("\n" + "Optimize_DrillDown Back Grid Item : " + Optimize_DrillDown_Back_Item_Name);
-                
             }
 		}
 		catch (Exception ex)
@@ -577,24 +663,34 @@ public class ACA_Optimize_Module {
     			OptScreenOpen = driver.findElements(By.xpath("//*[@class='  btn-group']")).size();
     			if(OptScreenOpen == 1)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Export"+".png";
-    				System.out.println("\n" + sourcePath);
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Optimize_Export is working successfully!");
-    				test.log(Status.PASS, "<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Optimize_Export is working successfully!");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Export"+".png";
+    				//System.out.println("\n" + sourcePath);
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Optimize_Export is working successfully!");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     	    	else
     			{
-    				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-    				test.fail("Optimize_Export is not working<br>"+ path1);
-    				//Assert.assertEquals(1, size);
+    	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Optimize_Export is not working<br>"+ imgTag);
+    	    		
+    				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+    				//test.fail("Optimize_Export is not working<br>"+ path1);
+    				////Assert.assertEquals(1, size);
     			}
     			//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
-    			 
-				
+    			 				
 				System.out.println("\n" + "Optimize_Export : CSV Executed");				
 			}
 		}
@@ -633,20 +729,31 @@ public class ACA_Optimize_Module {
     			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
     			if(OptScreenOpen != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Add_Column"+".png";
-    				System.out.println("\n" + sourcePath);
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Optimize_Add_Column is working successfully!");
-    				test.log(Status.PASS, "<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Optimize_Add_Column is working successfully!");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Add_Column"+".png";
+    				//System.out.println("\n" + sourcePath);
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Optimize_Add_Column is working successfully!");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     	    	else
     			{
-    				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-    				test.fail("Optimize_Add_Column is not working<br>"+ path1);
-    				//Assert.assertEquals(1, size);
+    	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Optimize_Add_Column is not working<br>"+ imgTag);
+    	    		
+    				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+    				//test.fail("Optimize_Add_Column is not working<br>"+ path1);
+    				////Assert.assertEquals(1, size);
     			}
     		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
     		    
@@ -695,20 +802,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Simulation_Job"+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Simulation_Job is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Simulation_Job is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Simulation_Job"+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Simulation_Job is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Simulation_Job is not working<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Simulation_Job is not working<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Simulation_Job is not working<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
             
@@ -746,20 +864,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Flat_Opt_Job"+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Flat_Opt_Job is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Flat_Opt_Job is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Flat_Opt_Job"+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Flat_Opt_Job is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Flat_Opt_Job is not working<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Flat_Opt_Job is not working<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Flat_Opt_Job is not working<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
             
@@ -798,27 +927,38 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Spend_0_Simulation_Job"+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(1000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Spend_0_Simulation_Job is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Spend_0_Simulation_Job is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Spend_0_Simulation_Job"+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(1000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Spend_0_Simulation_Job is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Spend_0_Simulation_Job is not working<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Spend_0_Simulation_Job is not working<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Spend_0_Simulation_Job is not working<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
             
 			
-//			WebElement Simulate = mp.get_Spend_0_Simulation();
-//			Simulate.click();
-//			Thread.sleep(3000);
+			//WebElement Simulate = mp.get_Spend_0_Simulation();
+			//Simulate.click();
+			//Thread.sleep(3000);
 			Simulate.click();
 			Thread.sleep(3000);			
 			
@@ -835,24 +975,34 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Simulation_Job_"+New_Scenario_Name+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(1000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Simulation_Job_"+ New_Scenario_Name +" is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Simulation_Job_"+ New_Scenario_Name +" is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Simulation_Job_"+New_Scenario_Name+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(1000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Simulation_Job_"+ New_Scenario_Name +" is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Simulation_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Simulation_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Simulation_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
 				//Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
-            
-            
+                        
             WebElement Run_Simulation = mp.get_Spend_0_Run_Simulation();
             Run_Simulation.click();
 			Thread.sleep(2000);
@@ -888,20 +1038,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Spend_0_Opt_Job"+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Spend_0_Opt_Job is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Spend_0_Opt_Job is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Spend_0_Opt_Job"+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Spend_0_Opt_Job is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Spend_0_Opt_Job is not working<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Spend_0_Opt_Job is not working<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Spend_0_Opt_Job is not working<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
           			
@@ -923,20 +1084,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Spend_0_Opt_Job_"+New_Scenario_Name+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Spend_0_Opt_Job_"+ New_Scenario_Name +" is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Spend_0_Opt_Job_"+ New_Scenario_Name +" is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Spend_0_Opt_Job_"+New_Scenario_Name+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Spend_0_Opt_Job_"+ New_Scenario_Name +" is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Spend_0_Opt_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Spend_0_Opt_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Spend_0_Opt_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
                         
@@ -971,20 +1143,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Pct_Simulation_Job.png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Simulation_Job is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Simulation_Job is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Pct_Simulation_Job.png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Simulation_Job is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Adjust_All_By_Pct_Simulation_Job is not working successfully!<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Adjust_All_By_Pct_Simulation_Job is not working successfully!<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Adjust_All_By_Pct_Simulation_Job is not working successfully!<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 
@@ -999,20 +1182,31 @@ public class ACA_Optimize_Module {
     			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
     			if(OptScreenOpen != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Pct_Simulation_Job - After_Applied.png";
-    				System.out.println("\n" + sourcePath);
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Simulation_Job - After_Applied is working successfully!");
-    				test.log(Status.PASS, "<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Simulation_Job - After_Applied is working successfully!");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Pct_Simulation_Job - After_Applied.png";
+    				//System.out.println("\n" + sourcePath);
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Simulation_Job - After_Applied is working successfully!");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     	    	else
     			{
-    				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-    				test.fail("Optimize_Adjust_All_By_Pct_Simulation_Job - After_Applied is not working successfully!<br>"+ path1);
-    				//Assert.assertEquals(1, size);
+    	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Optimize_Adjust_All_By_Pct_Simulation_Job - After_Applied is not working successfully!<br>"+ imgTag);
+    	    		
+    				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+    				//test.fail("Optimize_Adjust_All_By_Pct_Simulation_Job - After_Applied is not working successfully!<br>"+ path1);
+    				////Assert.assertEquals(1, size);
     			}
     		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 
@@ -1034,19 +1228,30 @@ public class ACA_Optimize_Module {
   			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
   			if(OptScreenOpen != 0)
   			{
-  				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Pct_Simulation_Job_"+New_Scenario_Name+".png";
-  				System.out.println("\n" + sourcePath);
-  				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-  				Thread.sleep(1000);
-  				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-  				test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Simulation_Job_"+ New_Scenario_Name +" is working successfully!");
-  				test.log(Status.PASS, "<br>"+ path);
+  				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Simulation_Job_"+ New_Scenario_Name +" is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+  				
+  				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Pct_Simulation_Job_"+New_Scenario_Name+".png";
+  				//System.out.println("\n" + sourcePath);
+  				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+  				//Thread.sleep(1000);
+  				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+  				//test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Simulation_Job_"+ New_Scenario_Name +" is working successfully!");
+  				//test.log(Status.PASS, "<br>"+ path);
   			}
   	    	else
   			{
-  				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-  				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-  				test.fail("Optimize_Adjust_All_By_Pct_Simulation_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
+  	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Adjust_All_By_Pct_Simulation_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ imgTag);
+  	    		
+  				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+  				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+  				//test.fail("Optimize_Adjust_All_By_Pct_Simulation_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
   				//Assert.assertEquals(1, size);
   			}
   		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -1084,20 +1289,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Pct_Opt_Job.png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Opt_Job is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Opt_Job is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Pct_Opt_Job.png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Opt_Job is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Adjust_All_By_Pct_Opt_Job is not working successfully!<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Adjust_All_By_Pct_Opt_Job is not working successfully!<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Adjust_All_By_Pct_Opt_Job is not working successfully!<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 			
@@ -1111,20 +1327,31 @@ public class ACA_Optimize_Module {
     			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
     			if(OptScreenOpen != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Pct_Opt_Job - After_Applied.png";
-    				System.out.println("\n" + sourcePath);
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Opt_Job - After_Applied is working successfully!");
-    				test.log(Status.PASS, "<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Opt_Job - After_Applied is working successfully!");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Pct_Opt_Job - After_Applied.png";
+    				//System.out.println("\n" + sourcePath);
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Opt_Job - After_Applied is working successfully!");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     	    	else
     			{
-    				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-    				test.fail("Optimize_Adjust_All_By_Pct_Opt_Job - After_Applied is not working successfully!<br>"+ path1);
-    				//Assert.assertEquals(1, size);
+    	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Optimize_Adjust_All_By_Pct_Opt_Job - After_Applied is not working successfully!<br>"+ imgTag);
+    	    		
+    				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+    				//test.fail("Optimize_Adjust_All_By_Pct_Opt_Job - After_Applied is not working successfully!<br>"+ path1);
+    				////Assert.assertEquals(1, size);
     			}
     	//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
             
@@ -1144,20 +1371,31 @@ public class ACA_Optimize_Module {
   			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
   			if(OptScreenOpen != 0)
   			{
-  				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Pct_Opt_Job_"+New_Scenario_Name+".png";
-  				System.out.println("\n" + sourcePath);
-  				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-  				Thread.sleep(1000);
-  				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-  				test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Opt_Job_"+ New_Scenario_Name +" is working successfully!");
-  				test.log(Status.PASS, "<br>"+ path);
+  				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Opt_Job_"+ New_Scenario_Name +" is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+  				
+  				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Pct_Opt_Job_"+New_Scenario_Name+".png";
+  				//System.out.println("\n" + sourcePath);
+  				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+  				//Thread.sleep(1000);
+  				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+  				//test.log(Status.INFO, "Optimize_Adjust_All_By_Pct_Opt_Job_"+ New_Scenario_Name +" is working successfully!");
+  				//test.log(Status.PASS, "<br>"+ path);
   			}
   	    	else
   			{
-  				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-  				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-  				test.fail("Optimize_Adjust_All_By_Pct_Opt_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
-  				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Adjust_All_By_Pct_Opt_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ imgTag);
+  	    		
+  				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+  				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+  				//test.fail("Optimize_Adjust_All_By_Pct_Opt_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
+  				////Assert.assertEquals(1, size);
   			}
   		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
                           
@@ -1192,20 +1430,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Values_Simulation_Job.png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Simulation_Job is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Simulation_Job is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Values_Simulation_Job.png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Simulation_Job is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Adjust_All_By_Values_Simulation_Job is not working successfully!<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Adjust_All_By_Values_Simulation_Job is not working successfully!<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Adjust_All_By_Values_Simulation_Job is not working successfully!<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 			
@@ -1219,20 +1468,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Values_Simulation_Job - After_Applied.png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Simulation_Job - After_Applied is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Simulation_Job - After_Applied is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Values_Simulation_Job - After_Applied.png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Simulation_Job - After_Applied is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Adjust_All_By_Values_Simulation_Job - After_Applied is not working successfully!<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Adjust_All_By_Values_Simulation_Job - After_Applied is not working successfully!<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Adjust_All_By_Values_Simulation_Job - After_Applied is not working successfully!<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
             
@@ -1252,20 +1512,31 @@ public class ACA_Optimize_Module {
   			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
   			if(OptScreenOpen != 0)
   			{
-  				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Values_Simulation_Job_"+New_Scenario_Name+".png";
-  				System.out.println("\n" + sourcePath);
-  				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-  				Thread.sleep(1000);
-  				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-  				test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Simulation_Job_"+ New_Scenario_Name +" is working successfully!");
-  				test.log(Status.PASS, "<br>"+ path);
+  				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Simulation_Job_"+ New_Scenario_Name +" is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+  				  				
+  				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Values_Simulation_Job_"+New_Scenario_Name+".png";
+  				//System.out.println("\n" + sourcePath);
+  				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+  				//Thread.sleep(1000);
+  				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+  				//test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Simulation_Job_"+ New_Scenario_Name +" is working successfully!");
+  				//test.log(Status.PASS, "<br>"+ path);
   			}
   	    	else
   			{
-  				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-  				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-  				test.fail("Optimize_Adjust_All_By_Values_Simulation_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
-  				//Assert.assertEquals(1, size);
+  	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Adjust_All_By_Values_Simulation_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ imgTag);
+	    		
+  				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+  				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+  				//test.fail("Optimize_Adjust_All_By_Values_Simulation_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
+  				////Assert.assertEquals(1, size);
   			}
   		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
                         
@@ -1301,20 +1572,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Values_Opt_Job.png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Opt_Job is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Opt_Job is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Values_Opt_Job.png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Opt_Job is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Adjust_All_By_Values_Opt_Job is not working successfully!<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Adjust_All_By_Values_Opt_Job is not working successfully!<br>"+ imgTag);
+	    			    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Adjust_All_By_Values_Opt_Job is not working successfully!<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 						
@@ -1328,20 +1610,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Values_Opt_Job - After_Applied.png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Opt_Job - After_Applied is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Opt_Job - After_Applied is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Values_Opt_Job - After_Applied.png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Opt_Job - After_Applied is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Adjust_All_By_Values_Opt_Job - After_Applied is not working successfully!<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Adjust_All_By_Values_Opt_Job - After_Applied is not working successfully!<br>"+ imgTag);
+	    			    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Adjust_All_By_Values_Opt_Job - After_Applied is not working successfully!<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
             
@@ -1361,20 +1654,31 @@ public class ACA_Optimize_Module {
   			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
   			if(OptScreenOpen != 0)
   			{
-  				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Values_Opt_Job_"+New_Scenario_Name+".png";
-  				System.out.println("\n" + sourcePath);
-  				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-  				Thread.sleep(1000);
-  				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-  				test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Opt_Job_"+ New_Scenario_Name +" is working successfully!");
-  				test.log(Status.PASS, "<br>"+ path);
+  				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Opt_Job_"+ New_Scenario_Name +" is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+  				
+  				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Adjust_All_By_Values_Opt_Job_"+New_Scenario_Name+".png";
+  				//System.out.println("\n" + sourcePath);
+  				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+  				//Thread.sleep(1000);
+  				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+  				//test.log(Status.INFO, "Optimize_Adjust_All_By_Values_Opt_Job_"+ New_Scenario_Name +" is working successfully!");
+  				//test.log(Status.PASS, "<br>"+ path);
   			}
   	    	else
   			{
-  				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-  				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-  				test.fail("Optimize_Adjust_All_By_Values_Opt_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
-  				//Assert.assertEquals(1, size);
+  	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Adjust_All_By_Values_Opt_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ imgTag);
+  	    		
+  				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+  				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+  				//test.fail("Optimize_Adjust_All_By_Values_Opt_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
+  				////Assert.assertEquals(1, size);
   			}
   		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
   		
@@ -1421,20 +1725,31 @@ public class ACA_Optimize_Module {
   			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
   			if(OptScreenOpen != 0)
   			{
-  				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Minimize_Budget_Opt_Job_"+ New_Scenario_Name +".png";
-  				System.out.println("\n" + sourcePath);
-  				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-  				Thread.sleep(1000);
-  				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-  				test.log(Status.INFO, "Optimize_Minimize_Budget_Opt_Job_"+ New_Scenario_Name +" is working successfully!");
-  				test.log(Status.PASS, "<br>"+ path);
+  				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Minimize_Budget_Opt_Job_"+ New_Scenario_Name +" is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+  				
+  				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Minimize_Budget_Opt_Job_"+ New_Scenario_Name +".png";
+  				//System.out.println("\n" + sourcePath);
+  				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+  				//Thread.sleep(1000);
+  				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+  				//test.log(Status.INFO, "Optimize_Minimize_Budget_Opt_Job_"+ New_Scenario_Name +" is working successfully!");
+  				//test.log(Status.PASS, "<br>"+ path);
   			}
   	    	else
   			{
-  				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-  				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-  				test.fail("Optimize_Minimize_Budget_Opt_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
-  				//Assert.assertEquals(1, size);
+  	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Minimize_Budget_Opt_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ imgTag);
+  	    		  	    		
+  				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+  				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+  				//test.fail("Optimize_Minimize_Budget_Opt_Job_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
+  				////Assert.assertEquals(1, size);
   			}
   		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
   		            
@@ -1504,20 +1819,31 @@ public class ACA_Optimize_Module {
   			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
   			if(OptScreenOpen != 0)
   			{
-  				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Advance_Options_Min_Max_Pct_Value_Change_"+ New_Scenario_Name +".png";
-  				System.out.println("\n" + sourcePath);
-  				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-  				Thread.sleep(1000);
-  				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-  				test.log(Status.INFO, "Advance_Options_Min_Max_Pct_Value_Change_"+ New_Scenario_Name +" is working successfully!");
-  				test.log(Status.PASS, "<br>"+ path);
+  				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Advance_Options_Min_Max_Pct_Value_Change_"+ New_Scenario_Name +" is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+  				
+  				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Advance_Options_Min_Max_Pct_Value_Change_"+ New_Scenario_Name +".png";
+  				//System.out.println("\n" + sourcePath);
+  				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+  				//Thread.sleep(1000);
+  				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+  				//test.log(Status.INFO, "Advance_Options_Min_Max_Pct_Value_Change_"+ New_Scenario_Name +" is working successfully!");
+  				//test.log(Status.PASS, "<br>"+ path);
   			}
   	    	else
   			{
-  				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-  				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-  				test.fail("Advance_Options_Min_Max_Pct_Value_Change_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
-  				//Assert.assertEquals(1, size);
+  	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Advance_Options_Min_Max_Pct_Value_Change_"+ New_Scenario_Name +" is not working successfully!<br>"+ imgTag);
+  	    		
+  				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+  				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+  				//test.fail("Advance_Options_Min_Max_Pct_Value_Change_"+ New_Scenario_Name +" is not working successfully!<br>"+ path1);
+  				////Assert.assertEquals(1, size);
   			}
   		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
             
@@ -1560,20 +1886,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1 mg-l-3 mg-t-neg-2']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Open_Job_Notification_Panel"+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Open_Job_Notification_Panel is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Open_Job_Notification_Panel is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Open_Job_Notification_Panel"+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Open_Job_Notification_Panel is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Open_Job_Notification_Panel is not working<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Open_Job_Notification_Panel is not working<br>"+ imgTag);
+  	    			    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Open_Job_Notification_Panel is not working<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 		          
@@ -1612,20 +1949,31 @@ public class ACA_Optimize_Module {
 			
 			if(Opt_Job_List != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_View_Result_for_Complete_Job"+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_View_Result_for_Complete_Job is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_View_Result_for_Complete_Job is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_View_Result_for_Complete_Job"+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_View_Result_for_Complete_Job is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_View_Result_for_Complete_Job is not working<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_View_Result_for_Complete_Job is not working<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_View_Result_for_Complete_Job is not working<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 		 
@@ -1693,20 +2041,31 @@ public class ACA_Optimize_Module {
 			int Optimize_Job_View_Result_Export_Path_Count = driver.findElements(By.xpath("//*[@Class='ov-hidden text-ov-ellipsis white-sp-nowrap pd-r-8']")).size();
 			if(Optimize_Job_View_Result_Export_Path_Count != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Job_Adapt_These_Changes"+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Job_Adapt_These_Changes is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Job_Adapt_These_Changes is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Job_Adapt_These_Changes"+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Job_Adapt_These_Changes is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Job_Adapt_These_Changes is not working<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Job_Adapt_These_Changes is not working<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Job_Adapt_These_Changes is not working<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 		             
@@ -1775,20 +2134,31 @@ public class ACA_Optimize_Module {
 			OptScreenOpen = driver.findElements(By.xpath("//*[@class='mg-r-1']")).size();
 			if(OptScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Delete_Scenario"+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Delete_Scenario is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Delete_Scenario is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Delete_Scenario"+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Delete_Scenario is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Delete_Scenario is not working<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Delete_Scenario is not working<br>"+ imgTag);
+	    			    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Delete_Scenario is not working<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 		      		
@@ -1852,24 +2222,34 @@ public class ACA_Optimize_Module {
           //---------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
 			if(ScenarioList != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Copy_Scenario"+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Copy_Scenario is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Copy_Scenario is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Copy_Scenario"+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Copy_Scenario is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Copy_Scenario is not working<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Copy_Scenario is not working<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Copy_Scenario is not working<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
-		  
-    		    		            
+		      		    		            
             System.out.println("\n" + "Optimize_Copy_Scenario : Executed");
             Thread.sleep(1000);
             
@@ -1922,20 +2302,31 @@ public class ACA_Optimize_Module {
           //---------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
 			if(ScenarioList != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Compare_Scenario"+".png";
-				System.out.println("\n" + sourcePath);
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Optimize_Compare_Scenario is working successfully!");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Optimize_Compare_Scenario is working successfully!");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Compare_Scenario"+".png";
+				//System.out.println("\n" + sourcePath);
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Optimize_Compare_Scenario is working successfully!");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 	    	else
 			{
-				String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-				test.fail("Optimize_Compare_Scenario is not working<br>"+ path1);
-				//Assert.assertEquals(1, size);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Optimize_Compare_Scenario is not working<br>"+ imgTag);
+	    		
+				//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+				//test.fail("Optimize_Compare_Scenario is not working<br>"+ path1);
+				////Assert.assertEquals(1, size);
 			}
 		 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 		      		
@@ -2005,8 +2396,7 @@ public class ACA_Optimize_Module {
 				Thread.sleep(8000);
 				
 			    System.out.println("\n" + "Optimize_Compare_Scenario_With_Export : Excel Downloaded");
-                
-                                
+                                                
 				View_Result_Export.click();
 				Thread.sleep(1000);
 				
@@ -2070,19 +2460,30 @@ public class ACA_Optimize_Module {
 				OptScreenOpen = driver.findElements(By.xpath("//*[@class='fas fa-times mg-r-20 cursor-pointer']")).size();
 				if(OptScreenOpen == 1)
 				{
-					sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Thresholds"+".png";
-					String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-					Thread.sleep(2000);
-					String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-					test.log(Status.INFO, "Optimize_Thresholds - PopUp is Open now");
-					test.log(Status.PASS, "<br>"+ path);
+					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			        // Embed the base64 screenshot directly into the report
+			        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+			        test.log(Status.INFO, "Optimize_Thresholds - PopUp is Open now");
+					test.log(Status.PASS, "<br>"+ imgTag);
+					
+					//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Thresholds"+".png";
+					//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					//Thread.sleep(2000);
+					//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+					//test.log(Status.INFO, "Optimize_Thresholds - PopUp is Open now");
+					//test.log(Status.PASS, "<br>"+ path);
 				}
 				else
 				{
-					String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-					String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-					test.fail("Optimize_Thresholds - PopUp is not open<br>"+ path1);
-					//Assert.assertEquals(1, size);
+					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			        // Embed the base64 screenshot directly into the report
+			        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+			        test.fail("Optimize_Thresholds - PopUp is not open<br>"+ imgTag);
+					
+					//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+					//test.fail("Optimize_Thresholds - PopUp is not open<br>"+ path1);
+					////Assert.assertEquals(1, size);
 				}
 				//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 				
@@ -2100,19 +2501,30 @@ public class ACA_Optimize_Module {
 				OptScreenOpen = driver.findElements(By.xpath("//*[@class='btn-grey2 bo-c-lite-grey ln-ht-20 txt-center pd-r-5 pd-l-5 cursor-pointer fs-11']")).size();
 				if(OptScreenOpen == 1)
 				{
-					sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Thresholds_Applied"+".png";
-					String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-					Thread.sleep(2000);
-					String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-					test.log(Status.INFO, "Optimize_Thresholds - Thresholds is Applied");
-					test.log(Status.PASS, "<br>"+ path);
+					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			        // Embed the base64 screenshot directly into the report
+			        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+			        test.log(Status.INFO, "Optimize_Thresholds - Thresholds is Applied");
+					test.log(Status.PASS, "<br>"+ imgTag);
+					
+					//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Optimize_Thresholds_Applied"+".png";
+					//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					//Thread.sleep(2000);
+					//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+					//test.log(Status.INFO, "Optimize_Thresholds - Thresholds is Applied");
+					//test.log(Status.PASS, "<br>"+ path);
 				}
 				else
 				{
-					String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-					String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-					test.fail("Optimize_Thresholds - Thresholds is not Applied<br>"+ path1);
-					//Assert.assertEquals(1, size);
+					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			        // Embed the base64 screenshot directly into the report
+			        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+			        test.fail("Optimize_Thresholds - Thresholds is not Applied<br>"+ imgTag);
+					
+					//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+					//test.fail("Optimize_Thresholds - Thresholds is not Applied<br>"+ path1);
+					////Assert.assertEquals(1, size);
 				}
 				//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
 				
