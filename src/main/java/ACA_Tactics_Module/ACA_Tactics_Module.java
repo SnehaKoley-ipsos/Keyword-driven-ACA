@@ -18,6 +18,8 @@ import com.aventstack.extentreports.Status;
 import ACA_Global_Functions.ACA_Activate_Global_Functions;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 
 public class ACA_Tactics_Module {
@@ -64,16 +66,27 @@ public class ACA_Tactics_Module {
 	  	  	//int TacticScreenOpen = aca_TMP.get_TacticScreenOpen().size();
 			if(TacticScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Navigate_to_Tactics_Module"+".png";
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Navigate_to_Tactics_Module - Tactic Module is Open");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Navigate_to_Tactics_Module - Tactic Module is Open");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Navigate_to_Tactics_Module"+".png";
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Navigate_to_Tactics_Module - Tactic Module is Open");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 			else
 			{
-				test.fail("Navigate_to_Tactics_Module - Tactic Module is not open<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Navigate_to_Tactics_Module - Tactic Module is not open<br>"+ imgTag);
+				
+				//test.fail("Navigate_to_Tactics_Module - Tactic Module is not open<br>"+ path);
 				//Assert.assertEquals(1, size);
 			}
 			//---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -106,16 +119,27 @@ public class ACA_Tactics_Module {
 	  	  	
 			if(TacticScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"ACA_AppVersion_Verify"+".png";
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "ACA_AppVersion_Verify - " + appVersion);
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "ACA_AppVersion_Verify - " + appVersion);
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"ACA_AppVersion_Verify"+".png";
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "ACA_AppVersion_Verify - " + appVersion);
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 			else
 			{
-				test.fail("ACA_AppVersion_Verify - Tactic Module is not open<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("ACA_AppVersion_Verify - Tactic Module is not open<br>"+ imgTag);
+				
+				//test.fail("ACA_AppVersion_Verify - Tactic Module is not open<br>"+ path);
 				//Assert.assertEquals(1, size);
 			}
 			//---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -149,12 +173,18 @@ public class ACA_Tactics_Module {
             {
 //-------------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
 	    		Thread.sleep(2000);
-	    		sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_KPI_and_Grid_Data_Verify"+".png";
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Tactics_KPI_and_Grid_Data_Verify -" + "<br>" + " KPI Name : " + Total_KPI_Name + " = " + Total_KPI_Value + "<br>" + "Grid Total Spend Value = " + sum);
-				test.log(Status.PASS, "<br>"+ path);
+	    		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Tactics_KPI_and_Grid_Data_Verify -" + "<br>" + " KPI Name : " + Total_KPI_Name + " = " + Total_KPI_Value + "<br>" + "Grid Total Spend Value = " + sum);
+				test.log(Status.PASS, "<br>"+ imgTag);
+	    		
+	    		//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_KPI_and_Grid_Data_Verify"+".png";
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Tactics_KPI_and_Grid_Data_Verify -" + "<br>" + " KPI Name : " + Total_KPI_Name + " = " + Total_KPI_Value + "<br>" + "Grid Total Spend Value = " + sum);
+				//test.log(Status.PASS, "<br>"+ path);
 //-------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//				
                 
 				System.out.println("\n" + "Tactics_KPI_and_Grid_Data_Verify - Total KPI values are matched to the Grid values");
@@ -163,12 +193,18 @@ public class ACA_Tactics_Module {
             {
 //-------------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
             	Thread.sleep(2000);
-	    		sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_KPI_and_Grid_Data_Verify"+".png";
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Tactics_KPI_and_Grid_Data_Verify -" + "<br>" + " KPI Name : " + Total_KPI_Name + " = " + Total_KPI_Value + "<br>" + "Grid Total Spend Value = " + sum);
-				test.log(Status.FAIL, "Tactics_KPI_and_Grid_Data_Verify - Total KPI values does not match the Grid values<br>"+ path);
+            	String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Tactics_KPI_and_Grid_Data_Verify -" + "<br>" + " KPI Name : " + Total_KPI_Name + " = " + Total_KPI_Value + "<br>" + "Grid Total Spend Value = " + sum);
+		        test.log(Status.FAIL, "Tactics_KPI_and_Grid_Data_Verify - Total KPI values does not match the Grid values<br>"+ imgTag);
+            	
+            	//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_KPI_and_Grid_Data_Verify"+".png";
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Tactics_KPI_and_Grid_Data_Verify -" + "<br>" + " KPI Name : " + Total_KPI_Name + " = " + Total_KPI_Value + "<br>" + "Grid Total Spend Value = " + sum);
+				//test.log(Status.FAIL, "Tactics_KPI_and_Grid_Data_Verify - Total KPI values does not match the Grid values<br>"+ path);
             	
             	//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
 				//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
@@ -210,16 +246,27 @@ public class ACA_Tactics_Module {
 //--------------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
 				if(TacticScreenOpen != 0)
 				{
-					sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_Filter_Scope_Select_DeSelect"+".png";
-					String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-					Thread.sleep(2000);
-					String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-					test.log(Status.INFO, "Tactics_Filter_Scope_Select_DeSelect - Filter Scope DeSelected Successfully");
-					test.log(Status.PASS, "<br>"+ path);
+					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			        // Embed the base64 screenshot directly into the report
+			        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+			        test.log(Status.INFO, "Tactics_Filter_Scope_Select_DeSelect - Filter Scope DeSelected Successfully");
+					test.log(Status.PASS, "<br>"+ imgTag);
+					
+					//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_Filter_Scope_Select_DeSelect"+".png";
+					//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					//Thread.sleep(2000);
+					//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+					//test.log(Status.INFO, "Tactics_Filter_Scope_Select_DeSelect - Filter Scope DeSelected Successfully");
+					//test.log(Status.PASS, "<br>"+ path);
 				}
 				else
 				{
-					test.fail("Tactics_Filter_Scope_Select_DeSelect - Filter Scope was not DeSelected Successfully<br>"+ path);
+					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			        // Embed the base64 screenshot directly into the report
+			        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+			        test.fail("Tactics_Filter_Scope_Select_DeSelect - Filter Scope was not DeSelected Successfully<br>"+ imgTag);
+			        
+					//test.fail("Tactics_Filter_Scope_Select_DeSelect - Filter Scope was not DeSelected Successfully<br>"+ path);
 					//Assert.assertEquals(1, size);
 				}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -257,16 +304,27 @@ public class ACA_Tactics_Module {
                 DrillBackIcon = aca_TMP.get_DrillBackIcon().size();
     			if(DrillBackIcon != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_DrillDown-" + Tactics_DrillDown_Item_Name +".png";
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Tactics_DrillDown - One Step DrillDown");
-    				test.log(Status.PASS, "<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			        // Embed the base64 screenshot directly into the report
+			        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+			        test.log(Status.INFO, "Tactics_DrillDown - One Step DrillDown");
+					test.log(Status.PASS, "<br>"+ imgTag);
+    				
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_DrillDown-" + Tactics_DrillDown_Item_Name +".png";
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Tactics_DrillDown - One Step DrillDown");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     			else
     			{
-    				test.fail("Tactics_DrillDown - Page is some issue<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Tactics_DrillDown - Page is some issue<br>"+ imgTag);
+    				
+    				//test.fail("Tactics_DrillDown - Page is some issue<br>"+ path);
     				//Assert.assertEquals(1, size);
     			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -300,16 +358,27 @@ public class ACA_Tactics_Module {
                         DrillBackIcon = driver.findElements(By.xpath("//*[@class='fas fa-level-up-alt fs-17 mg-r-10']")).size();
             			if(DrillBackIcon != 0)
             			{
-            				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_DrillDown_Dimension_Item-" + Tactics_DrillDown_Item_Name + "-" + Dimension_Item_Name +".png";
-            				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-            				Thread.sleep(2000);
-            				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-            				test.log(Status.INFO, "Tactics_DrillDown - Dimension Item");
-            				test.log(Status.PASS, "<br>"+ path);
+            				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+            		        // Embed the base64 screenshot directly into the report
+            		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+            		        test.log(Status.INFO, "Tactics_DrillDown - Dimension Item");
+            				test.log(Status.PASS, "<br>"+ imgTag);
+            				            				
+            				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_DrillDown_Dimension_Item-" + Tactics_DrillDown_Item_Name + "-" + Dimension_Item_Name +".png";
+            				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+            				//Thread.sleep(2000);
+            				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+            				//test.log(Status.INFO, "Tactics_DrillDown - Dimension Item");
+            				//test.log(Status.PASS, "<br>"+ path);
             			}
             			else
             			{
-            				test.fail("Tactics_DrillDown - Dimension Item - Page is some issue<br>"+ path);
+            				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+            		        // Embed the base64 screenshot directly into the report
+            		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+            		        test.fail("Tactics_DrillDown - Dimension Item - Page is some issue<br>"+ imgTag);
+            		        
+            				//test.fail("Tactics_DrillDown - Dimension Item - Page is some issue<br>"+ path);
             				//Assert.assertEquals(1, size);
             			}
 //---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -385,16 +454,27 @@ public class ACA_Tactics_Module {
 //--------------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
                 if( driver.findElements(By.xpath("//*[@class='ov-hidden text-ov-ellipsis white-sp-nowrap pd-r-8 wd-pct-75']")).size() != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_Export"+".png";
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Tactics_Export - Tactics Export Working Successful");
-    				test.log(Status.PASS, "<br>"+ path);
+                	String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Tactics_Export - Tactics Export Working Successful");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				                	
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_Export"+".png";
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Tactics_Export - Tactics Export Working Successful");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     			else
     			{
-    				test.fail("Tactics_Export - Tactics Export is not Working<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Tactics_Export - Tactics Export is not Working<br>"+ imgTag);
+    		        
+    				//test.fail("Tactics_Export - Tactics Export is not Working<br>"+ path);
     				//Assert.assertEquals(1, size);
     			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -434,16 +514,27 @@ public class ACA_Tactics_Module {
 //--------------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
                 if( driver.findElements(By.xpath("//*[@class='btn-small btn-grey2 position-relative']")).size() != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_Add_Column"+".png";
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Tactics_Add_Column - Add Column Working Successful");
-    				test.log(Status.PASS, "<br>"+ path);
+                	String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Tactics_Add_Column - Add Column Working Successful");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_Add_Column"+".png";
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Tactics_Add_Column - Add Column Working Successful");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     			else
     			{
-    				test.fail("Tactics_Add_Column - Add Column is not Working <br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Tactics_Add_Column - Add Column is not Working <br>"+ imgTag);
+    				
+    				//test.fail("Tactics_Add_Column - Add Column is not Working <br>"+ path);
     				//Assert.assertEquals(1, size);
     			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -509,16 +600,27 @@ public class ACA_Tactics_Module {
 				TacticScreenOpen = driver.findElements(By.xpath("//*[@class='fas fa-times mg-r-20 cursor-pointer']")).size();
 				if(TacticScreenOpen != 0)
 				{
-					sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_Thresholds"+".png";
-					String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-					Thread.sleep(2000);
-					String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-					test.log(Status.INFO, "Tactics_Thresholds - PopUp is not open");
-					test.log(Status.PASS, "<br>"+ path);
+					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Tactics_Thresholds - PopUp is not open");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+					
+					//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_Thresholds"+".png";
+					//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					//Thread.sleep(2000);
+					//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+					//test.log(Status.INFO, "Tactics_Thresholds - PopUp is not open");
+					//test.log(Status.PASS, "<br>"+ path);
 				}
 				else
 				{
-					test.fail("Navigate_to_Tactics_Module - Tactic Module is not open<br>"+ path);
+					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Navigate_to_Tactics_Module - Tactic Module is not open<br>"+ imgTag);
+					
+					//test.fail("Navigate_to_Tactics_Module - Tactic Module is not open<br>"+ path);
 					//Assert.assertEquals(1, size);
 				}
 				//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -538,18 +640,29 @@ public class ACA_Tactics_Module {
 	    		TacticScreenOpen = driver.findElements(By.xpath("//*[@class='fas fa-sliders-h mg-r-8 mg-t-1']")).size();
 				if(TacticScreenOpen != 0)
 				{
-					sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_Thresholds_Applied"+".png";
-					String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-					Thread.sleep(2000);
-					String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-					test.log(Status.INFO, "Tactics_Thresholds - Thresholds is Applied");
-					test.log(Status.PASS, "<br>"+ path);
+					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			        // Embed the base64 screenshot directly into the report
+			        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+			        test.log(Status.INFO, "Tactics_Thresholds - Thresholds is Applied");
+					test.log(Status.PASS, "<br>"+ imgTag);
+					
+					//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_Thresholds_Applied"+".png";
+					//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					//Thread.sleep(2000);
+					//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+					//test.log(Status.INFO, "Tactics_Thresholds - Thresholds is Applied");
+					//test.log(Status.PASS, "<br>"+ path);
 				}
 				else
 				{
-					String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-					String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-					test.fail("Tactics_Thresholds - Thresholds is not Applied<br>"+ path1);
+					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			        // Embed the base64 screenshot directly into the report
+			        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+			        test.fail("Tactics_Thresholds - Thresholds is not Applied<br>"+ imgTag);
+					
+					//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+					//test.fail("Tactics_Thresholds - Thresholds is not Applied<br>"+ path1);
 					//Assert.assertEquals(1, size);
 				}
 				//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//

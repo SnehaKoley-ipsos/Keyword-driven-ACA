@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Random;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -54,16 +56,27 @@ public class ACA_Common_Test_Cases {
             //--------------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
 			if(listA.size() != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Filter_Apply_Button"+".png";
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Filter_Apply_Button - Applied Successfully");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Filter_Apply_Button - Applied Successfully");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Filter_Apply_Button"+".png";
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Filter_Apply_Button - Applied Successfully");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 			else
 			{
-				test.fail("Filter_Apply_Button - Applied was not Successfully<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Filter_Apply_Button - Applied was not Successfully<br>"+ imgTag);
+				
+				//test.fail("Filter_Apply_Button - Applied was not Successfully<br>"+ path);
 				//Assert.assertEquals(1, size);
 			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -101,25 +114,42 @@ public class ACA_Common_Test_Cases {
 //--------------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
 			if( driver.findElements(By.xpath("//*[@class='far fa-save fs-16 mg-l-7 mg-t-7']")).size() != 0 )
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Filter_Save_Icon_for_Opt"+".png";
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Filter_Save_Icon - Clicked on Filter Save Icon");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Filter_Save_Icon - Clicked on Filter Save Icon");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Filter_Save_Icon_for_Opt"+".png";
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Filter_Save_Icon - Clicked on Filter Save Icon");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 			else if( driver.findElements(By.xpath("//*[@id='main']/div/div/div/div/div/div/i[2]")).size() != 0 )
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Filter_Save_Icon"+".png";
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Filter_Save_Icon - Clicked on Filter Save Icon");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Filter_Save_Icon - Clicked on Filter Save Icon");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Filter_Save_Icon"+".png";
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Filter_Save_Icon - Clicked on Filter Save Icon");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 			else
 			{
-				test.fail("Filter_Save_Icon - Filter Save Icon was not Clicked<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Filter_Save_Icon - Filter Save Icon was not Clicked<br>"+ imgTag);
+				
+				//test.fail("Filter_Save_Icon - Filter Save Icon was not Clicked<br>"+ path);
 				//Assert.assertEquals(1, size);
 			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -148,16 +178,27 @@ public class ACA_Common_Test_Cases {
 //--------------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
             if( driver.findElements(By.xpath("/html/body/div/div/div/div/div/div/div/div/textarea")).size() != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Filter_Scope_Typing_New_Name_and_Description"+".png";
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Filter_Scope_Typing_New_Name_and_Description - New Name and Description writing complete");
-				test.log(Status.PASS, "<br>"+ path);
+            	String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Filter_Scope_Typing_New_Name_and_Description - New Name and Description writing complete");
+				test.log(Status.PASS, "<br>"+ imgTag);
+            	
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Filter_Scope_Typing_New_Name_and_Description"+".png";
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Filter_Scope_Typing_New_Name_and_Description - New Name and Description writing complete");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 			else
 			{
-				test.fail("Filter_Scope_Typing_New_Name_and_Description - New Name and Description are not complete<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Filter_Scope_Typing_New_Name_and_Description - New Name and Description are not complete<br>"+ imgTag);
+				
+				//test.fail("Filter_Scope_Typing_New_Name_and_Description - New Name and Description are not complete<br>"+ path);
 				//Assert.assertEquals(1, size);
 			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -190,14 +231,14 @@ public class ACA_Common_Test_Cases {
         	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='main']/div/div[2]/div[1]/div/div")));
             //Thread.sleep(500);
             
-//            if (FrameworkConstants.moduleName == "OPTIMIZE")
-//            {
-//            	driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div[1]/i[1]")).click();	//Click For the Edit button for OPTIMIZE Tab
-//            }
-//            else
-//            {
-//            	driver.findElement(By.xpath("//*[@id='main']/div/div/div/div[2]/div/div[1]/i[1]")).click();		//Click For the Edit button fFor Others Tab
-//            }
+        	//if (FrameworkConstants.moduleName == "OPTIMIZE")
+        	//{
+        	//driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div[1]/i[1]")).click();	//Click For the Edit button for OPTIMIZE Tab
+        	//}
+        	//else
+        	//{
+        	//driver.findElement(By.xpath("//*[@id='main']/div/div/div/div[2]/div/div[1]/i[1]")).click();		//Click For the Edit button fFor Others Tab
+        	//}
             
             //driver.findElement(By.xpath("//*[@id='main']/div/div/div/div/div/div/div[1]/i[1]")).click();		//Click For the Edit button for Others Tab
         	driver.findElement(By.xpath("//*[@class='fas fa-edit fs-14 mg-l-7 mg-t-7']")).click();			//Click For the Edit button for all Module
@@ -238,16 +279,27 @@ public class ACA_Common_Test_Cases {
 //--------------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
                 if( driver.findElements(By.xpath("//*[@class='fas fa-times mg-r-5']")).size() != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Filter_Scope_Save_And_Delete_This_Scope"+".png";
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Filter_Scope_Save_And_Delete_This_Scope - Created Filter Deleted Successfully");
-    				test.log(Status.PASS, "<br>"+ path);
+                	String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Filter_Scope_Save_And_Delete_This_Scope - Created Filter Deleted Successfully");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+                	
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Filter_Scope_Save_And_Delete_This_Scope"+".png";
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Filter_Scope_Save_And_Delete_This_Scope - Created Filter Deleted Successfully");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     			else
     			{
-    				test.fail("Filter_Scope_Save_And_Delete_This_Scope - Created Filter is not Deleted<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Filter_Scope_Save_And_Delete_This_Scope - Created Filter is not Deleted<br>"+ imgTag);
+    				
+    				//test.fail("Filter_Scope_Save_And_Delete_This_Scope - Created Filter is not Deleted<br>"+ path);
     				//Assert.assertEquals(1, size);
     			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -449,16 +501,27 @@ public class ACA_Common_Test_Cases {
 				
 				if(PopUpOpen != 0)
 				{
-					sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_Thresholds"+".png";
-					String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-					Thread.sleep(2000);
-					String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-					test.log(Status.INFO, "Thresholds - Clicked on Set All Button");
-					test.log(Status.PASS, "<br>"+ path);
+					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Thresholds - Clicked on Set All Button");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+					
+					//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_Thresholds"+".png";
+					//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					//Thread.sleep(2000);
+					//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+					//test.log(Status.INFO, "Thresholds - Clicked on Set All Button");
+					//test.log(Status.PASS, "<br>"+ path);
 				}
 				else
 				{
-					test.fail("Thresholds <br>"+ path);
+					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Thresholds <br>"+ imgTag);
+    				    		       
+					//test.fail("Thresholds <br>"+ path);
 					//Assert.assertEquals(1, size);
 				}
 				//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -478,18 +541,29 @@ public class ACA_Common_Test_Cases {
 	    		
 				if(PopUpOpen != 0)
 				{
-					sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_Thresholds_Applied"+".png";
-					String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-					Thread.sleep(2000);
-					String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-					test.log(Status.INFO, "Thresholds - Thresholds is Applied");
-					test.log(Status.PASS, "<br>"+ path);
+					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Thresholds - Thresholds is Applied");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+					
+					//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Tactics_Thresholds_Applied"+".png";
+					//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					//Thread.sleep(2000);
+					//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+					//test.log(Status.INFO, "Thresholds - Thresholds is Applied");
+					//test.log(Status.PASS, "<br>"+ path);
 				}
 				else
 				{
-					String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-					String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
-					test.fail("Thresholds - Thresholds is not Applied<br>"+ path1);
+					String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Thresholds - Thresholds is not Applied<br>"+ imgTag);
+					
+					//String screenshotPath1 = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+					//String path1 = "<img src=\"file://" + screenshotPath1 + "\" alt=\"\"/>";
+					//test.fail("Thresholds - Thresholds is not Applied<br>"+ path1);
 					//Assert.assertEquals(1, size);
 				}
 				//---------------------------------------ExtentReports_Code_End------------------------------------------------------------------//

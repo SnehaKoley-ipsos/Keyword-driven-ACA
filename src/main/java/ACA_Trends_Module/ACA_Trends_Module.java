@@ -6,6 +6,8 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -60,16 +62,27 @@ public class ACA_Trends_Module {
 	  	  	//int TacticScreenOpen = aca_TMP.get_TacticScreenOpen().size();
 			if(TrendsScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Navigate_to_Trends_Module"+".png";
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Navigate_to_Trends_Module - Trends Module is Open");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Navigate_to_Trends_Module - Trends Module is Open");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Navigate_to_Trends_Module"+".png";
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Navigate_to_Trends_Module - Trends Module is Open");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 			else
 			{
-				test.fail("Navigate_to_Trends_Module - Trends Module is not open<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Navigate_to_Trends_Module - Trends Module is not open<br>"+ imgTag);
+		        
+				//test.fail("Navigate_to_Trends_Module - Trends Module is not open<br>"+ path);
 				//Assert.assertEquals(1, size);
 			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -167,16 +180,27 @@ public class ACA_Trends_Module {
                 DrillBackIcon = driver.findElements(By.xpath("//*[@class='fas fa-level-up-alt fs-17 mg-r-10']")).size();
     			if(DrillBackIcon != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Trends_DrillDown-"+ Trends_DrillDown_Item_Name +".png";
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Trends_DrillDown - One Step DrillDown");
-    				test.log(Status.PASS, "<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Trends_DrillDown - One Step DrillDown");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Trends_DrillDown-"+ Trends_DrillDown_Item_Name +".png";
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Trends_DrillDown - One Step DrillDown");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     			else
     			{
-    				test.fail("Trends_DrillDown - Page is some issue<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Trends_DrillDown - Page is some issue<br>"+ imgTag);
+    		        
+    				//test.fail("Trends_DrillDown - Page is some issue<br>"+ path);
     				//Assert.assertEquals(1, size);
     			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -200,16 +224,27 @@ public class ACA_Trends_Module {
                     DrillBackIcon = driver.findElements(By.xpath("//*[@class='fas fa-level-up-alt fs-17 mg-r-10']")).size();
         			if(DrillBackIcon != 0)
         			{
-        				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Trends_DrillDown_Dimension-"+ Trends_day_Dimension +".png";
-        				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-        				Thread.sleep(2000);
-        				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-        				test.log(Status.INFO, "Trends_DrillDown_Dimension - Day_Dimension");
-        				test.log(Status.PASS, "<br>"+ path);
+        				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+        		        // Embed the base64 screenshot directly into the report
+        		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+        		        test.log(Status.INFO, "Trends_DrillDown_Dimension - Day_Dimension");
+        				test.log(Status.PASS, "<br>"+ imgTag);
+        				
+        				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Trends_DrillDown_Dimension-"+ Trends_day_Dimension +".png";
+        				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+        				//Thread.sleep(2000);
+        				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+        				//test.log(Status.INFO, "Trends_DrillDown_Dimension - Day_Dimension");
+        				//test.log(Status.PASS, "<br>"+ path);
         			}
         			else
         			{
-        				test.fail("Trends_DrillDown - Page is some issue<br>"+ path);
+        				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+        		        // Embed the base64 screenshot directly into the report
+        		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+        		        test.fail("Trends_DrillDown - Page is some issue<br>"+ imgTag);
+        		        
+        				//test.fail("Trends_DrillDown - Page is some issue<br>"+ path);
         				//Assert.assertEquals(1, size);
         			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -274,16 +309,27 @@ public class ACA_Trends_Module {
 //--------------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
                 if( driver.findElements(By.xpath("//*[@class='  btn-group']")).size() != 0)
                	 {
-	     				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Trends_Export"+".png";
-	     				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-	     				Thread.sleep(2000);
-	     				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-	     				test.log(Status.INFO, "Trends_Export - Trends Export Working Successful");
-	     				test.log(Status.PASS, "<br>"+ path);
+                	String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Trends_Export - Trends Export Working Successful");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				
+	     			//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Trends_Export"+".png";
+	     			//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+	     			//Thread.sleep(2000);
+	     			//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+	     			//test.log(Status.INFO, "Trends_Export - Trends Export Working Successful");
+	     			//test.log(Status.PASS, "<br>"+ path);
                	 }
                  else
                  {
-       				test.fail("Trends_Export - Trends Export is not Working<br>"+ path);
+                	String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+     		        // Embed the base64 screenshot directly into the report
+                	String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+                	test.fail("Trends_Export - Trends Export is not Working<br>"+ imgTag);
+     		         
+                	//test.fail("Trends_Export - Trends Export is not Working<br>"+ path);
        				//Assert.assertEquals(1, size);
        			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -326,16 +372,27 @@ public class ACA_Trends_Module {
 //--------------------------------------------ExtentReports_Code_Start------------------------------------------------------------------//
                 if( driver.findElements(By.xpath("//*[@class='btn-small btn-grey2 position-relative']")).size() != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Trends_Add_Column"+".png";
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Trends_Add_Column - Add Column Working Successful");
-    				test.log(Status.PASS, "<br>"+ path);
+                	String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Trends_Add_Column - Add Column Working Successful");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				                	
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Trends_Add_Column"+".png";
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Trends_Add_Column - Add Column Working Successful");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     			else
     			{
-    				test.fail("Trends_Add_Column - Add Column is not Working <br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Trends_Add_Column - Add Column is not Working <br>"+ imgTag);
+    		        
+    				//test.fail("Trends_Add_Column - Add Column is not Working <br>"+ path);
     				//Assert.assertEquals(1, size);
     			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//

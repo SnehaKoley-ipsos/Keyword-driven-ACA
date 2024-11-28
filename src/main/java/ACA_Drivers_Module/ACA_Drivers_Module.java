@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -60,16 +62,27 @@ public class ACA_Drivers_Module
 	  	  	//int TacticScreenOpen = aca_TMP.get_TacticScreenOpen().size();
 			if(DriversScreenOpen != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Navigate_to_Drivers_Module"+".png";
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Navigate_to_Drivers_Module - Drivers Module is Open");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Navigate_to_Drivers_Module - Drivers Module is Open");
+				test.log(Status.PASS, "<br>"+ imgTag);
+				
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Navigate_to_Drivers_Module"+".png";
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Navigate_to_Drivers_Module - Drivers Module is Open");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 			else
 			{
-				test.fail("Navigate_to_Drivers_Module - Drivers Module is not open<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Navigate_to_Drivers_Module - Drivers Module is not open<br>"+ imgTag);
+		        
+				//test.fail("Navigate_to_Drivers_Module - Drivers Module is not open<br>"+ path);
 				//Assert.assertEquals(1, size);
 			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -139,16 +152,27 @@ public class ACA_Drivers_Module
                 int DrillBackIcon = mp.getTotal_Drivers_DrillDown_Back_Items().size();
     			if(DrillBackIcon != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Drivers_DrillDown-" + Drivers_DrillDown_Item_Name +".png";
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Drivers_DrillDown - One Step DrillDown");
-    				test.log(Status.PASS, "<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Drivers_DrillDown - One Step DrillDown");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Drivers_DrillDown-" + Drivers_DrillDown_Item_Name +".png";
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Drivers_DrillDown - One Step DrillDown");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     			else
     			{
-    				test.fail("Drivers_DrillDown - Page is some issue<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Drivers_DrillDown - Page is some issue<br>"+ imgTag);
+    				
+    				//test.fail("Drivers_DrillDown - Page is some issue<br>"+ path);
     			}
 //---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
                
@@ -179,16 +203,27 @@ public class ACA_Drivers_Module
                         DrillBackIcon = driver.findElements(By.xpath("//*[@class='fas fa-level-up-alt fs-17 mg-r-10']")).size();
             			if(DrillBackIcon != 0)
             			{
-            				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Drivers_DrillDown_Dimension_Item-" + Drivers_DrillDown_Item_Name + "-" + Dimension_Item_Name +".png";
-            				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-            				Thread.sleep(2000);
-            				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-            				test.log(Status.INFO, "Drivers_DrillDown - Dimension Item");
-            				test.log(Status.PASS, "<br>"+ path);
+            				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+            		        // Embed the base64 screenshot directly into the report
+            		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+            		        test.log(Status.INFO, "Drivers_DrillDown - Dimension Item");
+            				test.log(Status.PASS, "<br>"+ imgTag);
+            				
+            				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Drivers_DrillDown_Dimension_Item-" + Drivers_DrillDown_Item_Name + "-" + Dimension_Item_Name +".png";
+            				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+            				//Thread.sleep(2000);
+            				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+            				//test.log(Status.INFO, "Drivers_DrillDown - Dimension Item");
+            				//test.log(Status.PASS, "<br>"+ path);
             			}
             			else
             			{
-            				test.fail("Drivers_DrillDown - Dimension Item - Page is some issue<br>"+ path);
+            				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+            		        // Embed the base64 screenshot directly into the report
+            		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+            		        test.fail("Drivers_DrillDown - Dimension Item - Page is some issue<br>"+ imgTag);
+            				
+            				//test.fail("Drivers_DrillDown - Dimension Item - Page is some issue<br>"+ path);
             				//Assert.assertEquals(1, size);
             			}
 //--------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -250,16 +285,27 @@ public class ACA_Drivers_Module
                 
     			if(Drivers_Export_Path_Count != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Drivers_Export_Excel" +".png";
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Drivers_Export - Excel");
-    				test.log(Status.PASS, "<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Drivers_Export - Excel");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Drivers_Export_Excel" +".png";
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Drivers_Export - Excel");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     			else
     			{
-    				test.fail("Drivers_Export - Excel is some issue<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Drivers_Export - Excel is some issue<br>"+ imgTag);
+    				
+    				//test.fail("Drivers_Export - Excel is some issue<br>"+ path);
     				//Assert.assertEquals(1, size);
     			}
 //--------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -281,16 +327,27 @@ public class ACA_Drivers_Module
                 
     			if(Drivers_Export_Path_Count != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Drivers_Export_CSV" +".png";
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Drivers_Export - CSV");
-    				test.log(Status.PASS, "<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Drivers_Export - CSV");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Drivers_Export_CSV" +".png";
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Drivers_Export - CSV");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     			else
     			{
-    				test.fail("Drivers_Export - CSV is some issue<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Drivers_Export - CSV is some issue<br>"+ path);
+    				
+    				//test.fail("Drivers_Export - CSV is some issue<br>"+ path);
     				//Assert.assertEquals(1, size);
     			}
 //--------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -341,16 +398,27 @@ public class ACA_Drivers_Module
                 
     			if(Total_Add_Column_Items != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Drivers_Add_Column" +".png";
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Drivers_Add_Column");
-    				test.log(Status.PASS, "<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Drivers_Add_Column");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Drivers_Add_Column" +".png";
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Drivers_Add_Column");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     			else
     			{
-    				test.fail("Drivers_Add_Column is some issue<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Drivers_Add_Column is some issue<br>"+ imgTag);
+    				
+    				//test.fail("Drivers_Add_Column is some issue<br>"+ path);
     				//Assert.assertEquals(1, size);
     			}
 //--------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//

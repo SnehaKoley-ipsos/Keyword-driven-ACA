@@ -64,16 +64,27 @@ public class ACA_Report_Module {
 	  	  	//int TacticScreenOpen = aca_TMP.get_TacticScreenOpen().size();
 			if(All_Report_Count != 0)
 			{
-				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Navigate_to_Report_Module"+".png";
-				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-				Thread.sleep(2000);
-				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-				test.log(Status.INFO, "Navigate_to_Report_Module - Tactic Module is Open");
-				test.log(Status.PASS, "<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.log(Status.INFO, "Navigate_to_Report_Module - Tactic Module is Open");
+				test.log(Status.PASS, "<br>"+ imgTag);
+								
+				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Navigate_to_Report_Module"+".png";
+				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+				//Thread.sleep(2000);
+				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+				//test.log(Status.INFO, "Navigate_to_Report_Module - Tactic Module is Open");
+				//test.log(Status.PASS, "<br>"+ path);
 			}
 			else
 			{
-				test.fail("Navigate_to_Report_Module - Report Module is not open<br>"+ path);
+				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		        // Embed the base64 screenshot directly into the report
+		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+		        test.fail("Navigate_to_Report_Module - Report Module is not open<br>"+ imgTag);
+		        
+				//test.fail("Navigate_to_Report_Module - Report Module is not open<br>"+ path);
 				//Assert.assertEquals(1, size);
 			}
 			//---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
@@ -110,23 +121,33 @@ public class ACA_Report_Module {
         		
     			if(All_Report_Count != 0)
     			{
-    				sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Navigate_to_Report_Module"+".png";
-    				String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
-    				Thread.sleep(2000);
-    				String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
-    				test.log(Status.INFO, "Navigate_to_All_Report_Name - " + Navigate_to_All_Report_Name + " Report Module is Open");
-    				test.log(Status.PASS, "<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.log(Status.INFO, "Navigate_to_All_Report_Name - " + Navigate_to_All_Report_Name + " Report Module is Open");
+    				test.log(Status.PASS, "<br>"+ imgTag);
+    				
+    				//sourcePath = path+"\\test-output\\"+folderName+"\\Screenshots\\"+"Navigate_to_Report_Module"+".png";
+    				//String screenshotPath = ACA_Activate_Global_Functions.getScreenshot(sourcePath,driver);
+    				//Thread.sleep(2000);
+    				//String path = "<img src=\"file://" + screenshotPath + "\" alt=\"\"/>";	
+    				//test.log(Status.INFO, "Navigate_to_All_Report_Name - " + Navigate_to_All_Report_Name + " Report Module is Open");
+    				//test.log(Status.PASS, "<br>"+ path);
     			}
     			else
     			{
-    				test.fail("Navigate_to_All_Report_Name - Report Module is not open<br>"+ path);
+    				String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+    		        // Embed the base64 screenshot directly into the report
+    		        String imgTag = "<img src=\"data:image/png;base64," + base64Screenshot + "\" alt=\"Screenshot\"/>";
+    		        test.fail("Navigate_to_All_Report_Name - Report Module is not open<br>"+ imgTag);
+    		        
+    				//test.fail("Navigate_to_All_Report_Name - Report Module is not open<br>"+ path);
     				//Assert.assertEquals(1, size);
     			}
     			//---------------------------------------------ExtentReports_Code_End------------------------------------------------------------------//
     			
         		
         		System.out.println("\n" + "Navigate_to_All_Individual_Report : " + Navigate_to_All_Report_Name);        		
-        		
     		}    		
     	}
     	catch (Exception ex)
